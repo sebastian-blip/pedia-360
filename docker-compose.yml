@@ -1,15 +1,9 @@
 services:
-  astro:
+   astro:
     build: .
     container_name: astro-landing
     restart: unless-stopped
 
-    expose:
-      - "80"
+    ports:
+      - "8080:80"
 
-    networks:
-      - landing-network
-
-networks:
-  landing-network:
-    driver: bridge
