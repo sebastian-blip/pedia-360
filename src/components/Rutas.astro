@@ -1,0 +1,161 @@
+---
+import '../styles/rutas.css';
+
+const rutas = [
+  {
+    id: "nido",
+    icon: "/icons/rutas/nido.svg",
+    iconBgColor: "#E1CEFC",
+    subtitle: "0-3 meses",
+    title: "Ruta Nido",
+    tagline: "Bienvenido al mundo",
+    content: "Adaptación, lactancia, sueño, primeros cuidados y señales importantes."
+  },
+  {
+    id: "transiciones",
+    icon: "/icons/rutas/foo.svg",
+    iconBgColor: "#FFD255",
+    subtitle: "4-12 meses",
+    title: "Ruta Transiciones",
+    tagline: "Creciendo a pasos agigantados",
+    content: "Inicio de alimentación, cambios de sueño, desarrollo y nuevas rutinas."
+  },
+  {
+    id: "independencia",
+    icon: "/icons/rutas/person.svg",
+    iconBgColor: "#FA6AA5",
+    subtitle: "1-2 años",
+    title: "Ruta Independencia",
+    tagline: "El año donde todo cambia",
+    content: "Pataletas, límites, autonomía, alimentación y sueño."
+  },
+  {
+    id: "preescolar",
+    icon: "/icons/rutas/oso.svg",
+    iconBgColor: "#FFD255",
+    subtitle: "2-5 años",
+    title: "Ruta Preescolar",
+    tagline: "Cuidando la salud del preescolar",
+    content: "Rutinas, enfermedades frecuentes, crianza y desarrollo emocional."
+  },
+  {
+    id: "sos",
+    icon: "/icons/rutas/corazon.svg",
+    iconBgColor: "#FA6AA5",
+    subtitle: "",
+    title: "Ruta Botón SOS",
+    tagline: "Calma inmediata",
+    content: "Contenido rápido para situaciones urgentes o dudas frecuentes."
+  },
+  {
+    id: "enfermedades",
+    icon: "/icons/rutas/maletin.svg",
+    iconBgColor: "#E1CEFC",
+    subtitle: "",
+    title: "Ruta Enfermedades",
+    tagline: "La biblioteca de la salud infantil",
+    content: "Biblioteca práctica para acompañarte frente a enfermedades comunes infantiles."
+  },
+  {
+    id: "descargables",
+    icon: "/icons/rutas/documento.svg",
+    iconBgColor: "#FFD255",
+    subtitle: "",
+    title: "Ruta Descargables",
+    tagline: "PDFs, Ebook y más",
+    content: "PDFs, guías, plantillas y recursos útiles para aplicar fácilmente."
+  },
+  {
+    id: "sesiones",
+    icon: "/icons/rutas/chat.svg",
+    iconBgColor: "#E1CEFC",
+    subtitle: "",
+    title: "Ruta Sesión Q&A",
+    tagline: "Acompañamiento en vivo",
+    content: "Sesiones en vivo cada semana para resolver dudas y acompañarte."
+  },
+  {
+    id: "talleres",
+    icon: "/icons/rutas/calendar.svg",
+    iconBgColor: "#FA6AA5",
+    subtitle: "",
+    title: "Ruta Talleres y Sesiones en Vivo",
+    tagline: "Talleres y sesiones especiales",
+    content: "Talleres y sesiones especiales sobre temas relevantes para cada etapa."
+  }
+];
+---
+
+<section class="rutas">
+  <div class="rutas-container">
+
+    <!-- Imagen superior -->
+    <div class="rutas-header">
+      <img
+        src="/images/rutas_header.png"
+        alt="Pedia360 Rutas"
+        class="rutas-header-image"
+      />
+    </div>
+
+    <!-- Lista -->
+    <div class="rutas-list">
+      {
+        rutas.map((ruta, index) => (
+          <details
+            class="ruta-card"
+            style={`
+              --icon-color:${ruta.iconBgColor};
+              --bg-color:${index % 2 === 0 ? '#F4ECFA' : '#F9F4E8'};
+            `}
+          >
+            <summary class="ruta-item">
+
+              {/* Icono SVG */}
+              <div class="ruta-icon-circle">
+                <img
+                  src={ruta.icon}
+                  alt={ruta.title}
+                  class="ruta-icon"
+                />
+              </div>
+
+              <div class="ruta-divider"></div>
+
+              <div class="ruta-content">
+
+                <div class="ruta-title">
+                  {
+                    ruta.subtitle && (
+                      <span class="ruta-subtitle">
+                        {ruta.subtitle}:
+                      </span>
+                    )
+                  }
+                  {" "}
+                  {ruta.title}
+                </div>
+
+                <div class="ruta-description">
+                  {ruta.tagline}
+                </div>
+
+              </div>
+
+              <div class="ruta-btn">
+                ❯
+              </div>
+
+            </summary>
+
+            <div class="ruta-expand">
+              <p>{ruta.content}</p>
+            </div>
+
+          </details>
+        ))
+      }
+    </div>
+
+  </div>
+</section>

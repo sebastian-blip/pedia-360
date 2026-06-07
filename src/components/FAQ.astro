@@ -1,0 +1,148 @@
+---
+import '../styles/variables.css';
+
+const faqs = [
+  {
+    question: "¿Puedo cancelar cuando quiera?",
+    answer: "Sí. Puedes cancelar tu suscripción en cualquier momento."
+  },
+  {
+    question: "¿Cuánto tiempo tendré acceso al contenido?",
+    answer: "Tendrás acceso mientras mantengas tu suscripción activa. Una vez canceles, perderás acceso, pero podrás volver a suscribirte cuando quieras."
+  },
+  {
+    question: "¿El contenido es para todas las edades?",
+    answer: "Sí, tenemos rutas específicas para cada etapa: desde recién nacidos hasta niños de 5 años."
+  },
+  {
+    question: "¿Las sesiones en vivo quedan grabadas?",
+    answer: "Sí, todas las sesiones en vivo se graban y quedan disponibles en la plataforma para que puedas verlas cuando quieras."
+  },
+  {
+    question: "¿Puedo compartir la membresía con otras mamás?",
+    answer: "No, cada membresía es personal e intransferible. Cada persona debe tener su propia suscripción."
+  },
+    {
+    question: "¿Tendré contacto con las doctoras?",
+    answer: "Sí. Tendrás sesiones semanales en vivo para resolver dudas."
+  },
+      {
+    question: "¿Puedo acceder desde cualquier país?",
+    answer: "Sí. La membresía está disponible desde cualquier lugar del mundo."
+  },
+];
+---
+
+<section class="faq">
+  <div class="faq-container">
+    <h2>Preguntas Frecuentes</h2>
+
+    <div class="faq-list">
+      {faqs.map((item) => (
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>{item.question}</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>{item.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq {
+    padding: var(--space-2xl) var(--space-lg);
+    background: var(--color-white);
+  }
+
+  .faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    text-align: center;
+    color: var(--color-dark);
+    margin-bottom: var(--space-2xl);
+    font-size: var(--text-3xl);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .faq-item {
+    list-style: none;
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-lg);
+    background: linear-gradient(135deg, var(--color-light-pink) 0%, var(--color-light-purple) 100%);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+    font-weight: 600;
+    color: var(--color-dark);
+    font-size: var(--text-lg);
+  }
+
+  .faq-question:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .faq-icon {
+    color: var(--color-pink);
+    font-size: var(--text-2xl);
+    transition: transform 0.3s ease;
+    min-width: 24px;
+    text-align: center;
+  }
+
+  .faq-item[open] .faq-icon {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    padding: var(--space-lg);
+    background: var(--color-light-gray);
+    border-left: 4px solid var(--color-pink);
+    border-radius: 8px;
+    margin-top: 8px;
+  }
+
+  .faq-answer p {
+    color: var(--color-gray);
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .faq {
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    h2 {
+      font-size: var(--text-2xl);
+    }
+
+    .faq-question {
+      font-size: var(--text-base);
+      padding: var(--space-md);
+    }
+
+    .faq-answer {
+      padding: var(--space-md);
+    }
+  }
+</style>

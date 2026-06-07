@@ -1,0 +1,96 @@
+---
+import '../styles/variables.css';
+
+const benefits = [
+  "Saber cuándo actuar en casa y cuándo acudir a urgencias",
+  "Entender mejor el comportamiento, sueño y alimentación de tu hijo según su etapa",
+  "Tener claridad en momentos donde normalmente sentirías miedo o ansiedad",
+  "Aprender a manejar enfermedades comunes infantiles desde casa de forma segura",
+  "Crear rutinas saludables sin caer en extremos ni culpa",
+  "Resolver dudas reales con acompañamiento profesional",
+  "Sentirte más segura tomando decisiones como mamá"
+];
+---
+
+<section class="benefits">
+  <div class="benefits-container">
+    <h2>Lo que vas a lograr dentro de la membresía</h2>
+    
+    <div class="benefits-grid">
+      {benefits.map((benefit) => (
+        <div class="benefit-item">
+          <span class="benefit-icon">💜</span>
+          <p>{benefit}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .benefits {
+    padding: var(--space-2xl) var(--space-lg);
+    background: var(--color-white);
+  }
+
+  .benefits-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    text-align: center;
+    color: var(--color-dark);
+    margin-bottom: var(--space-2xl);
+    font-size: var(--text-3xl);
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .benefit-item {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: linear-gradient(135deg, var(--color-light-pink) 0%, var(--color-light-purple) 100%);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .benefit-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .benefit-icon {
+    color: var(--color-pink);
+    font-size: var(--text-2xl);
+    min-width: 40px;
+    text-align: center;
+  }
+
+  .benefit-item p {
+    color: var(--color-dark);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .benefits {
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    h2 {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-xl);
+    }
+
+    .benefits-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+  }
+</style>

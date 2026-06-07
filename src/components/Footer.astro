@@ -1,0 +1,139 @@
+---
+import '../styles/variables.css';
+---
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Pedia360</h3>
+        <p>Pediatría a tu lado, acompañamiento basado en evidencia para mamás tranquilas.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="#home">Inicio</a></li>
+          <li><a href="#benefits">Beneficios</a></li>
+          <li><a href="#pricing">Precios</a></li>
+          <li><a href="#faq">Preguntas Frecuentes</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <p>📍 Cali, Colombia</p>
+        <p>📧 <a href="mailto:info@pedia360.com">info@pedia360.com</a></p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Síguenos</h4>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Facebook">Facebook</a>
+          <a href="#" aria-label="TikTok">TikTok</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 Pedia360. Todos los derechos reservados.</p>
+      <p>
+        <a href="#privacy">Política de Privacidad</a> | 
+        <a href="#terms">Términos y Condiciones</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: var(--space-2xl) var(--space-lg);
+    background: var(--color-dark);
+    color: var(--color-white);
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .footer-section h3 {
+    color: var(--color-pink);
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .footer-section h4 {
+    color: var(--color-white);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer-section p {
+    color: #CCCCCC;
+    font-size: var(--text-sm);
+    line-height: 1.8;
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer-section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer-section a {
+    color: var(--color-pink);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: var(--text-sm);
+  }
+
+  .footer-section a:hover {
+    color: var(--color-hot-pink);
+  }
+
+  .social-links {
+    display: flex;
+    gap: var(--space-md);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: var(--space-lg);
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    color: #CCCCCC;
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer-bottom a {
+    color: var(--color-pink);
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    .footer-content {
+      gap: var(--space-xl);
+    }
+
+    .footer-section h3 {
+      font-size: var(--text-lg);
+    }
+  }
+</style>

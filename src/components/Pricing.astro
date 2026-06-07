@@ -1,0 +1,252 @@
+---
+import '../styles/variables.css';
+import Button from './Button.astro';
+---
+
+<section class="pricing" id="pricing">
+  <div class="pricing-container">
+    <h2>Elige el plan que mejor se adapte a ti</h2>
+    <p class="pricing-subtitle">Por menos de lo que cuesta una consulta privada, tendrás acompañamiento constante</p>
+
+    <div class="pricing-grid">
+      <!-- Plan Mensual -->
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>Plan Mensual</h3>
+        </div>
+        
+        <div class="pricing-price">
+          <div class="price-item">
+            <span class="original-price">$19,5 USD</span>
+            <span class="current-price">$14,9 USD</span>
+            <span class="period">al mes</span>
+          </div>
+          <p class="launch-badge">Precio Lanzamiento</p>
+        </div>
+
+        <p class="price-description">
+          Perfecto para empezar y conocer todo el contenido.
+        </p>
+
+        <Button 
+          text="QUIERO EMPEZAR" 
+          variant="primary" 
+          size="md"
+          href="#"
+          onClick="gtag('event', 'mensual_cta_click', { event_category: 'engagement', event_label: 'Pricing Section' });"
+        />
+      </div>
+
+      <!-- Plan Trimestral -->
+      <div class="pricing-card featured">
+        <div class="badge-featured">Más Popular</div>
+        
+        <div class="pricing-header">
+          <h3>Plan Trimestral</h3>
+        </div>
+        
+        <div class="pricing-price">
+          <div class="price-item">
+            <span class="original-price">$52,5 USD</span>
+            <span class="current-price">$40 USD</span>
+            <span class="period">por 3 meses</span>
+          </div>
+          <p class="launch-badge">Precio Lanzamiento</p>
+        </div>
+
+        <p class="price-description">
+          Ahorra más y acompaña el proceso de tu hijo con continuidad.
+        </p>
+
+        <Button 
+          text="QUIERO EL PLAN TRIMESTRAL" 
+          variant="primary" 
+          size="md"
+          href="#"
+          onClick="gtag('event', 'trimestral_cta_click', { event_category: 'engagement', event_label: 'Pricing Section' });"
+        />
+      </div>
+
+      <!-- Plan Anual -->
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>Plan Anual</h3>
+        </div>
+        
+        <div class="pricing-price">
+          <div class="price-item">
+            <span class="original-price">$178 USD</span>
+            <span class="current-price">$136 USD</span>
+            <span class="period">al año</span>
+          </div>
+          <p class="launch-badge">Precio Lanzamiento</p>
+        </div>
+
+        <p class="price-description">
+          La mejor opción para tener acompañamiento continuo durante todo el año.
+        </p>
+
+        <Button 
+          text="QUIERO EL PLAN ANUAL" 
+          variant="primary" 
+          size="md"
+          href="#"
+          onClick="gtag('event', 'anual_cta_click', { event_category: 'engagement', event_label: 'Pricing Section' });"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing {
+    padding: var(--space-2xl) var(--space-lg);
+    background: linear-gradient(135deg, #F5F5F5 0%, #FAFAFA 100%);
+  }
+
+  .pricing-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    text-align: center;
+    color: var(--color-dark);
+    margin-bottom: var(--space-sm);
+    font-size: var(--text-3xl);
+  }
+
+  .pricing-subtitle {
+    text-align: center;
+    color: var(--color-gray);
+    margin-bottom: var(--space-2xl);
+    font-size: var(--text-lg);
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .pricing-card {
+    background: var(--color-white);
+    padding: var(--space-2xl);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .pricing-card.featured {
+    border: 3px solid var(--color-pink);
+    transform: scale(1.05);
+  }
+
+  .pricing-card.featured:hover {
+    transform: scale(1.05) translateY(-8px);
+  }
+
+  .badge-featured {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-hot-pink) 100%);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .pricing-header h3 {
+    color: var(--color-dark);
+    font-size: var(--text-2xl);
+    margin: 0;
+  }
+
+  .pricing-price {
+    text-align: center;
+  }
+
+  .price-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+  }
+
+  .original-price {
+    color: var(--color-gray);
+    text-decoration: line-through;
+    font-size: var(--text-lg);
+  }
+
+  .current-price {
+    color: var(--color-pink);
+    font-size: var(--text-4xl);
+    font-weight: 700;
+  }
+
+  .period {
+    color: var(--color-gray);
+    font-size: var(--text-sm);
+  }
+
+  .launch-badge {
+    background: var(--color-light-yellow);
+    color: var(--color-dark);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .price-description {
+    color: var(--color-gray);
+    text-align: center;
+    font-size: var(--text-base);
+    line-height: 1.6;
+  }
+
+  .pricing-card :global(.btn) {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .pricing {
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    h2 {
+      font-size: var(--text-2xl);
+    }
+
+    .pricing-grid {
+      gap: var(--space-md);
+    }
+
+    .pricing-card.featured {
+      transform: scale(1);
+    }
+
+    .pricing-card.featured:hover {
+      transform: translateY(-8px);
+    }
+
+    .current-price {
+      font-size: var(--text-3xl);
+    }
+  }
+</style>

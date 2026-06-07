@@ -1,0 +1,151 @@
+---
+import '../styles/variables.css';
+import Button from './Button.astro';
+---
+
+<section class="final-cta">
+  <div class="final-container">
+    <!-- Mensaje principal -->
+    <div class="final-content">
+      <h2>
+        Tu hijo no viene con manual…
+        <span class="highlight">pero no tienes que vivir este proceso sola.</span>
+      </h2>
+      
+      <p>Tener claridad y acompañamiento puede hacer una diferencia enorme en cómo vives cada etapa de la crianza.</p>
+    </div>
+
+    <!-- Botón grande final -->
+    <div class="final-button">
+      <Button 
+        text="QUIERO UNIRME A LA MEMBRESÍA AHORA" 
+        variant="primary" 
+        href="#pricing"
+        onClick="gtag('event', 'final_cta_click', { event_category: 'engagement', event_label: 'Final CTA Section' });"
+      />
+    </div>
+
+    <!-- Decoración inferior -->
+    <div class="final-decoration">
+      ❤️
+    </div>
+  </div>
+</section>
+
+<style>
+  .final-cta {
+    padding: var(--space-3xl) var(--space-lg) var(--space-2xl);
+    background: linear-gradient(135deg, #FFF8E7 0%, #E1CEFC 100%);
+  }
+
+  .final-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2xl);
+  }
+
+  /* Contenido */
+  .final-content {
+    text-align: center;
+  }
+
+  .final-content h2 {
+    color: var(--color-dark);
+    font-size: var(--text-4xl);
+    margin: 0 0 var(--space-lg) 0;
+    line-height: 1.3;
+    font-weight: 700;
+  }
+
+  .highlight {
+    color: var(--color-pink);
+    display: block;
+    font-style: italic;
+  }
+
+  .final-content p {
+    color: var(--color-gray);
+    font-size: var(--text-lg);
+    line-height: 1.8;
+    margin: 0;
+    max-width: 700px;
+  }
+
+  /* Botón final */
+  .final-button {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-md);
+  }
+
+  .final-button :global(.btn) {
+    padding: 18px 48px !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 24px rgba(255, 105, 180, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .final-button :global(.btn):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(255, 105, 180, 0.4);
+  }
+
+  /* Decoración */
+  .final-decoration {
+    font-size: var(--text-4xl);
+    opacity: 0.6;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .final-cta {
+      padding: var(--space-2xl) var(--space-md) var(--space-xl);
+    }
+
+    .final-content h2 {
+      font-size: var(--text-2xl);
+    }
+
+    .final-content p {
+      font-size: var(--text-base);
+    }
+
+    .highlight {
+      display: block;
+    }
+
+    .final-button :global(.btn) {
+      padding: 16px 32px !important;
+      font-size: 16px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .final-cta {
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    .final-content h2 {
+      font-size: var(--text-xl);
+    }
+
+    .final-content p {
+      font-size: var(--text-sm);
+    }
+
+    .final-button :global(.btn) {
+      width: 100%;
+      padding: 14px 24px !important;
+      font-size: 14px !important;
+    }
+
+    .final-decoration {
+      font-size: var(--text-2xl);
+    }
+  }
+</style>

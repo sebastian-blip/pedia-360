@@ -1,0 +1,136 @@
+---
+import '../styles/variables.css';
+
+const features = [
+  {
+    icon: "/icons/general/brain.svg",
+    title: "Rutas guiadas por edades",
+    description: "Más de 40 videos organizados paso a paso según la etapa de desarrollo de tu hijo."
+  },
+  {
+    icon:  "/icons/general/chat.svg",
+    title: "Sesiones en vivo todas las semanas",
+    description: "Espacios de acompañamiento con Diana y Luza para resolver dudas reales del día a día."
+  },
+  {
+    icon: "/icons/general/repeat.svg",
+    title: "Nuevas clases todos los meses",
+    description: "Actualizaciones constantes sobre temas relevantes para cada etapa infantil."
+  },
+  {
+    icon: "/icons/general/community.svg",
+    title: "Comunidad privada",
+    description: "Acceso a un grupo privado de Telegram donde podrás compartir experiencias y sentirte acompañada por otras familias."
+  },
+  {
+    icon: "/icons/general/books.svg",
+    title: "Biblioteca de salud infantil",
+    description: "Contenido práctico sobre enfermedades frecuentes, signos de alarma y manejo inicial en casa."
+  },
+  {
+    icon: "/icons/general/sos.svg",
+    title: "Botón SOS",
+    description: "Contenido pensado para esos momentos donde necesitas respuestas rápidas y tranquilidad inmediata."
+  },
+  {
+    icon: "/icons/general/download.svg",
+    title: "Plantillas y descargables",
+    description: "Guías prácticas, PDFs y recursos fáciles de aplicar en casa."
+  }
+];
+---
+
+<section class="features">
+  <div class="features-container">
+    <h2>Todo lo que tendrás dentro de la membresía</h2>
+    
+   <div class="features-grid">
+  {features.map((feature) => (
+    <div class="feature-card">
+      <div class="feature-icon">
+        <img
+          src={feature.icon}
+          alt={feature.title}
+        />
+      </div>
+
+      <h3>{feature.title}</h3>
+      <p>{feature.description}</p>
+    </div>
+  ))}
+</div>
+  </div>
+</section>
+
+<style>
+  .features {
+    padding: var(--space-2xl) var(--space-lg);
+    background: linear-gradient(135deg, #F5F5F5 0%, #FAFAFA 100%);
+  }
+
+  .features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    text-align: center;
+    color: var(--color-dark);
+    margin-bottom: var(--space-2xl);
+    font-size: var(--text-3xl);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .feature-card {
+    background: var(--color-white);
+    padding: var(--space-lg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .feature-icon {
+    font-size: var(--text-5xl);
+    margin-bottom: var(--space-md);
+    display: block;
+  }
+
+  .feature-card h3 {
+    color: var(--color-dark);
+    margin-bottom: var(--space-sm);
+    font-size: var(--text-lg);
+  }
+
+  .feature-card p {
+    color: var(--color-gray);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .features {
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    h2 {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-xl);
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+  }
+</style>

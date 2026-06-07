@@ -1,0 +1,145 @@
+---
+import Button from './Button.astro';
+
+const painPoints = [
+  "Buscas información y encuentras opiniones completamente diferentes",
+  "No sabes cuándo algo es normal y cuándo deberías preocuparte",
+  "La consulta médica no siempre te deja tranquila ni alcanza el tiempo para resolver todas tus dudas",
+  "Has comprado cursos o talleres, pero cuando surge el problema real… sigues sin saber qué hacer y no tienes a quién preguntarle",
+  "Quieres acompañar a tu hijo desde el conocimiento y no desde el miedo",
+  "Sientes presión por 'hacerlo perfecto' todo el tiempo"
+];
+---
+
+<section class="pain-points">
+  <div class="pain-points-container">
+    <div class="pain-points-content">
+      <h2>Probablemente llegaste aquí porque estás cansada</h2>
+      <p class="intro-text">
+        de sentir que todo el mundo opina diferente sobre cómo criar a tu hijo. Y aunque quieres hacerlo bien… Terminas sintiéndote más confundida e incluso culpable más de una vez.
+      </p>
+
+      <div class="pain-points-list">
+        {painPoints.map((point) => (
+          <div class="pain-point-item">
+            <span class="check-icon">✔</span>
+            <p>{point}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="conclusion">
+        Si te identificaste con 2 o más puntos, <strong>esta membresía es para ti.</strong>
+      </p>
+
+      <div class="cta-button">
+        <Button 
+          text="QUIERO SENTIRME MÁS TRANQUILA" 
+          variant="secondary" 
+          size="lg"
+          href="#pricing"
+          onClick="gtag('event', 'third_cta_click', { event_category: 'engagement', event_label: 'Pain Points Section' });"
+
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pain-points {
+    padding: var(--space-2xl) var(--space-lg);
+    background: linear-gradient(135deg, #F5F5F5 0%, #FAFAFA 100%);
+  }
+
+  .pain-points-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: var(--text-3xl);
+    color: var(--color-dark);
+    margin-bottom: var(--space-md);
+  }
+
+  .intro-text {
+    font-size: var(--text-lg);
+    color: var(--color-gray);
+    margin-bottom: var(--space-xl);
+    line-height: 1.8;
+  }
+
+  .pain-points-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+
+  .pain-point-item {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--color-white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+  }
+
+  .pain-point-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateX(4px);
+  }
+
+  .check-icon {
+    color: var(--color-pink);
+    font-weight: 700;
+    font-size: var(--text-lg);
+    min-width: 24px;
+    text-align: center;
+  }
+
+  .pain-point-item p {
+    color: var(--color-gray);
+    font-size: var(--text-base);
+    line-height: 1.6;
+  }
+
+  .conclusion {
+    font-size: var(--text-lg);
+    color: var(--color-dark);
+    font-weight: 500;
+    margin-bottom: var(--space-xl);
+    padding: var(--space-lg);
+    background: linear-gradient(135deg, var(--color-light-pink) 0%, var(--color-light-purple) 100%);
+    border-radius: 8px;
+  }
+
+  .conclusion strong {
+    color: var(--color-pink);
+  }
+
+  .cta-button {
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .pain-points {
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    h2 {
+      font-size: var(--text-2xl);
+    }
+
+    .intro-text {
+      font-size: var(--text-base);
+    }
+
+    .pain-point-item {
+      gap: var(--space-sm);
+      padding: var(--space-sm);
+    }
+  }
+</style>

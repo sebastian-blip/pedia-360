@@ -1,0 +1,108 @@
+---
+interface Props {
+  text: string;
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+  type?: 'button' | 'submit' | 'reset';
+  onClick?: string;
+}
+
+const { 
+  text, 
+  href,
+  variant = 'primary',
+  size = 'md',
+  type = 'button',
+  onClick
+} = Astro.props;
+
+const isLink = !!href;
+const Tag = isLink ? 'a' : 'button';
+---
+
+<Tag 
+  href={href}
+  type={!isLink ? type : undefined}
+  onclick={onClick}
+  class={`btn btn-${variant} btn-${size}`}
+>
+  {text}
+</Tag>
+
+<style>
+  .btn {
+    display: inline-block;
+    font-weight: 700;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    font-family: var(--font-primary);
+    letter-spacing: 0.3px;
+  }
+
+  /* Tamaños */
+  .btn-sm {
+    padding: 0.75rem 1.25rem;
+    font-size: var(--text-sm);
+  }
+
+  .btn-md {
+    padding: 1rem 2rem;
+    font-size: var(--text-base);
+  }
+
+  .btn-lg {
+    padding: 1.25rem 3rem;
+    font-size: 1.2rem;
+  }
+
+  /* Variantes */
+  .btn-primary {
+    background: linear-gradient(
+      135deg,
+      #FA6AA5 0%,
+      #E94D91 100%
+    );
+    color: white;
+    box-shadow: 0 8px 24px rgba(250, 106, 165, 0.35);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(250, 106, 165, 0.45);
+  }
+
+  .btn-primary:active {
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    background: linear-gradient(
+      135deg,
+      #B58AD7 0%,
+      #9D73C5 100%
+    );
+    color: white;
+    box-shadow: 0 8px 24px rgba(181, 138, 215, 0.3);
+  }
+
+  .btn-secondary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(181, 138, 215, 0.4);
+  }
+
+  .btn-outline {
+    background: white;
+    border: 2px solid #FA6AA5;
+    color: #FA6AA5;
+  }
+
+  .btn-outline:hover {
+    background: #FFF3F8;
+    transform: translateY(-2px);
+  }
+</style>

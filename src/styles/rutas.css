@@ -1,0 +1,203 @@
+.rutas {
+  padding: 40px 20px;
+  background: #fafafa;
+}
+
+.rutas-container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px;
+  
+}
+
+.rutas-header {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.ruta-icon {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  display: block;
+}
+
+.rutas-header-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.rutas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* CARD */
+
+.ruta-card {
+  border: none;
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+.ruta-card summary {
+  list-style: none;
+}
+
+.ruta-card summary::-webkit-details-marker {
+  display: none;
+}
+
+/* FILA PRINCIPAL */
+
+.ruta-item {
+  display: flex;
+  align-items: center;
+  min-height: 82px;
+  background: var(--bg-color);
+  cursor: pointer;
+  padding-right: 18px;
+  transition: all .25s ease;
+}
+
+.ruta-item:hover {
+  transform: translateX(4px);
+}
+
+/* ICONO */
+
+.ruta-icon-circle {
+  width: 82px;
+  height: 82px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--icon-color);
+  border-radius: 50%;
+
+  font-size: 38px;
+  color: white;
+}
+
+/* DIVIDER */
+
+.ruta-divider {
+  width: 2px;
+  height: 50px;
+  background: var(--icon-color);
+  margin: 0 18px;
+  flex-shrink: 0;
+}
+
+/* CONTENIDO */
+
+.ruta-content {
+  flex: 1;
+}
+
+.ruta-title {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--icon-color);
+  line-height: 1.1;
+}
+
+.ruta-subtitle {
+  opacity: .9;
+}
+
+.ruta-description {
+  font-family: var(--font-secondary);
+  font-size: 1.8rem;
+  color: #444;
+  line-height: 1.1;
+}
+
+/* BOTON */
+
+.ruta-btn {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--icon-color);
+  color: white;
+
+  font-size: 22px;
+  font-weight: bold;
+
+  transition: all .3s ease;
+  flex-shrink: 0;
+}
+
+/* ANIMACION */
+
+.ruta-card[open] .ruta-btn {
+  transform: rotate(90deg);
+}
+
+/* CONTENIDO EXPANDIBLE */
+
+.ruta-expand {
+  background: white;
+  padding: 20px 24px 24px 122px;
+  border-left: 4px solid var(--icon-color);
+}
+
+.ruta-expand p {
+  margin: 0;
+  color: #555;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+  .rutas-container {
+    padding: 20px;
+  }
+
+  .ruta-icon-circle {
+    width: 64px;
+    height: 64px;
+    font-size: 28px;
+  }
+
+  .ruta-divider {
+    margin: 0 12px;
+  }
+
+  .ruta-title {
+    font-size: 16px;
+  }
+
+  .ruta-description {
+    font-size: 13px;
+  }
+
+  .ruta-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+
+  .ruta-expand {
+    padding: 16px;
+  }
+}
