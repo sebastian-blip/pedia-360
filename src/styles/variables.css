@@ -15,8 +15,8 @@
   --color-white: #FFFFFF;
   
   /* Tipografía */
-  --font-primary: 'Sweet Smile', cursive;
-  --font-secondary: 'Caveat', cursive;
+  --font-primary: 'Montserrat', sans-serif;
+  --font-secondary: 'Open Sans', sans-serif;
   
   /* Tamaños */
   --text-xs: 0.75rem;

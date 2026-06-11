@@ -14,9 +14,8 @@ const painPoints = [
 <section class="pain-points">
   <div class="pain-points-container">
     <div class="pain-points-content">
-      <h2>Probablemente llegaste aquí porque estás cansada</h2>
       <p class="intro-text">
-        de sentir que todo el mundo opina diferente sobre cómo criar a tu hijo. Y aunque quieres hacerlo bien… Terminas sintiéndote más confundida e incluso culpable más de una vez.
+        probablemente llegaste aqui porque estas cansada de sentir que todo el mundo opina diferente sobre como criar a tu hijo, y aunque porque:
       </p>
 
       <div class="pain-points-list">
@@ -29,7 +28,7 @@ const painPoints = [
       </div>
 
       <p class="conclusion">
-        Si te identificaste con 2 o más puntos, <strong>esta membresía es para ti.</strong>
+        Si te identificaste con 2 o más puntos, esta membresía es para ti.
       </p>
 
       <div class="cta-button">
@@ -85,6 +84,7 @@ const painPoints = [
     border-radius: 8px;
     box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
+    border: 2px solid #dcdcdc;
   }
 
   .pain-point-item:hover {
@@ -107,17 +107,15 @@ const painPoints = [
   }
 
   .conclusion {
-    font-size: var(--text-lg);
+    font-size: var(--text-2xl);
     color: var(--color-dark);
     font-weight: 500;
     margin-bottom: var(--space-xl);
     padding: var(--space-lg);
-    background: linear-gradient(135deg, var(--color-light-pink) 0%, var(--color-light-purple) 100%);
+    background:  var(--color-light-pink) 100%;
     border-radius: 8px;
-  }
+    text-align: center;
 
-  .conclusion strong {
-    color: var(--color-pink);
   }
 
   .cta-button {

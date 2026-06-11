@@ -1,30 +1,29 @@
 ---
 interface Props {
-  title?: string;
   description?: string;
 }
 
-const { 
-  title = "VIDEO DE PRESENTACIÓN",
+const {
   description = "Descubre cómo funciona la membresía y cómo puede ayudarte en el día a día como mamá"
 } = Astro.props;
 ---
 
 <section class="video-section">
   <div class="video-container">
-    <div class="video-content">
-      <h2>{title}</h2>
-      <p>{description}</p>
-    </div>
 
     <div class="video-player">
       <div class="video-placeholder">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M8 5v14l11-7z"/>
+          <path d="M8 5v14l11-7z" />
         </svg>
         <p>Video aquí</p>
       </div>
     </div>
+
+    <p class="video-description">
+      {description}
+    </p>
+
   </div>
 </section>
 
@@ -35,44 +34,36 @@ const {
   }
 
   .video-container {
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-2xl);
-    align-items: center;
-  }
-
-  .video-content h2 {
-    color: var(--color-pink);
-    margin-bottom: var(--space-md);
-    font-size: var(--text-3xl);
-  }
-
-  .video-content p {
-    font-size: var(--text-lg);
-    color: var(--color-gray);
-    line-height: 1.8;
+    width: 100%;
+    text-align: center;
   }
 
   .video-player {
-    display: flex;
-    justify-content: center;
+    width: 100%;
+    margin-bottom: var(--space-lg);
   }
 
   .video-placeholder {
     width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
     aspect-ratio: 16 / 9;
-    background: linear-gradient(135deg, var(--color-light-purple) 0%, var(--color-light-pink) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-light-purple) 0%,
+      var(--color-light-pink) 100%
+    );
     border-radius: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: transform 0.3s ease;
     color: var(--color-pink);
     box-shadow: var(--shadow-md);
+    cursor: pointer;
+    transition: transform 0.3s ease;
   }
 
   .video-placeholder:hover {
@@ -86,19 +77,32 @@ const {
   }
 
   .video-placeholder p {
+    margin: 0;
     font-size: var(--text-lg);
-    color: var(--color-pink);
     font-weight: 600;
+    color: var(--color-pink);
+  }
+
+  .video-description {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: var(--text-lg);
+    color: var(--color-gray);
+    line-height: 1.8;
   }
 
   @media (max-width: 768px) {
-    .video-container {
-      grid-template-columns: 1fr;
-      gap: var(--space-xl);
+    .video-section {
+      padding: var(--space-xl) var(--space-md);
     }
 
-    .video-content h2 {
-      font-size: var(--text-2xl);
+    .video-placeholder svg {
+      width: 60px;
+      height: 60px;
+    }
+
+    .video-description {
+      font-size: var(--text-base);
     }
   }
 </style>

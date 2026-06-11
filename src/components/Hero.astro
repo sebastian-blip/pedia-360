@@ -6,10 +6,20 @@ import Button from './Button.astro';
 <section class="hero">
   <div class="hero-container">
     <div class="hero-content">
+
+      <!-- Logo superior -->
+      <div class="hero-logo-top">
+        <img
+          src="/images/LOGO PEDIA 360 - TEXT.png"
+          alt="Pedia360"
+          loading="eager"
+        />
+      </div>
+
       <h1 class="hero-title">
         Deja de buscar respuestas en Google y empieza a tomar decisiones con tranquilidad sobre la salud y crianza de tu hijo
       </h1>
-      
+
       <p class="hero-subtitle">
         Pedia360 es un acompañamiento creado por pediatras para mamás con niños de 0 a 5 años que quieren entender qué hacer en cada etapa, sin vivir con miedo, dudas o información contradictoria.
       </p>
@@ -19,18 +29,22 @@ import Button from './Button.astro';
           <span class="check-icon">✔</span>
           <span>Salud infantil</span>
         </div>
+
         <div class="feature-item">
           <span class="check-icon">✔</span>
           <span>Alimentación</span>
         </div>
+
         <div class="feature-item">
           <span class="check-icon">✔</span>
           <span>Sueño</span>
         </div>
+
         <div class="feature-item">
           <span class="check-icon">✔</span>
           <span>Desarrollo</span>
         </div>
+
         <div class="feature-item">
           <span class="check-icon">✔</span>
           <span>Crianza basada en evidencia</span>
@@ -38,33 +52,34 @@ import Button from './Button.astro';
       </div>
 
       <div class="hero-cta">
-        <Button 
-          text="QUIERO UNIRME AHORA" 
-          variant="primary" 
+        <Button
+          text="QUIERO UNIRME AHORA"
+          variant="primary"
           size="lg"
           href="#pricing"
-            onClick="gtag('event', 'first_cta_click', { event_category: 'engagement', event_label: 'Hero Section' });"
+          onClick="gtag('event', 'first_cta_click', { event_category: 'engagement', event_label: 'Hero Section' });"
         />
       </div>
-      <div class="hero-cta">
-        <Button 
-          text="VER PLANES" 
-          variant="primary" 
-          size="lg"
-          href="#pricing"
-            onClick="gtag('event', 'second_cta_click', { event_category: 'engagement', event_label: 'Hero Section' });"
-        />
-      </div>
-    </div>
 
-    <div class="hero-image">
-      <div class="image-placeholder">
-        <img 
-          src="/images/logo.png" 
-          alt="Mamá con bebé feliz"
+      <div class="hero-cta">
+        <Button
+          text="VER PLANES"
+          variant="primary"
+          size="lg"
+          href="#pricing"
+          onClick="gtag('event', 'second_cta_click', { event_category: 'engagement', event_label: 'Hero Section' });"
+        />
+      </div>
+
+      <!-- Logo inferior -->
+      <div class="hero-logo-bottom">
+        <img
+          src="/images/logo.png"
+          alt="Pedia360"
           loading="lazy"
         />
       </div>
+
     </div>
   </div>
 </section>
@@ -78,18 +93,27 @@ import Button from './Button.astro';
   }
 
   .hero-container {
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-2xl);
-    align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .hero-content {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: var(--space-lg);
+    width: 100%;
+  }
+
+  .hero-logo-top img {
+    width: 200%;
+    max-width: 600px;
+    height: auto;
+    display: block;
   }
 
   .hero-title {
@@ -103,12 +127,14 @@ import Button from './Button.astro';
     font-size: var(--text-lg);
     color: var(--color-gray);
     line-height: 1.8;
+    max-width: 800px;
   }
 
   .hero-features {
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
+    align-items: center;
   }
 
   .feature-item {
@@ -120,40 +146,28 @@ import Button from './Button.astro';
     color: var(--color-dark);
   }
 
-  .checkmark {
-    font-size: var(--text-lg);
-  }
-
-  .hero-cta {
-    display: flex;
-    gap: var(--space-md);
-    flex-wrap: wrap;
-  }
-
-  .hero-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.image-placeholder {
-  width: 100%;
-  max-width: 500px;
-}
-
-.image-placeholder img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
-
-   .check-icon {
+  .check-icon {
     color: var(--color-pink);
     font-weight: 700;
     font-size: var(--text-lg);
     min-width: 24px;
     text-align: center;
+  }
+
+  .hero-cta {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-logo-bottom {
+    margin-top: var(--space-lg);
+  }
+
+  .hero-logo-bottom img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
   }
 
   /* Responsive */
@@ -163,17 +177,20 @@ import Button from './Button.astro';
       min-height: auto;
     }
 
-    .hero-container {
-      grid-template-columns: 1fr;
-      gap: var(--space-xl);
-    }
-
     .hero-title {
       font-size: var(--text-2xl);
     }
 
     .hero-subtitle {
       font-size: var(--text-base);
+    }
+
+    .hero-logo-top img {
+      max-width: 200px;
+    }
+
+    .hero-logo-bottom img {
+      max-width: 140px;
     }
   }
 </style>
