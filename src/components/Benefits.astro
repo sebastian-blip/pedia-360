@@ -15,11 +15,19 @@ const benefits = [
 <section class="benefits">
   <div class="benefits-container">
     <h2>Lo que vas a lograr dentro de la membresía</h2>
-    
+
     <div class="benefits-grid">
-      {benefits.map((benefit) => (
-        <div class="benefit-item">
-          <span class="benefit-icon">💜</span>
+      {benefits.map((benefit, index) => (
+        <div
+          class="benefit-item"
+          style={`
+            --benefit-bg: ${
+              index % 2 === 0
+                ? 'linear-gradient(135deg, var(--color-light-purple), var(--color-yellow))'
+                : 'linear-gradient(135deg, var(--color-light-pink), var(--color-yellow))'
+            };
+          `}
+        >
           <p>{benefit}</p>
         </div>
       ))}
@@ -52,11 +60,10 @@ const benefits = [
   }
 
   .benefit-item {
-    display: flex;
-    gap: var(--space-md);
+    background: var(--benefit-bg);
     padding: var(--space-lg);
-    background: linear-gradient(135deg, var(--color-light-pink) 0%, var(--color-light-purple) 100%);
-    border-radius: 12px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
   }
 
@@ -65,16 +72,10 @@ const benefits = [
     box-shadow: var(--shadow-lg);
   }
 
-  .benefit-icon {
-    color: var(--color-pink);
-    font-size: var(--text-2xl);
-    min-width: 40px;
-    text-align: center;
-  }
-
   .benefit-item p {
+    margin: 0;
     color: var(--color-dark);
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.6;
   }
 
