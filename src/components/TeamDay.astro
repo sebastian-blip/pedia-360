@@ -1,0 +1,135 @@
+---
+import '../styles/variables.css';
+
+const luzaImages = Object.values(
+  import.meta.glob(
+    '/public/images/team/luza/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
+    {
+      eager: true,
+      import: 'default'
+    }
+  )
+);
+
+const dianaImages = Object.values(
+  import.meta.glob(
+    '/public/images/team/diana/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
+    {
+      eager: true,
+      import: 'default'
+    }
+  )
+);
+
+// Mezclar las imágenes aleatoriamente
+const images = [...luzaImages, ...dianaImages]
+  .sort(() => Math.random() - 0.5);
+---
+
+<section class="gallery">
+  <div class="gallery-container">
+    <h2>Más allá de la consulta</h2>
+
+    <p class="gallery-subtitle">
+      Queremos que conozcas un poco más de quiénes estamos detrás de cada
+      respuesta, cada recomendación y cada mensaje de acompañamiento.
+    </p>
+
+    <div class="gallery-slider">
+      {
+        images.map((image) => (
+          <img
+            src={image.src ?? image}
+            alt="Pediatras Pedia360"
+            loading="lazy"
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery {
+    padding: var(--space-2xl) var(--space-lg);
+    background: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f9f4e8 100%
+    );
+  }
+
+  .gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .gallery h2 {
+    text-align: center;
+    color: var(--color-dark);
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .gallery-subtitle {
+    max-width: 700px;
+    margin: 0 auto var(--space-2xl);
+    text-align: center;
+    color: var(--color-gray);
+    line-height: 1.8;
+    font-size: var(--text-lg);
+  }
+
+  .gallery-slider {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1rem;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .gallery-slider::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .gallery-slider::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 999px;
+  }
+
+  .gallery-slider img {
+    flex: 0 0 320px;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 24px;
+    scroll-snap-align: start;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .gallery-slider img:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  @media (max-width: 768px) {
+    .gallery {
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    .gallery h2 {
+      font-size: var(--text-2xl);
+    }
+
+    .gallery-subtitle {
+      font-size: var(--text-base);
+    }
+
+    .gallery-slider img {
+      flex: 0 0 240px;
+      height: 320px;
+    }
+  }
+</style>

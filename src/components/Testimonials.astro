@@ -1,0 +1,97 @@
+---
+import '../styles/variables.css';
+---
+
+<section class="testimonials">
+  <div class="container">
+    <h2>Lo que nos cuentan las Personas</h2>
+
+    <p class="subtitle">
+      Historias reales de personas que han encontrado tranquilidad,
+      acompañamiento y respuestas confiables en cada etapa.
+    </p>
+
+    <div class="testimonials-grid">
+      <img src="/images/testimonios/opiniones.PNG" alt="Testimonio de familia" />
+      <img src="/images/testimonios/opiniones2.PNG" alt="Testimonio de familia" />
+      <img src="/images/testimonios/opiniones3.PNG" alt="Testimonio de familia" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    padding: var(--space-2xl) var(--space-lg);
+    background: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f9f4e8 100%
+    );
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .testimonials h2 {
+    text-align: center;
+    font-size: var(--text-3xl);
+    color: var(--color-dark);
+    margin-bottom: var(--space-md);
+  }
+
+  .subtitle {
+    max-width: 700px;
+    margin: 0 auto var(--space-2xl);
+    text-align: center;
+    color: var(--color-gray);
+    font-size: var(--text-lg);
+    line-height: 1.8;
+  }
+
+  .testimonials-grid {
+    columns: 3;
+    column-gap: 1.5rem;
+  }
+
+  .testimonials-grid img {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    display: block;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    break-inside: avoid;
+  }
+
+  .testimonials-grid img:hover {
+    transform: translateY(-5px);
+  }
+
+  @media (max-width: 900px) {
+    .testimonials-grid {
+      columns: 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .testimonials {
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    .testimonials h2 {
+      font-size: var(--text-2xl);
+    }
+
+    .subtitle {
+      font-size: var(--text-base);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .testimonials-grid {
+      columns: 1;
+    }
+  }
+</style>
