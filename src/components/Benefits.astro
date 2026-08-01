@@ -1,14 +1,45 @@
 ---
-import '../styles/variables.css';
+import "../styles/variables.css";
+
+import {
+  MessageCircleHeart,
+  ShieldCheck,
+  MoonStar,
+  HeartHandshake,
+  HeartPulse,
+  Sprout,
+  BadgeCheck,
+} from "lucide-astro";
 
 const benefits = [
-  "Resolver dudas reales con acompañamiento profesional",
-  "Saber cuándo actuar en casa y cuándo acudir a urgencias",
-  "Entender mejor el comportamiento, sueño y alimentación de tu hijo según su etapa",
-  "Tener claridad en momentos donde normalmente sentirías miedo o ansiedad",
-  "Aprender a manejar enfermedades comunes infantiles desde casa de forma segura",
-  "Crear rutinas saludables sin caer en extremos ni culpa",
-  "Sentirte más segura tomando decisiones como mamá"
+  {
+    text: "Resolver dudas reales con acompañamiento profesional",
+    icon: MessageCircleHeart,
+  },
+  {
+    text: "Saber cuándo actuar en casa y cuándo acudir a urgencias",
+    icon: ShieldCheck,
+  },
+  {
+    text: "Entender mejor el comportamiento, sueño y alimentación de tu hijo según su etapa",
+    icon: MoonStar,
+  },
+  {
+    text: "Tener claridad en momentos donde normalmente sentirías miedo o ansiedad",
+    icon: HeartHandshake,
+  },
+  {
+    text: "Aprender a manejar enfermedades comunes infantiles desde casa de forma segura",
+    icon: HeartPulse,
+  },
+  {
+    text: "Crear rutinas saludables sin caer en extremos ni culpa",
+    icon: Sprout,
+  },
+  {
+    text: "Sentirte más segura tomando decisiones como mamá",
+    icon: BadgeCheck,
+  },
 ];
 ---
 
@@ -17,18 +48,30 @@ const benefits = [
     <h2>Lo que vas a lograr dentro de la membresía</h2>
 
     <div class="benefits-grid">
-      {benefits.map((benefit, index) => (
+      {benefits.map(({ text, icon: Icon }, index) => (
         <div
           class="benefit-item"
           style={`
             --benefit-bg: ${
               index % 2 === 0
-                ? 'linear-gradient(135deg, var(--color-light-purple), var(--color-yellow))'
-                : 'linear-gradient(135deg, var(--color-light-pink), var(--color-yellow))'
+                ? "linear-gradient(135deg, var(--color-light-purple), var(--color-yellow))"
+                : "linear-gradient(135deg, var(--color-light-pink), var(--color-yellow))"
+            };
+
+            --icon-color: ${
+              [
+                "var(--color-pink)",
+                "var(--color-hot-pink)",
+                "var(--color-purple)",
+              ][index % 3]
             };
           `}
         >
-          <p>{benefit}</p>
+          <div class="icon-wrapper">
+            <Icon size={28} strokeWidth={2.3} />
+          </div>
+
+          <p>{text}</p>
         </div>
       ))}
     </div>
@@ -55,27 +98,74 @@ const benefits = [
 
   .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: var(--space-lg);
   }
 
   .benefit-item {
     background: var(--benefit-bg);
-    padding: var(--space-lg);
-    border-radius: 16px;
+    border-radius: 18px;
+    padding: 1.5rem;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+
     box-shadow: var(--shadow-md);
-    transition: all 0.3s ease;
+    transition: all .3s ease;
   }
 
   .benefit-item:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     box-shadow: var(--shadow-lg);
+  }
+
+  .icon-wrapper {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: color-mix(
+      in srgb,
+      var(--icon-color) 15%,
+      white
+    );
+
+    border: 1px solid color-mix(
+      in srgb,
+      var(--icon-color) 25%,
+      white
+    );
+
+    transition: all .3s ease;
+
+    flex-shrink: 0;
+  }
+
+  .icon-wrapper svg {
+    color: var(--icon-color);
+  }
+
+  .benefit-item:hover .icon-wrapper {
+    transform: scale(1.08);
+    background: color-mix(
+      in srgb,
+      var(--icon-color) 22%,
+      white
+    );
   }
 
   .benefit-item p {
     margin: 0;
     color: var(--color-dark);
     font-weight: 600;
+    font-size: 1.05rem;
     line-height: 1.6;
   }
 
@@ -92,6 +182,25 @@ const benefits = [
     .benefits-grid {
       grid-template-columns: 1fr;
       gap: var(--space-md);
+    }
+
+    .benefit-item {
+      padding: 1.25rem;
+    }
+
+    .icon-wrapper {
+      width: 50px;
+      height: 50px;
+      min-width: 50px;
+    }
+
+    .icon-wrapper svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .benefit-item p {
+      font-size: 1rem;
     }
   }
 </style>

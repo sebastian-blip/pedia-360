@@ -1,0 +1,228 @@
+---
+import Button from "../Button.astro";
+---
+
+<div class="form-card">
+
+  <div class="form-header">
+    <h2>Reserva tu cupo</h2>
+
+    <p>
+      Completa tus datos para inscribirte al webinar gratuito.
+    </p>
+  </div>
+
+  <form
+    class="webinar-form"
+    action="/api/webinar"
+    method="POST"
+  >
+
+    <div class="field">
+      <label for="name">
+        Nombre
+      </label>
+
+      <input
+        id="name"
+        name="name"
+        type="text"
+        placeholder="Tu nombre"
+        required
+      />
+    </div>
+
+    <div class="field">
+      <label for="lastname">
+        Apellido
+      </label>
+
+      <input
+        id="lastname"
+        name="lastname"
+        type="text"
+        placeholder="Tu apellido"
+        required
+      />
+    </div>
+
+    <div class="field">
+      <label for="email">
+        Correo electrónico
+      </label>
+
+      <input
+        id="email"
+        name="email"
+        type="email"
+        placeholder="ejemplo@email.com"
+        required
+      />
+    </div>
+
+    <Button
+      text="INSCRIBIRME GRATIS"
+      variant="primary"
+      size="lg"
+      type="submit"
+    />
+
+  </form>
+
+  <div class="security">
+
+    🔒 Tus datos están protegidos.
+
+    <br />
+
+    Nunca compartiremos tu información con terceros.
+
+  </div>
+
+</div>
+
+<style>
+
+.form-card{
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:2rem;
+
+    box-shadow:var(--shadow-lg);
+
+    border:1px solid rgba(0,0,0,.05);
+
+}
+
+.form-header{
+
+    text-align:center;
+
+    margin-bottom:2rem;
+
+}
+
+.form-header h2{
+
+    margin:0;
+
+    color:var(--color-dark);
+
+    font-size:2rem;
+
+}
+
+.form-header p{
+
+    margin-top:.75rem;
+
+    color:var(--color-gray);
+
+    line-height:1.6;
+
+}
+
+.webinar-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1.2rem;
+
+}
+
+.field{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.45rem;
+
+}
+
+.field label{
+
+    font-weight:600;
+
+    color:var(--color-dark);
+
+}
+
+.field input{
+
+    height:54px;
+
+    padding:0 1rem;
+
+    border-radius:12px;
+
+    border:2px solid #ECECEC;
+
+    outline:none;
+
+    font-size:1rem;
+
+    transition:.25s;
+
+    background:white;
+
+}
+
+.field input:focus{
+
+    border-color:var(--color-pink);
+
+    box-shadow:0 0 0 4px rgba(250,106,165,.12);
+
+}
+
+.field input::placeholder{
+
+    color:#B3B3B3;
+
+}
+
+.webinar-form :global(.btn){
+
+    width:100%;
+
+    margin-top:.5rem;
+
+}
+
+.security{
+
+    margin-top:1.5rem;
+
+    text-align:center;
+
+    color:var(--color-gray);
+
+    font-size:.9rem;
+
+    line-height:1.5;
+
+}
+
+@media(max-width:768px){
+
+.form-card{
+
+padding:1.5rem;
+
+}
+
+.form-header h2{
+
+font-size:1.7rem;
+
+}
+
+}
+
+</style>

@@ -6,21 +6,25 @@ import Button from './Button.astro';
 <section class="pricing" id="pricing">
   <div class="pricing-container">
     <h2>Elige el plan que mejor se adapte a ti</h2>
-    <p class="pricing-subtitle">Por menos de lo que cuesta una consulta privada, tendrás acompañamiento constante</p>
+    <p class="pricing-subtitle">
+      Por menos de lo que cuesta una consulta privada, tendrás acompañamiento constante
+    </p>
 
     <div class="pricing-grid">
+
       <!-- Plan Mensual -->
       <div class="pricing-card">
         <div class="pricing-header">
           <h3>Plan Mensual</h3>
         </div>
-        
+
         <div class="pricing-price">
           <div class="price-item">
             <span class="original-price">$19,5 USD</span>
             <span class="current-price">$14,9 USD</span>
             <span class="period">al mes</span>
           </div>
+
           <p class="launch-badge">Precio Lanzamiento</p>
         </div>
 
@@ -28,11 +32,11 @@ import Button from './Button.astro';
           Perfecto para empezar y conocer todo el contenido.
         </p>
 
-        <Button 
-          text="QUIERO EMPEZAR" 
-          variant="primary" 
+        <Button
+          text="QUIERO EMPEZAR"
+          variant="primary"
           size="md"
-          href="#"
+          href="https://pay.hotmart.com/G106540717U?off=mxca3lyt&checkoutMode=6"
           onClick="gtag('event', 'mensual_cta_click', { event_category: 'engagement', event_label: 'Pricing Section' });"
         />
       </div>
@@ -40,17 +44,23 @@ import Button from './Button.astro';
       <!-- Plan Trimestral -->
       <div class="pricing-card featured">
         <div class="badge-featured">Más Popular</div>
-        
+
         <div class="pricing-header">
           <h3>Plan Trimestral</h3>
         </div>
-        
+
         <div class="pricing-price">
           <div class="price-item">
             <span class="original-price">$52,5 USD</span>
             <span class="current-price">$40 USD</span>
+
+            <span class="saving-badge">
+              ✨ Ahorra un 10%
+            </span>
+
             <span class="period">por 3 meses</span>
           </div>
+
           <p class="launch-badge">Precio Lanzamiento</p>
         </div>
 
@@ -58,11 +68,11 @@ import Button from './Button.astro';
           Ahorra más y acompaña el proceso de tu hijo con continuidad.
         </p>
 
-        <Button 
-          text="QUIERO EL PLAN TRIMESTRAL" 
-          variant="primary" 
+        <Button
+          text="QUIERO EL PLAN TRIMESTRAL"
+          variant="primary"
           size="md"
-          href="#"
+          href="https://pay.hotmart.com/G106540717U?off=15n4x3kw&checkoutMode=6"
           onClick="gtag('event', 'trimestral_cta_click', { event_category: 'engagement', event_label: 'Pricing Section' });"
         />
       </div>
@@ -72,13 +82,19 @@ import Button from './Button.astro';
         <div class="pricing-header">
           <h3>Plan Anual</h3>
         </div>
-        
+
         <div class="pricing-price">
           <div class="price-item">
             <span class="original-price">$178 USD</span>
             <span class="current-price">$136 USD</span>
+
+            <span class="saving-badge">
+              ✨ Ahorra un 24%
+            </span>
+
             <span class="period">al año</span>
           </div>
+
           <p class="launch-badge">Precio Lanzamiento</p>
         </div>
 
@@ -86,14 +102,15 @@ import Button from './Button.astro';
           La mejor opción para tener acompañamiento continuo durante todo el año.
         </p>
 
-        <Button 
-          text="QUIERO EL PLAN ANUAL" 
-          variant="primary" 
+        <Button
+          text="QUIERO EL PLAN ANUAL"
+          variant="primary"
           size="md"
-          href="#"
+          href="https://pay.hotmart.com/G106540717U?off=5jkvlz7h&checkoutMode=6"
           onClick="gtag('event', 'anual_cta_click', { event_category: 'engagement', event_label: 'Pricing Section' });"
         />
       </div>
+
     </div>
   </div>
 </section>
@@ -127,17 +144,18 @@ import Button from './Button.astro';
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--space-lg);
+    align-items: stretch;
   }
 
   .pricing-card {
     background: var(--color-white);
     padding: var(--space-2xl);
-    border-radius: 12px;
+    border-radius: 16px;
     box-shadow: var(--shadow-md);
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);
-    transition: all 0.3s ease;
+    transition: .3s ease;
     position: relative;
   }
 
@@ -157,22 +175,28 @@ import Button from './Button.astro';
 
   .badge-featured {
     position: absolute;
-    top: -12px;
+    top: -14px;
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-hot-pink) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-pink),
+      var(--color-hot-pink)
+    );
     color: white;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: var(--text-sm);
-    font-weight: 600;
+    padding: 7px 18px;
+    border-radius: 999px;
+    font-size: .85rem;
+    font-weight: 700;
     white-space: nowrap;
+    box-shadow: 0 8px 20px rgba(250,106,165,.25);
   }
 
   .pricing-header h3 {
+    margin: 0;
     color: var(--color-dark);
     font-size: var(--text-2xl);
-    margin: 0;
+    text-align: center;
   }
 
   .pricing-price {
@@ -182,7 +206,8 @@ import Button from './Button.astro';
   .price-item {
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
+    align-items: center;
+    gap: .45rem;
     margin-bottom: var(--space-md);
   }
 
@@ -194,8 +219,30 @@ import Button from './Button.astro';
 
   .current-price {
     color: var(--color-pink);
-    font-size: var(--text-4xl);
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .saving-badge {
+    display: inline-block;
+    margin-top: .25rem;
+
+    padding: 7px 16px;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+      135deg,
+      var(--color-pink),
+      var(--color-hot-pink)
+    );
+
+    color: white;
+    font-size: .9rem;
     font-weight: 700;
+
+    box-shadow: 0 8px 18px rgba(250,106,165,.22);
   }
 
   .period {
@@ -204,20 +251,25 @@ import Button from './Button.astro';
   }
 
   .launch-badge {
+    display: inline-block;
+    margin-top: .5rem;
+
     background: var(--color-light-yellow);
     color: var(--color-dark);
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: var(--text-sm);
-    font-weight: 600;
-    margin: 0;
+
+    padding: 8px 14px;
+
+    border-radius: 999px;
+
+    font-size: .85rem;
+    font-weight: 700;
   }
 
   .price-description {
     color: var(--color-gray);
     text-align: center;
-    font-size: var(--text-base);
-    line-height: 1.6;
+    line-height: 1.7;
+    flex-grow: 1;
   }
 
   .pricing-card :global(.btn) {
@@ -225,6 +277,7 @@ import Button from './Button.astro';
   }
 
   @media (max-width: 768px) {
+
     .pricing {
       padding: var(--space-xl) var(--space-md);
     }
@@ -238,7 +291,7 @@ import Button from './Button.astro';
     }
 
     .pricing-card.featured {
-      transform: scale(1);
+      transform: none;
     }
 
     .pricing-card.featured:hover {
@@ -246,7 +299,7 @@ import Button from './Button.astro';
     }
 
     .current-price {
-      font-size: var(--text-3xl);
+      font-size: 2.5rem;
     }
   }
 </style>

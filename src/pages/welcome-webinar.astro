@@ -1,0 +1,279 @@
+---
+import '../styles/variables.css';
+import Button from '../components/Button.astro';
+---
+
+<section class="success">
+
+  <div class="card">
+
+    <div class="icon">
+      🎉
+    </div>
+
+    <h1>
+      ¡Tu cupo está reservado!
+    </h1>
+
+    <h2>
+      Ya estás inscrita en el webinar gratuito
+    </h2>
+
+    <p class="title">
+      "Entendiendo la barriguita de tu bebé"
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="info">
+
+      <div class="info-item">
+
+        <span class="emoji">📩</span>
+
+        <div>
+
+          <strong>
+            Revisa tu correo electrónico
+          </strong>
+
+          <p>
+            Acabamos de enviarte toda la información de acceso.
+          </p>
+
+          <small>
+            Si no encuentras el correo en tu bandeja principal,
+            revisa también las carpetas de Promociones,
+            Social o Spam.
+          </small>
+
+        </div>
+
+      </div>
+
+      <div class="info-item">
+
+        <span class="emoji">📅</span>
+
+        <div>
+
+          <strong>
+            Guarda la fecha del webinar
+          </strong>
+
+          <p>
+            Agrégala a tu calendario para no perderte esta clase.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="cta">
+
+      <Button
+        text="ÚNETE AL GRUPO DE WHATSAPP"
+        href="https://chat.whatsapp.com/TU-LINK"
+        variant="primary"
+        size="lg"
+      />
+
+    </div>
+
+    <p class="footer">
+      ¡Nos vemos pronto! 💜
+    </p>
+
+  </div>
+
+</section>
+
+<style>
+
+.success{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:2rem;
+
+    background:linear-gradient(
+        180deg,
+        #FFF7FB,
+        white
+    );
+
+}
+
+.card{
+
+    width:100%;
+
+    max-width:760px;
+
+    background:white;
+
+    border-radius:28px;
+
+    padding:3rem;
+
+    box-shadow:var(--shadow-lg);
+
+    text-align:center;
+
+}
+
+.icon{
+
+    font-size:4rem;
+
+    margin-bottom:1rem;
+
+}
+
+h1{
+
+    color:var(--color-dark);
+
+    margin-bottom:.5rem;
+
+}
+
+h2{
+
+    color:var(--color-gray);
+
+    font-size:1.25rem;
+
+    font-weight:500;
+
+}
+
+.title{
+
+    margin-top:.75rem;
+
+    font-size:1.3rem;
+
+    font-weight:700;
+
+    color:var(--color-pink);
+
+}
+
+.divider{
+
+    height:1px;
+
+    background:#ECECEC;
+
+    margin:2rem 0;
+
+}
+
+.info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1.5rem;
+
+    text-align:left;
+
+}
+
+.info-item{
+
+    display:flex;
+
+    gap:1rem;
+
+    align-items:flex-start;
+
+}
+
+.emoji{
+
+    font-size:2rem;
+
+}
+
+.info-item strong{
+
+    display:block;
+
+    margin-bottom:.35rem;
+
+    color:var(--color-dark);
+
+}
+
+.info-item p{
+
+    margin:0 0 .35rem;
+
+    color:var(--color-gray);
+
+}
+
+.info-item small{
+
+    color:var(--color-gray);
+
+    line-height:1.6;
+
+}
+
+.cta{
+
+    margin-top:2.5rem;
+
+}
+
+.cta :global(.btn){
+
+    width:100%;
+
+}
+
+.footer{
+
+    margin-top:2rem;
+
+    font-size:1.1rem;
+
+    font-weight:600;
+
+    color:var(--color-dark);
+
+}
+
+@media(max-width:768px){
+
+.card{
+
+padding:2rem;
+
+}
+
+.info-item{
+
+flex-direction:column;
+
+align-items:center;
+
+text-align:center;
+
+}
+
+}
+
+</style>

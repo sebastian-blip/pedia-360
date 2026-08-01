@@ -1,0 +1,284 @@
+---
+import WebinarForm from "./WebinarForm.astro";
+---
+
+<section class="hero">
+  <div class="hero-container">
+
+    <div class="hero-content">
+
+     <div class="webinar-brand">
+
+        <img
+            src="/images/logo.png"
+            alt="Pedia360"
+        />
+
+        <p>
+            Webinar Gratuito
+        </p>
+
+    </div>
+
+
+      <h1>
+        Entendiendo la
+        <span>barriguita de tu bebé</span>
+      </h1>
+
+      <p class="description">
+        ¿Tu bebé llora mucho, se retuerce, tiene gases o parece incómodo la mayor parte del tiempo?
+      </p>
+
+      <p class="description">
+        En este webinar gratuito aprenderás a entender qué está ocurriendo en su sistema digestivo, cómo reconocer si se trata de cólico o estreñimiento y qué hacer para ayudarlo a sentirse mejor.
+      </p>
+
+      <div class="info">
+
+        <div class="info-card">
+          <span>📅</span>
+          <div>
+            <strong>Fecha</strong>
+            <small>12 de Agosto de 2026</small>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <span>🕐</span>
+          <div>
+            <strong>Hora</strong>
+            <small>7:00 PM (Colombia)</small>
+          </div>
+        </div>
+
+      </div>
+
+      <ul class="features">
+        <li>✔ Webinar en vivo</li>
+        <li>✔ Explicado por pediatras</li>
+        <li>✔ Totalmente gratuito</li>
+      </ul>
+
+    </div>
+
+    <div class="hero-form">
+      <WebinarForm />
+    </div>
+
+  </div>
+</section>
+
+<style>
+
+.hero{
+    padding:5rem 1.5rem;
+    background:
+    linear-gradient(
+        180deg,
+        #FFF7FB 0%,
+        #FFFFFF 100%
+    );
+}
+
+.hero-container{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:4rem;
+    align-items:center;
+}
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:.6rem 1rem;
+
+    border-radius:999px;
+
+    background:var(--color-light-pink);
+
+    color:var(--color-light-purple);
+
+    font-weight:700;
+
+    margin-bottom:1.5rem;
+
+}
+
+h1{
+
+    font-size:3.4rem;
+
+    line-height:1.1;
+
+    color:var(--color-dark);
+
+    margin-bottom:1.5rem;
+
+}
+
+h1 span{
+
+    color:var(--color-pink);
+
+}
+
+.description{
+
+    color:var(--color-gray);
+
+    line-height:1.8;
+
+    margin-bottom:1rem;
+
+    font-size:1.05rem;
+
+}
+
+.info{
+
+    display:flex;
+
+    gap:1rem;
+
+    margin:2rem 0;
+
+}
+
+.info-card{
+
+    display:flex;
+
+    gap:1rem;
+
+    align-items:center;
+
+    background:white;
+
+    border-radius:14px;
+
+    padding:1rem 1.25rem;
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.info-card span{
+
+    font-size:1.7rem;
+
+}
+
+.info-card strong{
+
+    display:block;
+
+}
+
+.features{
+
+    display:grid;
+
+    gap:.8rem;
+
+    padding:0;
+
+    margin:0;
+
+    list-style:none;
+
+}
+
+.features li{
+
+    font-weight:600;
+
+    color:var(--color-dark);
+
+}
+
+.hero-form{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+@media(max-width:900px){
+
+.hero-container{
+
+grid-template-columns:1fr;
+
+}
+
+.hero{
+
+padding:3rem 1rem;
+
+}
+
+h1{
+
+font-size:2.4rem;
+
+}
+
+.info{
+
+flex-direction:column;
+
+}
+
+}
+
+.webinar-brand{
+    width: fit-content;
+
+    margin: 0 auto 2rem;
+
+    padding: 1rem 1.8rem;
+
+    border-radius: 20px;
+
+    background: white;
+
+    box-shadow: var(--shadow-md);
+
+}
+
+.webinar-brand img{
+
+    width:180px;
+
+    display:block;
+
+    margin:auto;
+
+}
+
+.webinar-brand p{
+
+    margin-top:.75rem;
+
+    text-align:center;
+
+    font-weight:700;
+
+    color:var(--color-pink);
+
+    text-transform:uppercase;
+
+}
+
+</style>
+
+
+
