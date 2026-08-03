@@ -2,11 +2,11 @@ services:
   astro:
     build: .
     container_name: astro-landing
+
     restart: unless-stopped
 
-    ports:
-      - "80:80"
-      - "443:443"
+    env_file:
+      - .env
 
-    volumes:
-      - ./certs:/etc/nginx/certs:ro
+    ports:
+      - "80:4321"

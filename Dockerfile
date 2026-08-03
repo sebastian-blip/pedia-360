@@ -1,9 +1,12 @@
-FROM nginx:alpine
+FROM node:22-alpine
 
-COPY nginx/default.conf /etc/nginx/conf.d/default.conf
+WORKDIR /app
 
-COPY dist/ /usr/share/nginx/html/
+COPY dist ./dist
+COPY package.json ./
 
-EXPOSE 80
+RUN npm install --omit=dev
 
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 4321
+
+CMD ["node", "./dist/server/entry.mjs"]
