@@ -9,4 +9,4 @@ RUN npm install --omit=dev
 
 EXPOSE 4321
 
-CMD ["node", "./dist/server/entry.mjs"]
+CMD ["node", "./dist/server/entry.mjs", "--host", "0.0.0.0"]
