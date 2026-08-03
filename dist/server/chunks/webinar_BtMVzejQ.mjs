@@ -78,7 +78,10 @@ const POST = async ({ request, redirect }) => {
       email
     });
     await addTag(contact.id);
-    return redirect("/welcome-webinar", 302);
+    return Response.json({
+      success: true,
+      redirect: "/welcome-webinar"
+    });
   } catch (error) {
     console.error(error);
     return new Response("Ocurrió un error al registrar el webinar.", {

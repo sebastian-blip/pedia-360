@@ -1,9 +1,9 @@
-import { c as createComponent } from './astro-component_CourHKez.mjs';
+import { c as createComponent } from './astro-component_CPn2nF2J.mjs';
 import 'piccolore';
-import { j as renderComponent, r as renderTemplate, m as maybeRenderHead } from './server_CB7ySg6I.mjs';
+import { j as renderComponent, r as renderTemplate, m as maybeRenderHead } from './server_DDdEXEv2.mjs';
 /* empty css                    */
-import { $ as $$MainLayout } from './MainLayout_C1KbUddZ.mjs';
-import { $ as $$Button } from './Button_DO9GwfP6.mjs';
+import { $ as $$MainLayout } from './MainLayout_BZJJRo9V.mjs';
+import { $ as $$Button } from './Button_B3VdkWiY.mjs';
 
 const $$WelcomeWebinar = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "MainLayout", $$MainLayout, { "data-astro-cid-shzyt7ui": true }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<section class="success" data-astro-cid-shzyt7ui> <div class="card" data-astro-cid-shzyt7ui> <div class="icon" data-astro-cid-shzyt7ui>

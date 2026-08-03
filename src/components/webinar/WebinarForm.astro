@@ -112,12 +112,14 @@ import Button from "../Button.astro";
 
     try {
 
-      const response = await fetch("/api/webinar", {
-        method: "POST",
-        body: new FormData(form),
-      });
-
-      const data = await response.json();
+     const response = await fetch("/api/webinar", {
+    method: "POST",
+    body: new FormData(form),
+  });
+  const data = await response.json();
+  if (data.success) {
+    window.location.href = data.redirect;
+  }
 
       if (!response.ok || !data.success) {
         throw new Error(

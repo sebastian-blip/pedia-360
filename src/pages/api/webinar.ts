@@ -43,7 +43,10 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 
     await addTag(contact.id);
 
-    return redirect("/welcome-webinar", 302);
+    return Response.json({
+    success: true,
+    redirect: "/welcome-webinar",
+});
 
   } catch (error) {
     console.error(error);
