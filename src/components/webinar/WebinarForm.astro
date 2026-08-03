@@ -12,11 +12,7 @@ import Button from "../Button.astro";
     </p>
   </div>
 
-  <form
-    class="webinar-form"
-    action="/api/webinar"
-    method="POST"
-  >
+  <form class="webinar-form">
 
     <div class="field">
       <label for="name">
@@ -67,19 +63,75 @@ import Button from "../Button.astro";
       type="submit"
     />
 
+    <p
+      id="form-error"
+      class="form-error"
+      hidden
+    ></p>
+
   </form>
 
   <div class="security">
-
     🔒 Tus datos están protegidos.
-
     <br />
-
     Nunca compartiremos tu información con terceros.
-
   </div>
 
 </div>
+
+<script>
+  const form = document.querySelector(".webinar-form");
+  const error = document.querySelector("#form-error");
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    error.hidden = true;
+    error.textContent = "";
+
+    const button = form.querySelector("button");
+
+    if (!button) return;
+
+    const originalText = button.textContent;
+
+    button.disabled = true;
+    button.textContent = "Inscribiendo...";
+
+    try {
+
+      const response = await fetch("/api/webinar", {
+        method: "POST",
+        body: new FormData(form),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(
+          data.message ??
+          "Ocurrió un error al registrar tu inscripción."
+        );
+      }
+
+      window.location.href = data.redirect;
+
+    } catch (err) {
+
+      error.textContent =
+        err instanceof Error
+          ? err.message
+          : "Ocurrió un error inesperado.";
+
+      error.hidden = false;
+
+      button.disabled = false;
+      button.textContent = originalText;
+
+    }
+
+  });
+</script>
 
 <style>
 
@@ -192,6 +244,26 @@ import Button from "../Button.astro";
     width:100%;
 
     margin-top:.5rem;
+
+}
+
+.form-error{
+
+    margin-top:1rem;
+
+    padding:1rem;
+
+    border-radius:12px;
+
+    background:#FDECEC;
+
+    border:1px solid #F5B5B5;
+
+    color:#B3261E;
+
+    text-align:center;
+
+    font-size:.95rem;
 
 }
 
