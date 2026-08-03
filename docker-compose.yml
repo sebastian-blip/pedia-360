@@ -1,4 +1,5 @@
 services:
+
   astro:
     build: .
     container_name: astro-landing
@@ -8,9 +9,22 @@ services:
     env_file:
       - .env
 
-    environment:
-      HOST: 0.0.0.0
-      PORT: 4321
+    expose:
+      - "4321"
+
+  nginx:
+    image: nginx:alpine
+    container_name: astro-nginx
+
+    restart: unless-stopped
+
+    depends_on:
+      - astro
 
     ports:
-      - "80:4321"
+      - "80:80"
+      - "443:443"
+
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./certs:/etc/nginx/certs:ro
