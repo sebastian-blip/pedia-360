@@ -5,6 +5,26 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   try {
     const form = await request.formData();
 
+    // Validar el origen de la petición
+    const origin = request.headers.get("origin");
+
+    if (
+      origin &&
+      origin !== "https://pedia-360.com" &&
+      origin !== "https://www.pedia-360.com"
+    ) {
+      return new Response("Forbidden", {
+        status: 403,
+      });
+    }
+
+    // Honeypot
+    const website = form.get("website")?.toString().trim();
+
+    if (website) {
+      return Response.json({ success: true });
+    }
+
     const firstname = form.get("name")?.toString().trim();
     const lastname = form.get("lastname")?.toString().trim();
     const email = form.get("email")?.toString().trim().toLowerCase();

@@ -1,8 +1,8 @@
-import { c as createComponent } from './astro-component_BNqx6DdI.mjs';
+import { c as createComponent } from './astro-component_CourHKez.mjs';
 import 'piccolore';
-import { k as createRenderInstruction, m as maybeRenderHead, j as renderComponent, r as renderTemplate } from './server_Bk-cZdte.mjs';
-import { $ as $$MainLayout } from './MainLayout_CLaFu2Ae.mjs';
-import { $ as $$Button } from './Button_DNRg9BtK.mjs';
+import { k as createRenderInstruction, m as maybeRenderHead, j as renderComponent, r as renderTemplate } from './server_CB7ySg6I.mjs';
+import { $ as $$MainLayout } from './MainLayout_C1KbUddZ.mjs';
+import { $ as $$Button } from './Button_DO9GwfP6.mjs';
 
 async function renderScript(result, id) {
   const inlined = result.inlinedScripts.get(id);
@@ -27,7 +27,7 @@ Nombre
 Apellido
 </label> <input id="lastname" name="lastname" type="text" placeholder="Tu apellido" required data-astro-cid-2vpky2jj> </div> <div class="field" data-astro-cid-2vpky2jj> <label for="email" data-astro-cid-2vpky2jj>
 Correo electrónico
-</label> <input id="email" name="email" type="email" placeholder="ejemplo@email.com" required data-astro-cid-2vpky2jj> </div> ${renderComponent($$result, "Button", $$Button, { "text": "INSCRIBIRME GRATIS", "variant": "primary", "size": "lg", "type": "submit", "data-astro-cid-2vpky2jj": true })} <p id="form-error" class="form-error" hidden data-astro-cid-2vpky2jj></p> </form> <div class="security" data-astro-cid-2vpky2jj>
+</label> <input id="email" name="email" type="email" placeholder="ejemplo@email.com" required data-astro-cid-2vpky2jj> </div> <div class="honeypot" aria-hidden="true" data-astro-cid-2vpky2jj> <label for="website" data-astro-cid-2vpky2jj>Website</label> <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" data-astro-cid-2vpky2jj> </div> ${renderComponent($$result, "Button", $$Button, { "text": "INSCRIBIRME GRATIS", "variant": "primary", "size": "lg", "type": "submit", "data-astro-cid-2vpky2jj": true })} <p id="form-error" class="form-error" hidden data-astro-cid-2vpky2jj></p> </form> <div class="security" data-astro-cid-2vpky2jj>
 🔒 Tus datos están protegidos.
 <br data-astro-cid-2vpky2jj>
 Nunca compartiremos tu información con terceros.

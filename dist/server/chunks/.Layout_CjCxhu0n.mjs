@@ -1,5 +1,5 @@
-import { m as maybeRenderHead, s as spreadAttributes, f as addAttribute, l as renderSlot, r as renderTemplate } from './server_Bk-cZdte.mjs';
-import { c as createComponent } from './astro-component_BNqx6DdI.mjs';
+import { m as maybeRenderHead, s as spreadAttributes, f as addAttribute, l as renderSlot, r as renderTemplate } from './server_CB7ySg6I.mjs';
+import { c as createComponent } from './astro-component_CourHKez.mjs';
 import 'clsx';
 
 const $$ = createComponent(($$result, $$props, $$slots) => {

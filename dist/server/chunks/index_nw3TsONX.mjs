@@ -1,13 +1,13 @@
-import { c as createComponent } from './astro-component_BNqx6DdI.mjs';
+import { c as createComponent } from './astro-component_CourHKez.mjs';
 import 'piccolore';
-import { j as renderComponent, r as renderTemplate, m as maybeRenderHead, f as addAttribute } from './server_Bk-cZdte.mjs';
-import { $ as $$MainLayout } from './MainLayout_CLaFu2Ae.mjs';
+import { j as renderComponent, r as renderTemplate, m as maybeRenderHead, f as addAttribute } from './server_CB7ySg6I.mjs';
+import { $ as $$MainLayout } from './MainLayout_C1KbUddZ.mjs';
 /* empty css                    */
-import { $ as $$Button } from './Button_DNRg9BtK.mjs';
+import { $ as $$Button } from './Button_DO9GwfP6.mjs';
 import 'clsx';
-import { $ as $$ } from './.Layout_WFgiN8QC.mjs';
-import { $ as $$Rutas, b as $$Pricing, a as $$FAQ, c as $$FinalCTA } from './FinalCTA_B8KQDxgw.mjs';
-import { $ as $$Footer } from './Footer_Bjl0wrd5.mjs';
+import { $ as $$ } from './.Layout_CjCxhu0n.mjs';
+import { $ as $$Rutas, b as $$Pricing, a as $$FAQ, c as $$FinalCTA } from './FinalCTA_CS2Ltykk.mjs';
+import { $ as $$Footer } from './Footer_GywUMsSA.mjs';
 
 const $$BadgeCheck = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$props, $$slots);
