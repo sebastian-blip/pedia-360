@@ -9,6 +9,11 @@ services:
     env_file:
       - .env
 
+    environment:
+      HOST: 0.0.0.0
+      PORT: 4321
+      NODE_ENV: production
+
     expose:
       - "4321"
 
