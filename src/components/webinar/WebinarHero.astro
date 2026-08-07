@@ -7,19 +7,13 @@ import WebinarForm from "./WebinarForm.astro";
 
     <div class="hero-content">
 
-     <div class="webinar-brand">
+      <div class="webinar-brand">
+          <div class="webinar-image">
+              <img src="/images/team/team.jpg" alt="Pedia360">
+          </div>
 
-        <img
-            src="/images/logo.png"
-            alt="Pedia360"
-        />
-
-        <p>
-            Webinar Gratuito
-        </p>
-
-    </div>
-
+          <p>WEBINAR GRATUITO</p>
+      </div>
 
       <h1>
         Entendiendo la
@@ -211,6 +205,37 @@ h1 span{
 
 }
 
+.webinar-brand {
+    width: fit-content;
+    margin: 0 auto 2rem;
+    padding: 1rem 1.8rem;
+    border-radius: 20px;
+    background: white;
+    box-shadow: var(--shadow-md);
+}
+
+.webinar-image {
+    width: 180px;
+    height: 220px;      /* Solo muestra esta parte */
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.webinar-image img {
+    width: 180px;
+    height: auto;
+    display: block;
+    margin-top: -20px;  /* Sube la imagen */
+}
+
+.webinar-brand p {
+    margin-top: .75rem;
+    text-align: center;
+    font-weight: 700;
+    color: var(--color-pink);
+    text-transform: uppercase;
+}
+
 @media(max-width:900px){
 
 .hero-container{
@@ -237,46 +262,6 @@ flex-direction:column;
 
 }
 
-}
-
-.webinar-brand{
-    width: fit-content;
-
-    margin: 0 auto 2rem;
-
-    padding: 1rem 1.8rem;
-
-    border-radius: 20px;
-
-    background: white;
-
-    box-shadow: var(--shadow-md);
-
-}
-
-.webinar-brand img{
-
-    width:180px;
-
-    display:block;
-
-    margin:auto;
-
-}
-
-.webinar-brand p{
-
-    margin-top:.75rem;
-
-    text-align:center;
-
-    font-weight:700;
-
-    color:var(--color-pink);
-
-    text-transform:uppercase;
-
-}
 
 </style>
 

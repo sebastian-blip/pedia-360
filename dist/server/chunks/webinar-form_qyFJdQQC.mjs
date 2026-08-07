@@ -1,8 +1,8 @@
-import { c as createComponent } from './astro-component_DOmKqERS.mjs';
+import { c as createComponent } from './astro-component_DpUplhdH.mjs';
 import 'piccolore';
-import { k as createRenderInstruction, m as maybeRenderHead, j as renderComponent, r as renderTemplate } from './server_Ba2cZH2k.mjs';
-import { $ as $$MainLayout } from './MainLayout_B7yPs5EE.mjs';
-import { $ as $$Button } from './Button_BGz93CLA.mjs';
+import { k as createRenderInstruction, m as maybeRenderHead, j as renderComponent, r as renderTemplate } from './server_DLrWlpRn.mjs';
+import { $ as $$MainLayout } from './MainLayout_B1aSfpOr.mjs';
+import { $ as $$Button } from './Button_B5Dky-Kd.mjs';
 
 async function renderScript(result, id) {
   const inlined = result.inlinedScripts.get(id);
@@ -35,9 +35,7 @@ Nunca compartiremos tu información con terceros.
 }, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/components/webinar/WebinarForm.astro", void 0);
 
 const $$WebinarHero = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${maybeRenderHead()}<section class="hero" data-astro-cid-loomxoep> <div class="hero-container" data-astro-cid-loomxoep> <div class="hero-content" data-astro-cid-loomxoep> <div class="webinar-brand" data-astro-cid-loomxoep> <img src="/images/logo.png" alt="Pedia360" data-astro-cid-loomxoep> <p data-astro-cid-loomxoep>
-Webinar Gratuito
-</p> </div> <h1 data-astro-cid-loomxoep>
+  return renderTemplate`${maybeRenderHead()}<section class="hero" data-astro-cid-loomxoep> <div class="hero-container" data-astro-cid-loomxoep> <div class="hero-content" data-astro-cid-loomxoep> <div class="webinar-brand" data-astro-cid-loomxoep> <div class="webinar-image" data-astro-cid-loomxoep> <img src="/images/team/team.jpg" alt="Pedia360" data-astro-cid-loomxoep> </div> <p data-astro-cid-loomxoep>WEBINAR GRATUITO</p> </div> <h1 data-astro-cid-loomxoep>
 Entendiendo la
 <span data-astro-cid-loomxoep>barriguita de tu bebé</span> </h1> <p class="description" data-astro-cid-loomxoep>
 ¿Tu bebé llora mucho, se retuerce, tiene gases o parece incómodo la mayor parte del tiempo?
