@@ -1,9 +1,9 @@
-import { c as createComponent } from './astro-component_CPn2nF2J.mjs';
+import { c as createComponent } from './astro-component_DOmKqERS.mjs';
 import 'piccolore';
-import { m as maybeRenderHead, f as addAttribute, r as renderTemplate, j as renderComponent } from './server_DDdEXEv2.mjs';
+import { m as maybeRenderHead, f as addAttribute, r as renderTemplate, j as renderComponent } from './server_Ba2cZH2k.mjs';
 import 'clsx';
 /* empty css                    */
-import { $ as $$Button } from './Button_B3VdkWiY.mjs';
+import { $ as $$Button } from './Button_BGz93CLA.mjs';
 
 const $$Rutas = createComponent(($$result, $$props, $$slots) => {
   const rutas = [

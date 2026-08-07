@@ -1,11 +1,11 @@
-import { c as createComponent } from './astro-component_CPn2nF2J.mjs';
+import { c as createComponent } from './astro-component_DOmKqERS.mjs';
 import 'piccolore';
-import { m as maybeRenderHead, j as renderComponent, r as renderTemplate, f as addAttribute } from './server_DDdEXEv2.mjs';
-import { $ as $$MainLayout } from './MainLayout_BZJJRo9V.mjs';
+import { m as maybeRenderHead, j as renderComponent, r as renderTemplate, f as addAttribute } from './server_Ba2cZH2k.mjs';
+import { $ as $$MainLayout } from './MainLayout_B7yPs5EE.mjs';
 /* empty css                    */
-import { $ as $$Button } from './Button_B3VdkWiY.mjs';
-import { $ as $$Rutas, a as $$FAQ, b as $$Pricing, c as $$FinalCTA } from './FinalCTA_lZjVEVQm.mjs';
-import { $ as $$Footer } from './Footer_C-YRFLAJ.mjs';
+import { $ as $$Button } from './Button_BGz93CLA.mjs';
+import { $ as $$Rutas, a as $$FAQ, b as $$Pricing, c as $$FinalCTA } from './FinalCTA_EMqmfLzm.mjs';
+import { $ as $$Footer } from './Footer_DxZMIqoI.mjs';
 
 const $$HeroWebinar = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<section class="hero" data-astro-cid-ufnaisbh> <div class="hero-container" data-astro-cid-ufnaisbh> <div class="hero-content" data-astro-cid-ufnaisbh> <!-- Logo superior --> <div class="hero-logo-top" data-astro-cid-ufnaisbh> <img src="/images/LOGO PEDIA 360 - TEXT.png" alt="Pedia360" loading="eager" data-astro-cid-ufnaisbh> </div> <h1 class="hero-title" data-astro-cid-ufnaisbh>
