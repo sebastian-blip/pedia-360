@@ -1,13 +1,12 @@
-import { c as createComponent } from './astro-component_BdCRbE5l.mjs';
+import { c as createComponent } from './astro-component_julrCl4c.mjs';
 import 'piccolore';
-import { j as renderComponent, r as renderTemplate, m as maybeRenderHead, f as addAttribute } from './server_txdo0wbw.mjs';
-import { $ as $$MainLayout } from './MainLayout_DYQ_ikzR.mjs';
+import { j as renderComponent, r as renderTemplate, m as maybeRenderHead, f as addAttribute } from './server_wOc8bkzF.mjs';
+import { $ as $$MainLayout } from './MainLayout_4rQhEmGL.mjs';
 /* empty css                    */
-import { $ as $$Button } from './Button_ChI9Jpw3.mjs';
+import { $ as $$Button } from './Button_CiPU739H.mjs';
 import 'clsx';
-import { $ as $$ } from './.Layout_ClTHXzu-.mjs';
-import { $ as $$Rutas, a as $$FAQ, b as $$FinalCTA } from './FinalCTA_MGBRdqI_.mjs';
-import { $ as $$Footer } from './Footer_BSOpcSoT.mjs';
+import { $ as $$, a as $$Footer } from './Footer_C2Tlx6ea.mjs';
+import { $ as $$Rutas, a as $$FAQ, b as $$FinalCTA } from './FinalCTA_C-LUF58m.mjs';
 
 const $$BadgeCheck = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$props, $$slots);
@@ -203,7 +202,7 @@ Historias reales de personas que han encontrado tranquilidad,
 </p> <div class="testimonials-grid" data-astro-cid-aadlzisc> <img src="/images/testimonios/opiniones.PNG" alt="Testimonio de familia" data-astro-cid-aadlzisc> <img src="/images/testimonios/opiniones2.PNG" alt="Testimonio de familia" data-astro-cid-aadlzisc> <img src="/images/testimonios/opiniones3.PNG" alt="Testimonio de familia" data-astro-cid-aadlzisc> </div> </div> </section>`;
 }, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/components/Testimonials.astro", void 0);
 
-const __vite_glob_1_0 = new Proxy({"src":"/_astro/IMG_0618.DBtG1QyP.JPEG","width":4000,"height":6000,"format":"jpg","orientation":8}, {
+const __vite_glob_1_0 = new Proxy({"src":"/_astro/IMG_0618.BrIBj9LS.JPEG","width":4000,"height":6000,"format":"jpg","orientation":8}, {
 						get(target, name, receiver) {
 							if (name === 'clone') {
 								return structuredClone(target);
