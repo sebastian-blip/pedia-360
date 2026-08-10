@@ -1,9 +1,9 @@
-import { c as createComponent } from './astro-component_DpUplhdH.mjs';
+import { c as createComponent } from './astro-component_BdCRbE5l.mjs';
 import 'piccolore';
-import { m as maybeRenderHead, f as addAttribute, r as renderTemplate, j as renderComponent } from './server_DLrWlpRn.mjs';
+import { m as maybeRenderHead, f as addAttribute, r as renderTemplate, j as renderComponent } from './server_txdo0wbw.mjs';
 import 'clsx';
 /* empty css                    */
-import { $ as $$Button } from './Button_B5Dky-Kd.mjs';
+import { $ as $$Button } from './Button_ChI9Jpw3.mjs';
 
 const $$Rutas = createComponent(($$result, $$props, $$slots) => {
   const rutas = [
@@ -98,22 +98,6 @@ const $$Rutas = createComponent(($$result, $$props, $$slots) => {
 </div> </summary> <div class="ruta-expand"> <p>${ruta.content}</p> </div> </details>`)} </div> </div> </section>`;
 }, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/components/Rutas.astro", void 0);
 
-const $$Pricing = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${maybeRenderHead()}<section class="pricing" id="pricing" data-astro-cid-hkoc4sea> <div class="pricing-container" data-astro-cid-hkoc4sea> <h2 data-astro-cid-hkoc4sea>Elige el plan que mejor se adapte a ti</h2> <p class="pricing-subtitle" data-astro-cid-hkoc4sea>
-Por menos de lo que cuesta una consulta privada, tendrás acompañamiento constante
-</p> <div class="pricing-grid" data-astro-cid-hkoc4sea> <!-- Plan Mensual --> <div class="pricing-card" data-astro-cid-hkoc4sea> <div class="pricing-header" data-astro-cid-hkoc4sea> <h3 data-astro-cid-hkoc4sea>Plan Mensual</h3> </div> <div class="pricing-price" data-astro-cid-hkoc4sea> <div class="price-item" data-astro-cid-hkoc4sea> <span class="original-price" data-astro-cid-hkoc4sea>$19,5 USD</span> <span class="current-price" data-astro-cid-hkoc4sea>$14,9 USD</span> <span class="period" data-astro-cid-hkoc4sea>al mes</span> </div> <p class="launch-badge" data-astro-cid-hkoc4sea>Precio Lanzamiento</p> </div> <p class="price-description" data-astro-cid-hkoc4sea>
-Perfecto para empezar y conocer todo el contenido.
-</p> ${renderComponent($$result, "Button", $$Button, { "text": "QUIERO EMPEZAR", "variant": "primary", "size": "md", "href": "https://pay.hotmart.com/G106540717U?off=mxca3lyt&checkoutMode=6", "onClick": "gtag('event', 'mensual_cta_click', { event_category: 'engagement', event_label: 'Pricing Section' });", "data-astro-cid-hkoc4sea": true })} </div> <!-- Plan Trimestral --> <div class="pricing-card featured" data-astro-cid-hkoc4sea> <div class="badge-featured" data-astro-cid-hkoc4sea>Más Popular</div> <div class="pricing-header" data-astro-cid-hkoc4sea> <h3 data-astro-cid-hkoc4sea>Plan Trimestral</h3> </div> <div class="pricing-price" data-astro-cid-hkoc4sea> <div class="price-item" data-astro-cid-hkoc4sea> <span class="original-price" data-astro-cid-hkoc4sea>$52,5 USD</span> <span class="current-price" data-astro-cid-hkoc4sea>$40 USD</span> <span class="saving-badge" data-astro-cid-hkoc4sea>
-✨ Ahorra un 10%
-</span> <span class="period" data-astro-cid-hkoc4sea>por 3 meses</span> </div> <p class="launch-badge" data-astro-cid-hkoc4sea>Precio Lanzamiento</p> </div> <p class="price-description" data-astro-cid-hkoc4sea>
-Ahorra más y acompaña el proceso de tu hijo con continuidad.
-</p> ${renderComponent($$result, "Button", $$Button, { "text": "QUIERO EL PLAN TRIMESTRAL", "variant": "primary", "size": "md", "href": "https://pay.hotmart.com/G106540717U?off=15n4x3kw&checkoutMode=6", "onClick": "gtag('event', 'trimestral_cta_click', { event_category: 'engagement', event_label: 'Pricing Section' });", "data-astro-cid-hkoc4sea": true })} </div> <!-- Plan Anual --> <div class="pricing-card" data-astro-cid-hkoc4sea> <div class="pricing-header" data-astro-cid-hkoc4sea> <h3 data-astro-cid-hkoc4sea>Plan Anual</h3> </div> <div class="pricing-price" data-astro-cid-hkoc4sea> <div class="price-item" data-astro-cid-hkoc4sea> <span class="original-price" data-astro-cid-hkoc4sea>$178 USD</span> <span class="current-price" data-astro-cid-hkoc4sea>$136 USD</span> <span class="saving-badge" data-astro-cid-hkoc4sea>
-✨ Ahorra un 24%
-</span> <span class="period" data-astro-cid-hkoc4sea>al año</span> </div> <p class="launch-badge" data-astro-cid-hkoc4sea>Precio Lanzamiento</p> </div> <p class="price-description" data-astro-cid-hkoc4sea>
-La mejor opción para tener acompañamiento continuo durante todo el año.
-</p> ${renderComponent($$result, "Button", $$Button, { "text": "QUIERO EL PLAN ANUAL", "variant": "primary", "size": "md", "href": "https://pay.hotmart.com/G106540717U?off=5jkvlz7h&checkoutMode=6", "onClick": "gtag('event', 'anual_cta_click', { event_category: 'engagement', event_label: 'Pricing Section' });", "data-astro-cid-hkoc4sea": true })} </div> </div> </div> </section>`;
-}, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/components/Pricing.astro", void 0);
-
 const $$FAQ = createComponent(($$result, $$props, $$slots) => {
   const faqs = [
     {
@@ -154,4 +138,4 @@ Tu hijo no viene con manual…
 <span class="highlight" data-astro-cid-66itwakk>pero no tienes que vivir este proceso sola.</span> </h2> <p data-astro-cid-66itwakk>Tener claridad y acompañamiento puede hacer una diferencia enorme en cómo vives cada etapa de la crianza.</p> </div> <!-- Botón grande final --> <div class="final-button" data-astro-cid-66itwakk> ${renderComponent($$result, "Button", $$Button, { "text": "QUIERO UNIRME A LA MEMBRESÍA AHORA", "variant": "primary", "href": "#pricing", "onClick": "gtag('event', 'final_cta_click', { event_category: 'engagement', event_label: 'Final CTA Section' });", "data-astro-cid-66itwakk": true })} </div> </div> </section>`;
 }, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/components/FinalCTA.astro", void 0);
 
-export { $$Rutas as $, $$FAQ as a, $$Pricing as b, $$FinalCTA as c };
+export { $$Rutas as $, $$FAQ as a, $$FinalCTA as b };

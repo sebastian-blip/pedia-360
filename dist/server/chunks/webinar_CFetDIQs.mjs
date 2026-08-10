@@ -1,11 +1,11 @@
-import { c as createComponent } from './astro-component_DpUplhdH.mjs';
+import { c as createComponent } from './astro-component_BdCRbE5l.mjs';
 import 'piccolore';
-import { m as maybeRenderHead, j as renderComponent, r as renderTemplate, f as addAttribute } from './server_DLrWlpRn.mjs';
-import { $ as $$MainLayout } from './MainLayout_B1aSfpOr.mjs';
+import { m as maybeRenderHead, j as renderComponent, r as renderTemplate, f as addAttribute } from './server_txdo0wbw.mjs';
+import { $ as $$MainLayout } from './MainLayout_DYQ_ikzR.mjs';
 /* empty css                    */
-import { $ as $$Button } from './Button_B5Dky-Kd.mjs';
-import { $ as $$Rutas, a as $$FAQ, b as $$Pricing, c as $$FinalCTA } from './FinalCTA_DnWZVjCm.mjs';
-import { $ as $$Footer } from './Footer_ITGo4VIq.mjs';
+import { $ as $$Button } from './Button_ChI9Jpw3.mjs';
+import { $ as $$Rutas, a as $$FAQ, b as $$FinalCTA } from './FinalCTA_MGBRdqI_.mjs';
+import { $ as $$Footer } from './Footer_BSOpcSoT.mjs';
 
 const $$HeroWebinar = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<section class="hero" data-astro-cid-ufnaisbh> <div class="hero-container" data-astro-cid-ufnaisbh> <div class="hero-content" data-astro-cid-ufnaisbh> <!-- Logo superior --> <div class="hero-logo-top" data-astro-cid-ufnaisbh> <img src="/images/LOGO PEDIA 360 - TEXT.png" alt="Pedia360" loading="eager" data-astro-cid-ufnaisbh> </div> <h1 class="hero-title" data-astro-cid-ufnaisbh>
@@ -55,7 +55,7 @@ const $$FeaturesWebinar = createComponent(($$result, $$props, $$slots) => {
 }, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/components/FeaturesWebinar.astro", void 0);
 
 const $$Webinar = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${renderComponent($$result, "MainLayout", $$MainLayout, {}, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "Hero", $$HeroWebinar, {})} ${renderComponent($$result2, "Features", $$FeaturesWebinar, {})} ${renderComponent($$result2, "Rutas", $$Rutas, {})} ${renderComponent($$result2, "FAQ", $$FAQ, {})} ${renderComponent($$result2, "Pricing", $$Pricing, {})} ${renderComponent($$result2, "FinalCTA", $$FinalCTA, {})} ${renderComponent($$result2, "Footer", $$Footer, {})} ` })}`;
+  return renderTemplate`${renderComponent($$result, "MainLayout", $$MainLayout, {}, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "Hero", $$HeroWebinar, {})} ${renderComponent($$result2, "Features", $$FeaturesWebinar, {})} ${renderComponent($$result2, "Rutas", $$Rutas, {})} ${renderComponent($$result2, "FAQ", $$FAQ, {})} ${renderComponent($$result2, "FinalCTA", $$FinalCTA, {})} ${renderComponent($$result2, "Footer", $$Footer, {})} ` })}`;
 }, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/pages/webinar.astro", void 0);
 
 const $$file = "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/pages/webinar.astro";
