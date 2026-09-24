@@ -1,13 +1,20 @@
-import { c as createComponent } from './astro-component_CyPqXUeJ.mjs';
+import { c as createComponent } from './astro-component_CnvSSFUV.mjs';
 import 'piccolore';
-import { j as renderComponent, r as renderTemplate, m as maybeRenderHead, f as addAttribute } from './server_B64o-LQ9.mjs';
-import { $ as $$MainLayout } from './MainLayout_CpP7txsh.mjs';
-/* empty css                    */
-import { $ as $$Button } from './Button_Dn38eUIQ.mjs';
+import { m as maybeRenderHead, r as renderTemplate, j as renderComponent, f as addAttribute } from './server_CpqIxvTj.mjs';
 import 'clsx';
-import { $ as $$ } from './.Layout_HRcru7Fw.mjs';
-import { $ as $$Rutas, a as $$FAQ } from './FAQ_s_9jgYAy.mjs';
-import { $ as $$Footer } from './Footer_BybQYLPT.mjs';
+/* empty css                    */
+import { $ as $$ } from './.Layout_BP4gR8AB.mjs';
+
+const $$Video = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$props, $$slots);
+  Astro2.self = $$Video;
+  const {
+    description = "Descubre cómo funciona la membresía y cómo puede ayudarte en el día a día como mamá"
+  } = Astro2.props;
+  return renderTemplate`${maybeRenderHead()}<section class="video-section" data-astro-cid-7qzxku2k> <div class="video-container" data-astro-cid-7qzxku2k> <div class="video-player" data-astro-cid-7qzxku2k> <video autoplay muted controls playsinline preload="metadata" class="video-element" data-astro-cid-7qzxku2k> <source src="/videos/presentacion.mp4" type="video/mp4" data-astro-cid-7qzxku2k>
+Tu navegador no soporta videos HTML5.
+</video> </div> <p class="video-description" data-astro-cid-7qzxku2k> ${description} </p> </div> </section>`;
+}, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/components/Video.astro", void 0);
 
 const $$BadgeCheck = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$props, $$slots);
@@ -50,42 +57,6 @@ const $$Sprout = createComponent(($$result, $$props, $$slots) => {
   Astro2.self = $$Sprout;
   return renderTemplate`${renderComponent($$result, "Layout", $$, { "iconName": "sprout", ...Astro2.props }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<path d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3"></path> <path d="M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4"></path> <path d="M5 21h14"></path> ` })}`;
 }, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/node_modules/lucide-astro/dist/Sprout.astro", void 0);
-
-const $$Hero = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${maybeRenderHead()}<section class="hero" data-astro-cid-bbe6dxrz> <div class="hero-container" data-astro-cid-bbe6dxrz> <div class="hero-content" data-astro-cid-bbe6dxrz> <!-- Logo superior --> <div class="hero-logo-top" data-astro-cid-bbe6dxrz> <img src="/images/LOGO PEDIA 360 - TEXT.png" alt="Pedia360" loading="eager" data-astro-cid-bbe6dxrz> </div> <h1 class="hero-title" data-astro-cid-bbe6dxrz>
-Deja de buscar respuestas en Chat Gpt  y empieza a tomar decisiones con tranquilidad sobre la salud y crianza de tu hijo
-</h1> <p class="hero-subtitle" data-astro-cid-bbe6dxrz>
-Pedia360 es un acompañamiento creado por pediatras para mamás con niños de 0 a 5 años que quieren entender qué hacer en cada etapa, sin vivir con miedo, dudas o información contradictoria.
-</p> <div class="hero-features" data-astro-cid-bbe6dxrz> <div class="feature-item" data-astro-cid-bbe6dxrz> <span class="check-icon" data-astro-cid-bbe6dxrz>✔</span> <span data-astro-cid-bbe6dxrz>Salud infantil</span> </div> <div class="feature-item" data-astro-cid-bbe6dxrz> <span class="check-icon" data-astro-cid-bbe6dxrz>✔</span> <span data-astro-cid-bbe6dxrz>Alimentación</span> </div> <div class="feature-item" data-astro-cid-bbe6dxrz> <span class="check-icon" data-astro-cid-bbe6dxrz>✔</span> <span data-astro-cid-bbe6dxrz>Sueño</span> </div> <div class="feature-item" data-astro-cid-bbe6dxrz> <span class="check-icon" data-astro-cid-bbe6dxrz>✔</span> <span data-astro-cid-bbe6dxrz>Desarrollo</span> </div> <div class="feature-item" data-astro-cid-bbe6dxrz> <span class="check-icon" data-astro-cid-bbe6dxrz>✔</span> <span data-astro-cid-bbe6dxrz>Crianza basada en evidencia</span> </div> </div> <div class="hero-cta" data-astro-cid-bbe6dxrz> ${renderComponent($$result, "Button", $$Button, { "text": "QUIERO UNIRME AHORA", "variant": "primary", "size": "lg", "href": "#pricing", "onClick": "gtag('event', 'first_cta_click', { event_category: 'engagement', event_label: 'Hero Section' });", "data-astro-cid-bbe6dxrz": true })} </div> <div class="hero-cta" data-astro-cid-bbe6dxrz> ${renderComponent($$result, "Button", $$Button, { "text": "VER PLANES", "variant": "primary", "size": "lg", "href": "#pricing", "onClick": "gtag('event', 'second_cta_click', { event_category: 'engagement', event_label: 'Hero Section' });", "data-astro-cid-bbe6dxrz": true })} </div> <!-- Logo inferior --> <div class="hero-logo-bottom" data-astro-cid-bbe6dxrz> <img src="/images/logo.png" alt="Pedia360" loading="lazy" data-astro-cid-bbe6dxrz> </div> </div> </div> </section>`;
-}, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/components/Hero.astro", void 0);
-
-const $$Video = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$props, $$slots);
-  Astro2.self = $$Video;
-  const {
-    description = "Descubre cómo funciona la membresía y cómo puede ayudarte en el día a día como mamá"
-  } = Astro2.props;
-  return renderTemplate`${maybeRenderHead()}<section class="video-section" data-astro-cid-7qzxku2k> <div class="video-container" data-astro-cid-7qzxku2k> <div class="video-player" data-astro-cid-7qzxku2k> <video autoplay muted controls playsinline preload="metadata" class="video-element" data-astro-cid-7qzxku2k> <source src="/videos/presentacion.mp4" type="video/mp4" data-astro-cid-7qzxku2k>
-Tu navegador no soporta videos HTML5.
-</video> </div> <p class="video-description" data-astro-cid-7qzxku2k> ${description} </p> </div> </section>`;
-}, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/components/Video.astro", void 0);
-
-const $$PainPoints = createComponent(($$result, $$props, $$slots) => {
-  const painPoints = [
-    "Buscas información y encuentras opiniones completamente diferentes",
-    "No sabes cuándo algo es normal y cuándo deberías preocuparte",
-    "La consulta médica no siempre te deja tranquila ni alcanza el tiempo para resolver todas tus dudas",
-    "Has comprado cursos o talleres, pero cuando surge el problema real… sigues sin saber qué hacer y no tienes a quién preguntarle",
-    "Quieres acompañar a tu hijo desde el conocimiento y no desde el miedo",
-    "Sientes presión por 'hacerlo perfecto' todo el tiempo",
-    "El algoritmo te tiene inundado de información y no sabes cuál creer"
-  ];
-  return renderTemplate`${maybeRenderHead()}<section class="pain-points" data-astro-cid-dxipqcxf> <div class="pain-points-container" data-astro-cid-dxipqcxf> <div class="pain-points-content" data-astro-cid-dxipqcxf> <p class="intro-text" data-astro-cid-dxipqcxf>
-Probablemente llegaste aquí porque estás cansada de escuchar opiniones diferentes sobre cómo criar a tu hijo y no saber a quién creer.
-</p> <div class="pain-points-list" data-astro-cid-dxipqcxf> ${painPoints.map((point) => renderTemplate`<div class="pain-point-item" data-astro-cid-dxipqcxf> <span class="check-icon" data-astro-cid-dxipqcxf>✔</span> <p data-astro-cid-dxipqcxf>${point}</p> </div>`)} </div> <p class="conclusion" data-astro-cid-dxipqcxf>
-Si te identificaste con 2 o más puntos, esta membresía es para ti.
-</p> <div class="cta-button" data-astro-cid-dxipqcxf> ${renderComponent($$result, "Button", $$Button, { "text": "QUIERO SENTIRME MÁS TRANQUILA", "variant": "secondary", "size": "lg", "href": "#pricing", "onClick": "gtag('event', 'third_cta_click', { event_category: 'engagement', event_label: 'Pain Points Section' });", "data-astro-cid-dxipqcxf": true })} </div> </div> </div> </section>`;
-}, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/components/PainPoints.astro", void 0);
 
 const $$Benefits = createComponent(($$result, $$props, $$slots) => {
   const benefits = [
@@ -180,28 +151,6 @@ Nuestra misión es ayudarte a tomar decisiones desde el <strong data-astro-cid-y
 </p> </div> <div class="team-grid" data-astro-cid-yu4wt3u2> <div class="team-member" data-astro-cid-yu4wt3u2> <div class="member-avatar" data-astro-cid-yu4wt3u2> <img src="/images/luza.jpg" alt="Luza - Pediatra" data-astro-cid-yu4wt3u2> </div> <h3 data-astro-cid-yu4wt3u2>Luza</h3> </div> <div class="team-member" data-astro-cid-yu4wt3u2> <div class="member-avatar" data-astro-cid-yu4wt3u2> <img src="/images/diana.jpg" alt="Diana - Pediatra" data-astro-cid-yu4wt3u2> </div> <h3 data-astro-cid-yu4wt3u2>Diana</h3> </div> </div> <div class="team-location" data-astro-cid-yu4wt3u2> <p data-astro-cid-yu4wt3u2><span class="location-icon" data-astro-cid-yu4wt3u2>📍</span> Estamos en <strong data-astro-cid-yu4wt3u2>Cali, Colombia</strong></p> <p data-astro-cid-yu4wt3u2><span class="location-icon" data-astro-cid-yu4wt3u2>🌎</span> Y acompañamos familias de <strong data-astro-cid-yu4wt3u2>diferentes partes del mundo</strong></p> </div> </div> </section>`;
 }, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/components/Team.astro", void 0);
 
-const $$Pricing = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${maybeRenderHead()}<section class="pricing" id="pricing" data-astro-cid-hkoc4sea> <div class="pricing-container" data-astro-cid-hkoc4sea> <h2 data-astro-cid-hkoc4sea>Elige el plan que mejor se adapte a ti</h2> <p class="pricing-subtitle" data-astro-cid-hkoc4sea>
-Por menos de lo que cuesta una consulta privada, tendrás acompañamiento constante
-</p> <div class="pricing-grid" data-astro-cid-hkoc4sea> <!-- Plan Mensual --> <div class="pricing-card" data-astro-cid-hkoc4sea> <div class="pricing-header" data-astro-cid-hkoc4sea> <h3 data-astro-cid-hkoc4sea>Plan Mensual</h3> </div> <div class="pricing-price" data-astro-cid-hkoc4sea> <div class="price-item" data-astro-cid-hkoc4sea> <span class="original-price" data-astro-cid-hkoc4sea>$19,5 USD</span> <span class="current-price" data-astro-cid-hkoc4sea>$14,9 USD</span> <span class="period" data-astro-cid-hkoc4sea>al mes</span> </div> <p class="launch-badge" data-astro-cid-hkoc4sea>Precio Lanzamiento</p> </div> <p class="price-description" data-astro-cid-hkoc4sea>
-Perfecto para empezar y conocer todo el contenido.
-</p> ${renderComponent($$result, "Button", $$Button, { "text": "QUIERO EMPEZAR", "variant": "primary", "size": "md", "href": "https://pay.hotmart.com/G106540717U?off=mxca3lyt&checkoutMode=6", "onClick": "gtag('event', 'mensual_cta_click', { event_category: 'engagement', event_label: 'Pricing Section' });", "data-astro-cid-hkoc4sea": true })} </div> <!-- Plan Trimestral --> <div class="pricing-card featured" data-astro-cid-hkoc4sea> <div class="badge-featured" data-astro-cid-hkoc4sea>Más Popular</div> <div class="pricing-header" data-astro-cid-hkoc4sea> <h3 data-astro-cid-hkoc4sea>Plan Trimestral</h3> </div> <div class="pricing-price" data-astro-cid-hkoc4sea> <div class="price-item" data-astro-cid-hkoc4sea> <span class="original-price" data-astro-cid-hkoc4sea>$52,5 USD</span> <span class="current-price" data-astro-cid-hkoc4sea>$40 USD</span> <span class="saving-badge" data-astro-cid-hkoc4sea>
-✨ Ahorra un 10%
-</span> <span class="period" data-astro-cid-hkoc4sea>por 3 meses</span> </div> <p class="launch-badge" data-astro-cid-hkoc4sea>Precio Lanzamiento</p> </div> <p class="price-description" data-astro-cid-hkoc4sea>
-Ahorra más y acompaña el proceso de tu hijo con continuidad.
-</p> ${renderComponent($$result, "Button", $$Button, { "text": "QUIERO EL PLAN TRIMESTRAL", "variant": "primary", "size": "md", "href": "https://pay.hotmart.com/G106540717U?off=15n4x3kw&checkoutMode=6", "onClick": "gtag('event', 'trimestral_cta_click', { event_category: 'engagement', event_label: 'Pricing Section' });", "data-astro-cid-hkoc4sea": true })} </div> <!-- Plan Anual --> <div class="pricing-card" data-astro-cid-hkoc4sea> <div class="pricing-header" data-astro-cid-hkoc4sea> <h3 data-astro-cid-hkoc4sea>Plan Anual</h3> </div> <div class="pricing-price" data-astro-cid-hkoc4sea> <div class="price-item" data-astro-cid-hkoc4sea> <span class="original-price" data-astro-cid-hkoc4sea>$178 USD</span> <span class="current-price" data-astro-cid-hkoc4sea>$136 USD</span> <span class="saving-badge" data-astro-cid-hkoc4sea>
-✨ Ahorra un 24%
-</span> <span class="period" data-astro-cid-hkoc4sea>al año</span> </div> <p class="launch-badge" data-astro-cid-hkoc4sea>Precio Lanzamiento</p> </div> <p class="price-description" data-astro-cid-hkoc4sea>
-La mejor opción para tener acompañamiento continuo durante todo el año.
-</p> ${renderComponent($$result, "Button", $$Button, { "text": "QUIERO EL PLAN ANUAL", "variant": "primary", "size": "md", "href": "https://pay.hotmart.com/G106540717U?off=5jkvlz7h&checkoutMode=6", "onClick": "gtag('event', 'anual_cta_click', { event_category: 'engagement', event_label: 'Pricing Section' });", "data-astro-cid-hkoc4sea": true })} </div> </div> </div> </section>`;
-}, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/components/Pricing.astro", void 0);
-
-const $$FinalCTA = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${maybeRenderHead()}<section class="final-cta" data-astro-cid-66itwakk> <div class="final-container" data-astro-cid-66itwakk> <!-- Mensaje principal --> <div class="final-content" data-astro-cid-66itwakk> <h2 data-astro-cid-66itwakk>
-Tu hijo no viene con manual…
-<span class="highlight" data-astro-cid-66itwakk>pero no tienes que vivir este proceso sola.</span> </h2> <p data-astro-cid-66itwakk>Tener claridad y acompañamiento puede hacer una diferencia enorme en cómo vives cada etapa de la crianza.</p> </div> <!-- Botón grande final --> <div class="final-button" data-astro-cid-66itwakk> ${renderComponent($$result, "Button", $$Button, { "text": "QUIERO UNIRME A LA MEMBRESÍA AHORA", "variant": "primary", "href": "#pricing", "onClick": "gtag('event', 'final_cta_click', { event_category: 'engagement', event_label: 'Final CTA Section' });", "data-astro-cid-66itwakk": true })} </div> </div> </section>`;
-}, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/components/FinalCTA.astro", void 0);
-
 const $$Testimonials = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<section class="testimonials" data-astro-cid-aadlzisc> <div class="container" data-astro-cid-aadlzisc> <h2 data-astro-cid-aadlzisc>Lo que nos cuentan las Personas</h2> <p class="subtitle" data-astro-cid-aadlzisc>
 Historias reales de personas que han encontrado tranquilidad,
@@ -209,7 +158,72 @@ Historias reales de personas que han encontrado tranquilidad,
 </p> <div class="testimonials-grid" data-astro-cid-aadlzisc> <img src="/images/testimonios/opiniones.PNG" alt="Testimonio de familia" data-astro-cid-aadlzisc> <img src="/images/testimonios/opiniones2.PNG" alt="Testimonio de familia" data-astro-cid-aadlzisc> <img src="/images/testimonios/opiniones3.PNG" alt="Testimonio de familia" data-astro-cid-aadlzisc> </div> </div> </section>`;
 }, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/components/Testimonials.astro", void 0);
 
-const __vite_glob_1_0 = new Proxy({"src":"/_astro/IMG_0618.BrIBj9LS.JPEG","width":4000,"height":6000,"format":"jpg","orientation":8}, {
+const __vite_glob_0_0 = new Proxy({"src":"/_astro/Foto Luza 2.ht27i_Lh.png","width":1080,"height":1350,"format":"png"}, {
+						get(target, name, receiver) {
+							if (name === 'clone') {
+								return structuredClone(target);
+							}
+							if (name === 'fsPath') {
+								return "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/public/images/team/luza/Foto Luza 2.png";
+							}
+							
+							return target[name];
+						}
+					});
+
+const __vite_glob_0_1 = new Proxy({"src":"/_astro/Foto Luza 3.CAG_2Vzy.jpg","width":1096,"height":1552,"format":"jpg","orientation":1}, {
+						get(target, name, receiver) {
+							if (name === 'clone') {
+								return structuredClone(target);
+							}
+							if (name === 'fsPath') {
+								return "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/public/images/team/luza/Foto Luza 3.jpg";
+							}
+							
+							return target[name];
+						}
+					});
+
+const __vite_glob_0_2 = new Proxy({"src":"/_astro/Foto Luza5.C5mPzzD8.jpg","width":1013,"height":2066,"format":"jpg","orientation":1}, {
+						get(target, name, receiver) {
+							if (name === 'clone') {
+								return structuredClone(target);
+							}
+							if (name === 'fsPath') {
+								return "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/public/images/team/luza/Foto Luza5.jpg";
+							}
+							
+							return target[name];
+						}
+					});
+
+const __vite_glob_0_3 = new Proxy({"src":"/_astro/Foto luza 4.C80vkR0R.jpg","width":1179,"height":1546,"format":"jpg","orientation":1}, {
+						get(target, name, receiver) {
+							if (name === 'clone') {
+								return structuredClone(target);
+							}
+							if (name === 'fsPath') {
+								return "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/public/images/team/luza/Foto luza 4.jpg";
+							}
+							
+							return target[name];
+						}
+					});
+
+const __vite_glob_0_4 = new Proxy({"src":"/_astro/Foto luza.CzCCDUb1.png","width":1080,"height":1350,"format":"png"}, {
+						get(target, name, receiver) {
+							if (name === 'clone') {
+								return structuredClone(target);
+							}
+							if (name === 'fsPath') {
+								return "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/public/images/team/luza/Foto luza.png";
+							}
+							
+							return target[name];
+						}
+					});
+
+const __vite_glob_1_0 = new Proxy({"src":"/_astro/IMG_0618.DBtG1QyP.JPEG","width":4000,"height":6000,"format":"jpg","orientation":8}, {
 						get(target, name, receiver) {
 							if (name === 'clone') {
 								return structuredClone(target);
@@ -276,7 +290,7 @@ const __vite_glob_1_4 = new Proxy({"src":"/_astro/IMG_0622.JPG.BAm79Ij0.jpeg","w
 
 const $$TeamDay = createComponent(($$result, $$props, $$slots) => {
   const luzaImages = Object.values(
-    [
+    [__vite_glob_0_0,__vite_glob_0_1,__vite_glob_0_2,__vite_glob_0_3,__vite_glob_0_4
 
 
 
@@ -300,20 +314,4 @@ Queremos que conozcas un poco más de quiénes estamos detrás de cada
 </p> <div class="gallery-slider" data-astro-cid-o7unhb2u> ${images.map((image) => renderTemplate`<img${addAttribute(image.src ?? image, "src")} alt="Pediatras Pedia360" loading="lazy" data-astro-cid-o7unhb2u>`)} </div> </div> </section>`;
 }, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/components/TeamDay.astro", void 0);
 
-const $$Index = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${renderComponent($$result, "MainLayout", $$MainLayout, {}, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "Hero", $$Hero, {})} ${renderComponent($$result2, "Video", $$Video, {})} ${renderComponent($$result2, "PainPoints", $$PainPoints, {})} ${renderComponent($$result2, "Benefits", $$Benefits, {})} ${renderComponent($$result2, "Features", $$Features, {})} ${renderComponent($$result2, "Rutas", $$Rutas, {})} ${renderComponent($$result2, "Team", $$Team, {})} ${renderComponent($$result2, "TeamDay", $$TeamDay, {})} ${renderComponent($$result2, "Testimonials", $$Testimonials, {})} ${renderComponent($$result2, "Pricing", $$Pricing, {})} ${renderComponent($$result2, "FAQ", $$FAQ, {})} ${renderComponent($$result2, "FinalCTA", $$FinalCTA, {})} ${renderComponent($$result2, "Footer", $$Footer, {})} ` })}`;
-}, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/pages/index.astro", void 0);
-
-const $$file = "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/pages/index.astro";
-const $$url = "";
-
-const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	default: $$Index,
-	file: $$file,
-	url: $$url
-}, Symbol.toStringTag, { value: 'Module' }));
-
-const page = () => _page;
-
-export { page };
+export { $$Video as $, $$Benefits as a, $$Features as b, $$Team as c, $$TeamDay as d, $$Testimonials as e };
