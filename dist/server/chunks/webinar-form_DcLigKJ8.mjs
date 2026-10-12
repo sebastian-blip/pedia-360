@@ -1,8 +1,8 @@
-import { c as createComponent } from './astro-component_DuM9yDkz.mjs';
+import { c as createComponent } from './astro-component_C286kXO0.mjs';
 import 'piccolore';
-import { k as createRenderInstruction, m as maybeRenderHead, j as renderComponent, r as renderTemplate } from './server_BM1fqq3J.mjs';
-import { $ as $$MainLayout } from './MainLayout_CJIT27bI.mjs';
-import { $ as $$Button } from './Button_ysLpynub.mjs';
+import { k as createRenderInstruction, m as maybeRenderHead, j as renderComponent, r as renderTemplate } from './server_g4tFDBhE.mjs';
+import { $ as $$MainLayout } from './MainLayout_BG9FkgzU.mjs';
+import { $ as $$Button } from './Button_aGmKfuKH.mjs';
 
 async function renderScript(result, id) {
   const inlined = result.inlinedScripts.get(id);
@@ -41,7 +41,7 @@ Entendiendo la
 ¿Tu bebé llora mucho, se retuerce, tiene gases o parece incómodo la mayor parte del tiempo?
 </p> <p class="description" data-astro-cid-loomxoep>
 En este webinar gratuito aprenderás a entender qué está ocurriendo en su sistema digestivo, cómo reconocer si se trata de cólico o estreñimiento y qué hacer para ayudarlo a sentirse mejor.
-</p> <div class="info" data-astro-cid-loomxoep> <div class="info-card" data-astro-cid-loomxoep> <span data-astro-cid-loomxoep>📅</span> <div data-astro-cid-loomxoep> <strong data-astro-cid-loomxoep>Fecha</strong> <small data-astro-cid-loomxoep>19 de octubre de 2026</small> </div> </div> <div class="info-card" data-astro-cid-loomxoep> <span data-astro-cid-loomxoep>🕐</span> <div data-astro-cid-loomxoep> <strong data-astro-cid-loomxoep>Hora</strong> <small data-astro-cid-loomxoep>7:00 PM (Colombia)</small> </div> </div> </div> <ul class="features" data-astro-cid-loomxoep> <li data-astro-cid-loomxoep>✔ Webinar en vivo</li> <li data-astro-cid-loomxoep>✔ Explicado por pediatras</li> <li data-astro-cid-loomxoep>✔ Totalmente gratuito</li> </ul> </div> <div class="hero-form" data-astro-cid-loomxoep> ${renderComponent($$result, "WebinarForm", $$WebinarForm$1, { "data-astro-cid-loomxoep": true })} </div> </div> </section>`;
+</p> <div class="info" data-astro-cid-loomxoep> <div class="info-card" data-astro-cid-loomxoep> <span data-astro-cid-loomxoep>📅</span> <div data-astro-cid-loomxoep> <strong data-astro-cid-loomxoep>Fecha</strong> <small data-astro-cid-loomxoep>19 de octubre de 2026</small> </div> </div> <div class="info-card" data-astro-cid-loomxoep> <span data-astro-cid-loomxoep>🕐</span> <div data-astro-cid-loomxoep> <strong data-astro-cid-loomxoep>Hora</strong> <small data-astro-cid-loomxoep>8:00 PM (Colombia)</small> </div> </div> </div> <ul class="features" data-astro-cid-loomxoep> <li data-astro-cid-loomxoep>✔ Webinar en vivo</li> <li data-astro-cid-loomxoep>✔ Explicado por pediatras</li> <li data-astro-cid-loomxoep>✔ Totalmente gratuito</li> </ul> </div> <div class="hero-form" data-astro-cid-loomxoep> ${renderComponent($$result, "WebinarForm", $$WebinarForm$1, { "data-astro-cid-loomxoep": true })} </div> </div> </section>`;
 }, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/components/webinar/WebinarHero.astro", void 0);
 
 const $$WebinarForm = createComponent(($$result, $$props, $$slots) => {
