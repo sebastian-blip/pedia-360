@@ -1,4 +1,4 @@
-export { p as handler, q as options, t as startServer } from './chunks/server_CpqIxvTj.mjs';
+export { p as handler, q as options, t as startServer } from './chunks/server_BM1fqq3J.mjs';
 import '@astrojs/internal-helpers/path';
 import '@astrojs/internal-helpers/remote';
 import 'piccolore';

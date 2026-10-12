@@ -1,9 +1,9 @@
-import { c as createComponent } from './astro-component_CnvSSFUV.mjs';
+import { c as createComponent } from './astro-component_DuM9yDkz.mjs';
 import 'piccolore';
-import { m as maybeRenderHead, r as renderTemplate, j as renderComponent, f as addAttribute } from './server_CpqIxvTj.mjs';
+import { m as maybeRenderHead, r as renderTemplate, j as renderComponent, f as addAttribute } from './server_BM1fqq3J.mjs';
 import 'clsx';
 /* empty css                    */
-import { $ as $$ } from './.Layout_BP4gR8AB.mjs';
+import { $ as $$ } from './.Layout_laEHqWOj.mjs';
 
 const $$Video = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$props, $$slots);

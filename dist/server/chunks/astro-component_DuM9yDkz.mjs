@@ -1,4 +1,4 @@
-import { A as AstroError, n as InvalidComponentArgs } from './server_CpqIxvTj.mjs';
+import { A as AstroError, n as InvalidComponentArgs } from './server_BM1fqq3J.mjs';
 
 function validateArgs(args) {
   if (args.length !== 3) return false;
