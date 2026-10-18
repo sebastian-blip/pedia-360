@@ -1,5 +1,5 @@
 const BASE_URL = "https://api.systeme.io/api";
-const API_KEY = "vrxtoesi5lkm5peb206tyyhr3buxs9zswb85bln6ymfzkwtzy8yxacyc4rxc4m5d";
+const API_KEY = "vj86n7y9tpwd6ywbftwitxkv6leskunzkdiysdhqwls0ycgu10cxcro91pct94zh";
 async function systemeRequest(path, options = {}) {
   const response = await fetch(`${BASE_URL}${path}`, {
     ...options,
