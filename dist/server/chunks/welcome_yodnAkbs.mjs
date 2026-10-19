@@ -1,10 +1,10 @@
-import { c as createComponent } from './astro-component_BJE8iD3v.mjs';
+import { c as createComponent } from './astro-component_C1YkZwIC.mjs';
 import 'piccolore';
-import { j as renderComponent, r as renderTemplate, m as maybeRenderHead } from './server_D5ZZ6WHa.mjs';
-import { $ as $$MainLayout } from './MainLayout_DRyNkAPL.mjs';
+import { j as renderComponent, r as renderTemplate, m as maybeRenderHead } from './server_DeRNG_ei.mjs';
+import { $ as $$MainLayout } from './MainLayout_Bc1OenSo.mjs';
 /* empty css                    */
-import { $ as $$ } from './.Layout_DHa01pKf.mjs';
-import { $ as $$Footer } from './Footer_CUWCdSL9.mjs';
+import { $ as $$ } from './.Layout_qnkW7ZEx.mjs';
+import { $ as $$Footer } from './Footer_CJ81o_9R.mjs';
 
 const $$Send = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$props, $$slots);
