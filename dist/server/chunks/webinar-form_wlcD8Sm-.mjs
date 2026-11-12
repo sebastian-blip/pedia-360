@@ -1,22 +1,9 @@
-import { c as createComponent } from './astro-component_C1YkZwIC.mjs';
+import { c as createComponent } from './astro-component_N5dA-0ch.mjs';
 import 'piccolore';
-import { k as createRenderInstruction, m as maybeRenderHead, j as renderComponent, r as renderTemplate } from './server_DeRNG_ei.mjs';
-import { $ as $$MainLayout } from './MainLayout_Bc1OenSo.mjs';
-import { $ as $$Button } from './Button_zjWzv9kV.mjs';
-
-async function renderScript(result, id) {
-  const inlined = result.inlinedScripts.get(id);
-  let content = "";
-  if (inlined != null) {
-    if (inlined) {
-      content = `<script type="module">${inlined}</script>`;
-    }
-  } else {
-    const resolved = await result.resolve(id);
-    content = `<script type="module" src="${result.userAssetsBase ? (result.base === "/" ? "" : result.base) + result.userAssetsBase : ""}${resolved}"></script>`;
-  }
-  return createRenderInstruction({ type: "script", id, content });
-}
+import { m as maybeRenderHead, i as renderComponent, r as renderTemplate } from './server_C0jtql1O.mjs';
+import { $ as $$MainLayout } from './MainLayout_8Mfz-x8L.mjs';
+import { r as renderScript } from './script_XatLeZwW.mjs';
+import { $ as $$Button } from './Button_CtB0R9AC.mjs';
 
 const $$WebinarForm$1 = createComponent(async ($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<div class="form-card" data-astro-cid-2vpky2jj> <div class="form-header" data-astro-cid-2vpky2jj> <h2 data-astro-cid-2vpky2jj>Reserva tu cupo</h2> <p data-astro-cid-2vpky2jj>

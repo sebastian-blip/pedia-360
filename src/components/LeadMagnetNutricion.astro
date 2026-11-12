@@ -1,0 +1,829 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const { 
+  title = "¿Tu hijo come lo que necesita?",
+  subtitle = "Responde 5 preguntas y recibe una evaluación personalizada sobre la alimentación de tu bebé."
+} = Astro.props;
+---
+
+<div class="lead-magnet" data-lead-magnet>
+  <div class="lead-magnet-card">
+    <div class="lead-magnet-header">
+      <h2>{title}</h2>
+      <p>{subtitle}</p>
+    </div>
+
+    <div class="progress-bar" data-progress-bar>
+      <div class="progress-fill" data-progress-fill></div>
+    </div>
+
+    <form class="lead-magnet-form" data-lead-form novalidate>
+      <!-- Pregunta 1 -->
+      <fieldset class="question-step" data-step="1" data-question="age">
+        <legend class="question-title">
+          <span class="question-number">1</span>
+          ¿Qué edad tiene tu hijo?
+        </legend>
+        <div class="options">
+          <label class="option-card">
+            <input type="radio" name="age" value="6-9" required />
+            <span class="option-text">6 meses a 9 meses</span>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="age" value="9-12" required />
+            <span class="option-text">9 meses a 12 meses</span>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="age" value="1-2" required />
+            <span class="option-text">1 a 2 años</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Pregunta 2 -->
+      <fieldset class="question-step" data-step="2" data-question="meals" hidden>
+        <legend class="question-title">
+          <span class="question-number">2</span>
+          ¿Cuántas veces al día ofreces comidas?
+        </legend>
+        <div class="options">
+          <label class="option-card">
+            <input type="radio" name="meals" value="1-2" required />
+            <span class="option-text">Una o dos veces al día</span>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="meals" value="3" required />
+            <span class="option-text">Tres veces al día</span>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="meals" value="3-plus-1" required />
+            <span class="option-text">Tres comidas y un refrigerio</span>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="meals" value="3-plus-2" required />
+            <span class="option-text">Tres comidas y dos refrigerios</span>
+          </label>
+        </div>
+        <div class="feedback" data-feedback="meals" hidden></div>
+      </fieldset>
+
+      <!-- Pregunta 3 -->
+      <fieldset class="question-step" data-step="3" data-question="vegetables" hidden>
+        <legend class="question-title">
+          <span class="question-number">3</span>
+          ¿Estás ofreciendo verduras o ensaladas en?
+        </legend>
+        <div class="options">
+          <label class="option-card">
+            <input type="radio" name="vegetables" value="1-2" required />
+            <span class="option-text">Una o dos comidas al día</span>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="vegetables" value="3" required />
+            <span class="option-text">Tres comidas al día</span>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="vegetables" value="no-daily" required />
+            <span class="option-text">No a diario</span>
+          </label>
+        </div>
+        <div class="feedback" data-feedback="vegetables" hidden></div>
+      </fieldset>
+
+      <!-- Pregunta 4 -->
+      <fieldset class="question-step" data-step="4" data-question="portions" hidden>
+        <legend class="question-title">
+          <span class="question-number">4</span>
+          ¿Sabes cuántas cucharadas come en cada comida principal?
+        </legend>
+        <div class="options">
+          <label class="option-card">
+            <input type="radio" name="portions" value="3-4" required />
+            <span class="option-text">3 a 4 cucharadas por plato</span>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="portions" value="4-8" required />
+            <span class="option-text">4 a 8 cucharadas por plato</span>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="portions" value="cup" required />
+            <span class="option-text">3/4 a 1 taza por comida</span>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="portions" value="unknown" required />
+            <span class="option-text">No sé cuánto come</span>
+          </label>
+        </div>
+        <div class="feedback" data-feedback="portions" hidden></div>
+      </fieldset>
+
+      <!-- Pregunta 5 -->
+      <fieldset class="question-step" data-step="5" data-question="plate" hidden>
+        <legend class="question-title">
+          <span class="question-number">5</span>
+          ¿En cada plato de comida incluyes?
+        </legend>
+        <div class="options">
+          <label class="option-card">
+            <input type="radio" name="plate" value="complete" required />
+            <span class="option-text">Verdura + fruta + harina + proteína</span>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="plate" value="sometimes-veg" required />
+            <span class="option-text">Proteína + harina y a veces verdura</span>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="plate" value="protein-starch" required />
+            <span class="option-text">Proteína + harina</span>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="plate" value="protein-starch-fruit" required />
+            <span class="option-text">Proteína + harina + fruta</span>
+          </label>
+        </div>
+        <div class="feedback" data-feedback="plate" hidden></div>
+      </fieldset>
+
+      <!-- Resumen -->
+      <div class="summary-step" data-step="summary" hidden>
+        <div class="summary-header">
+          <h3>¡Listo! Esta es tu evaluación</h3>
+          <p>Revisa los puntos más importantes según tus respuestas.</p>
+        </div>
+        <div class="summary-content" data-summary-content></div>
+      </div>
+
+      <!-- Finalización -->
+      <div class="complete-step" data-step="complete" hidden>
+        <div class="complete-icon">🎉</div>
+        <div class="complete-header">
+          <h3>¡Gracias por completar la evaluación!</h3>
+          <p>
+            Ahora tienes claridad sobre los puntos más importantes de la alimentación de tu hijo.
+            Si quieres acompañamiento personalizado, estamos para ayudarte.
+          </p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="lm-btn lm-btn-primary lm-btn-lg" type="button" data-next-btn>
+          Continuar
+        </button>
+        <button class="lm-btn lm-btn-outline lm-btn-md" type="button" data-prev-btn hidden>
+          Volver
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const containers = document.querySelectorAll("[data-lead-magnet]");
+
+    containers.forEach((container) => {
+      const form = container.querySelector("[data-lead-form]");
+      const steps = container.querySelectorAll("[data-step]");
+      const nextBtn = container.querySelector("[data-next-btn]");
+      const prevBtn = container.querySelector("[data-prev-btn]");
+      const progressFill = container.querySelector("[data-progress-fill]");
+      const summaryContent = container.querySelector("[data-summary-content]");
+
+      const TOTAL_QUESTIONS = 5;
+      let currentStep = 1;
+      const answers = {};
+      const feedbacks = {};
+
+      const messages = {
+        meals: {
+          "6-9_1-2":
+            "Actualmente se recomienda 3 veces al día para aumentar la exposición a todos los sabores y variedad de alimentos y evitar el rechazo a estos, así que te invito a que lo implementes.",
+          "6-9_3":
+            "¡Excelente! Sigue así, recuerda que los refrigerios los puedes ofrecer desde los 9 meses.",
+          "6-9_3-plus-1":
+            "A esta edad no es obligatorio el refrigerio, depende del apetito del bebé. Si tu bebé come las 3 comidas principales y además tiene apetito para el refrigerio, puedes continuarlo. Recuerda priorizar a esta edad las comidas principales.",
+          "6-9_3-plus-2":
+            "A esta edad no es obligatorio el refrigerio, depende del apetito del bebé. Si tu bebé come las 3 comidas principales y además tiene apetito para el refrigerio, puedes continuarlo. Recuerda priorizar a esta edad las comidas principales.",
+          "9-12_1-2":
+            "Tu hijo a esta edad ya necesita el refrigerio, este aporta la energía adicional para esta etapa tan activa, además son la oportunidad para ofrecer alimentos que no comió en otro tiempo de comida.",
+          "9-12_3":
+            "Tu hijo a esta edad ya necesita el refrigerio, este aporta la energía adicional para esta etapa tan activa, además son la oportunidad para ofrecer alimentos que no comió en otro tiempo de comida.",
+          "1-2_1-2":
+            "Tu hijo a esta edad ya necesita el refrigerio, este aporta la energía adicional para esta etapa tan activa, además son la oportunidad para ofrecer alimentos que no comió en otro tiempo de comida.",
+          "1-2_3":
+            "Tu hijo a esta edad ya necesita el refrigerio, este aporta la energía adicional para esta etapa tan activa, además son la oportunidad para ofrecer alimentos que no comió en otro tiempo de comida.",
+        },
+        vegetables: {
+          "1-2":
+            "Vas por buen camino, pero podemos optimizar. El plan de ahora en adelante es que todas las comidas principales tengan verduras o ensaladas. Recuerda que no siempre tiene que ser mix de estas, puede ser un pedazo de aguacate, unas rebanadas de tomate, zanahoria sola, etc.",
+          "3-plus-1":
+            "Vas por buen camino, pero podemos optimizar. El plan de ahora en adelante es que todas las comidas principales tengan verduras o ensaladas. Recuerda que no siempre tiene que ser mix de estas, puede ser un pedazo de aguacate, unas rebanadas de tomate, zanahoria sola, etc.",
+          "no-daily":
+            "Vas por buen camino, pero podemos optimizar. El plan de ahora en adelante es que todas las comidas principales tengan verduras o ensaladas. Recuerda que no siempre tiene que ser mix de estas, puede ser un pedazo de aguacate, unas rebanadas de tomate, zanahoria sola, etc.",
+        },
+        portions: {
+          unknown:
+            "La cantidad no es lo único importante, todos tenemos un apetito diferente. Aquí lo importante es:\n- Come variedad de alimentos\n- Su ganancia de peso es adecuada\n- Tiene energía para jugar a diario\n- No reemplaza los alimentos por tetero",
+          "6-9_3-4":
+            "¡Excelente! Es la cantidad mínima. Si come más puedes ofrecerle, siempre y cuando sea de todos los alimentos y no de uno solo.",
+          "6-9_4-8":
+            "La cantidad está bien si además:\n- Come variedad de alimentos\n- Su ganancia de peso es adecuada\n- Tiene energía para jugar a diario\n- No reemplaza los alimentos por tetero",
+          "9-12_4-8":
+            "La cantidad está bien si además:\n- Come variedad de alimentos\n- Su ganancia de peso es adecuada\n- Tiene energía para jugar a diario\n- No reemplaza los alimentos por tetero",
+          "1-2_4-8":
+            "La cantidad está bien si además:\n- Come variedad de alimentos\n- Su ganancia de peso es adecuada\n- Tiene energía para jugar a diario\n- No reemplaza los alimentos por tetero",
+          "1-2_cup":
+            "La cantidad está bien si además:\n- Come variedad de alimentos\n- Su ganancia de peso es adecuada\n- Tiene energía para jugar a diario\n- No reemplaza los alimentos por tetero",
+        },
+        plate: {
+          "sometimes-veg":
+            "Los alimentos que ofreces son indispensables para el crecimiento y buena nutrición, pero hay otros que debes incluir. En cada plato de comida de tu bebé revisa que tenga: 1 proteína (carnes, pollo, pescado, frijoles, queso, etc.) + 1 harina (papa, arroz, maduro, avena, arepa, etc.) + 1 fruta + 1 verdura. Así aseguras cubrir todos los nutrientes y energía que necesita para estar sano.",
+          "protein-starch":
+            "Los alimentos que ofreces son indispensables para el crecimiento y buena nutrición, pero hay otros que debes incluir. En cada plato de comida de tu bebé revisa que tenga: 1 proteína (carnes, pollo, pescado, frijoles, queso, etc.) + 1 harina (papa, arroz, maduro, avena, arepa, etc.) + 1 fruta + 1 verdura. Así aseguras cubrir todos los nutrientes y energía que necesita para estar sano.",
+          "protein-starch-fruit":
+            "Los alimentos que ofreces son indispensables para el crecimiento y buena nutrición, pero hay otros que debes incluir. En cada plato de comida de tu bebé revisa que tenga: 1 proteína (carnes, pollo, pescado, frijoles, queso, etc.) + 1 harina (papa, arroz, maduro, avena, arepa, etc.) + 1 fruta + 1 verdura. Así aseguras cubrir todos los nutrientes y energía que necesita para estar sano.",
+        },
+      };
+
+      const positiveMessages = {
+        meals: "¡Excelente! La frecuencia de comidas que ofreces es adecuada para su etapa.",
+        vegetables: "¡Excelente! Incluir verduras en las tres comidas principales asegura una buena ingesta de nutrientes.",
+        portions: "La cantidad que come parece adecuada para su edad. Sigue observando su apetito y crecimiento.",
+        plate: "¡Perfecto! Tu plato incluye todos los grupos alimenticios que tu bebé necesita.",
+      };
+
+      function updateProgress() {
+        const progress =
+          currentStep === "summary" || currentStep === "complete"
+            ? 100
+            : Math.round(((currentStep - 1) / TOTAL_QUESTIONS) * 100);
+        if (progressFill) {
+          progressFill.style.width = `${progress}%`;
+        }
+      }
+
+      function getButtonText(step) {
+        if (step === "summary") return "Finalizar";
+        if (step === "complete") return "Volver a empezar";
+        return "Continuar";
+      }
+
+      function showStep(step) {
+        steps.forEach((s) => {
+          const stepValue = s.getAttribute("data-step");
+          s.hidden = stepValue !== String(step);
+        });
+
+        if (nextBtn) {
+          nextBtn.textContent = getButtonText(step);
+        }
+
+        if (prevBtn) {
+          const hidePrev = step === 1 || step === "complete";
+          prevBtn.hidden = hidePrev;
+          prevBtn.style.display = hidePrev ? "none" : "";
+        }
+
+        currentStep = step;
+        updateProgress();
+      }
+
+      function getFeedback(question, value) {
+        const age = answers.age;
+
+        if (question === "meals") {
+          const key = `${age}_${value}`;
+          return messages.meals[key] || positiveMessages.meals;
+        }
+
+        if (question === "vegetables") {
+          if (value === "3") return positiveMessages.vegetables;
+          return messages.vegetables[value];
+        }
+
+        if (question === "portions") {
+          if (value === "unknown") return messages.portions.unknown;
+          const key = `${age}_${value}`;
+          return messages.portions[key] || positiveMessages.portions;
+        }
+
+        if (question === "plate") {
+          if (value === "complete") return positiveMessages.plate;
+          return messages.plate[value];
+        }
+
+        return "";
+      }
+
+      function renderFeedback(question, value) {
+        const feedbackEl = container.querySelector(
+          `[data-feedback="${question}"]`
+        );
+        if (!feedbackEl) return;
+
+        const message = getFeedback(question, value);
+        if (!message) {
+          feedbackEl.hidden = true;
+          return;
+        }
+
+        feedbackEl.innerHTML = message
+          .split("\n")
+          .map((line) => `<p>${line}</p>`)
+          .join("");
+        feedbackEl.hidden = false;
+        feedbacks[question] = message;
+      }
+
+      function getQuestionLabel(question) {
+        const labels = {
+          age: "Edad de tu hijo",
+          meals: "Frecuencia de comidas",
+          vegetables: "Verduras y ensaladas",
+          portions: "Cantidad por comida",
+          plate: "Composición del plato",
+        };
+        return labels[question] || question;
+      }
+
+      function buildSummary() {
+        if (!summaryContent) return;
+
+        const ageLabels = {
+          "6-9": "6 a 9 meses",
+          "9-12": "9 a 12 meses",
+          "1-2": "1 a 2 años",
+        };
+
+        let html = `
+          <div class="summary-item">
+            <strong>Edad:</strong> ${ageLabels[answers.age] || answers.age}
+          </div>
+        `;
+
+        ["meals", "vegetables", "portions", "plate"].forEach((q) => {
+          const feedback = feedbacks[q];
+          if (feedback) {
+            html += `
+              <div class="summary-item">
+                <h4>${getQuestionLabel(q)}</h4>
+                ${feedback
+                  .split("\n")
+                  .map((line) => `<p>${line}</p>`)
+                  .join("")}
+              </div>
+            `;
+          }
+        });
+
+        summaryContent.innerHTML = html;
+      }
+
+      function resetQuiz() {
+        // Limpiar respuestas
+        Object.keys(answers).forEach((key) => delete answers[key]);
+        Object.keys(feedbacks).forEach((key) => delete feedbacks[key]);
+
+        // Desmarcar todos los radios
+        const allRadios = container.querySelectorAll('input[type="radio"]');
+        allRadios.forEach((radio) => {
+          radio.checked = false;
+        });
+
+        // Ocultar todos los feedbacks
+        const allFeedbacks = container.querySelectorAll("[data-feedback]");
+        allFeedbacks.forEach((fb) => {
+          fb.hidden = true;
+          fb.innerHTML = "";
+        });
+
+        // Volver al inicio
+        showStep(1);
+      }
+
+      function canAdvance() {
+        if (currentStep === "summary" || currentStep === "complete") return true;
+
+        const stepEl = container.querySelector(`[data-step="${currentStep}"]`);
+        if (!stepEl) return false;
+
+        const checked = stepEl.querySelector('input[type="radio"]:checked');
+        return !!checked;
+      }
+
+      function handleNext() {
+        if (!canAdvance()) return;
+
+        if (currentStep === "summary") {
+          form.dispatchEvent(new CustomEvent("leadMagnetComplete", {
+            bubbles: true,
+            detail: { answers, feedbacks },
+          }));
+          showStep("complete");
+          return;
+        }
+
+        if (currentStep === "complete") {
+          resetQuiz();
+          return;
+        }
+
+        const stepEl = container.querySelector(`[data-step="${currentStep}"]`);
+        const question = stepEl?.getAttribute("data-question");
+        const checked = stepEl.querySelector('input[type="radio"]:checked');
+        const value = checked?.value;
+
+        if (question && value) {
+          answers[question] = value;
+
+          // La pregunta 1 no muestra feedback
+          if (currentStep > 1) {
+            renderFeedback(question, value);
+          }
+        }
+
+        if (currentStep < TOTAL_QUESTIONS) {
+          showStep(currentStep + 1);
+        } else {
+          buildSummary();
+          showStep("summary");
+        }
+      }
+
+      function handlePrev() {
+        if (currentStep === "summary") {
+          showStep(TOTAL_QUESTIONS);
+          return;
+        }
+
+        if (currentStep === "complete") {
+          return;
+        }
+
+        if (currentStep > 1) {
+          showStep(currentStep - 1);
+        }
+      }
+
+      function handleOptionClick(question, value) {
+        if (currentStep === "summary") return;
+
+        answers[question] = value;
+
+        // La pregunta 1 no muestra feedback
+        if (currentStep > 1) {
+          renderFeedback(question, value);
+        }
+
+        // Habilita el botón visualmente
+        if (nextBtn) {
+          nextBtn.disabled = false;
+          nextBtn.classList.remove("btn-disabled");
+        }
+      }
+
+      nextBtn?.addEventListener("click", handleNext);
+      prevBtn?.addEventListener("click", handlePrev);
+
+      const optionCards = container.querySelectorAll(".option-card input");
+      optionCards.forEach((input) => {
+        input.addEventListener("change", () => {
+          const question = input
+            .closest("[data-question]")
+            ?.getAttribute("data-question");
+          if (question) {
+            handleOptionClick(question, input.value);
+          }
+        });
+      });
+
+      showStep(1);
+    });
+  });
+</script>
+
+<style>
+  .lead-magnet {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  .lead-magnet-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .lead-magnet-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .lead-magnet-header h2 {
+    margin: 0;
+    color: var(--color-dark);
+    font-size: var(--text-2xl);
+  }
+
+  .lead-magnet-header p {
+    margin-top: 0.75rem;
+    color: var(--color-gray);
+    line-height: 1.6;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--color-light-gray);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(135deg, #fa6aa5 0%, #e94d91 100%);
+    border-radius: 999px;
+    transition: width 0.4s ease;
+  }
+
+  .lead-magnet-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .question-step {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .question-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-secondary);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .question-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    background: linear-gradient(135deg, #fa6aa5 0%, #e94d91 100%);
+    color: white;
+    border-radius: 50%;
+    font-size: var(--text-base);
+    font-weight: 700;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .option-card {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1rem 1.15rem;
+    border: 2px solid #ececec;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    background: white;
+  }
+
+  .option-card:hover {
+    border-color: var(--color-pink);
+    box-shadow: 0 4px 12px rgba(250, 106, 165, 0.1);
+  }
+
+  .option-card:has(input:checked) {
+    border-color: var(--color-pink);
+    background: #fff3f8;
+    box-shadow: 0 4px 16px rgba(250, 106, 165, 0.15);
+  }
+
+  .option-card input {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--color-pink);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .option-text {
+    font-size: var(--text-base);
+    color: var(--color-dark);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .feedback {
+    margin-top: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 14px;
+    background: #f0f9ff;
+    border-left: 4px solid #38bdf8;
+    color: var(--color-dark);
+  }
+
+  .feedback p {
+    margin: 0;
+    color: var(--color-dark);
+    line-height: 1.6;
+  }
+
+  .feedback p + p {
+    margin-top: 0.5rem;
+  }
+
+  .summary-step {
+    animation: fadeIn 0.4s ease;
+  }
+
+  .summary-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .summary-header h3 {
+    color: var(--color-dark);
+    margin: 0;
+  }
+
+  .summary-header p {
+    margin-top: 0.5rem;
+  }
+
+  .summary-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .summary-item {
+    padding: 1rem 1.25rem;
+    border-radius: 14px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+  }
+
+  .summary-item h4 {
+    margin: 0 0 0.5rem;
+    color: var(--color-dark);
+    font-size: var(--text-base);
+  }
+
+  .summary-item p {
+    margin: 0;
+    color: var(--color-gray);
+    line-height: 1.6;
+  }
+
+  .summary-item p + p {
+    margin-top: 0.35rem;
+  }
+
+  .complete-step {
+    text-align: center;
+    animation: fadeIn 0.4s ease;
+    padding: 1rem 0;
+  }
+
+  .complete-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .complete-header {
+    margin-bottom: 1rem;
+  }
+
+  .complete-header h3 {
+    color: var(--color-dark);
+    margin: 0 0 0.75rem;
+    font-size: var(--text-2xl);
+  }
+
+  .complete-header p {
+    color: var(--color-gray);
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .lm-btn {
+    display: inline-block;
+    width: 100%;
+    font-weight: 700;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    font-family: var(--font-primary);
+    letter-spacing: 0.3px;
+  }
+
+  .lm-btn-md {
+    padding: 1rem 2rem;
+    font-size: var(--text-base);
+  }
+
+  .lm-btn-lg {
+    padding: 1.25rem 3rem;
+    font-size: 1.2rem;
+  }
+
+  .lm-btn-primary {
+    background: linear-gradient(135deg, #fa6aa5 0%, #e94d91 100%);
+    color: white;
+    box-shadow: 0 8px 24px rgba(250, 106, 165, 0.35);
+  }
+
+  .lm-btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(250, 106, 165, 0.45);
+  }
+
+  .lm-btn-primary:active {
+    transform: translateY(-1px);
+  }
+
+  .lm-btn-outline {
+    background: white;
+    border: 2px solid #fa6aa5;
+    color: #fa6aa5;
+  }
+
+  .lm-btn-outline:hover {
+    background: #fff3f8;
+    transform: translateY(-2px);
+  }
+
+  .lm-btn:disabled,
+  .lm-btn-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* Ocultar siempre el botón Volver en la pantalla de gracias */
+  [data-step="complete"]:not([hidden]) ~ .actions [data-prev-btn],
+  .lead-magnet-form:has([data-step="complete"]:not([hidden])) .actions [data-prev-btn] {
+    display: none !important;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .lead-magnet-card {
+      padding: 1.5rem;
+    }
+
+    .question-title {
+      font-size: var(--text-lg);
+    }
+
+    .option-text {
+      font-size: var(--text-sm);
+    }
+  }
+</style>

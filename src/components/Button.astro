@@ -6,6 +6,7 @@ interface Props {
   size?: 'sm' | 'md' | 'lg';
   type?: 'button' | 'submit' | 'reset';
   onClick?: string;
+  [key: string]: any;
 }
 
 const { 
@@ -14,7 +15,8 @@ const {
   variant = 'primary',
   size = 'md',
   type = 'button',
-  onClick
+  onClick,
+  ...rest
 } = Astro.props;
 
 const isLink = !!href;
@@ -22,6 +24,7 @@ const Tag = isLink ? 'a' : 'button';
 ---
 
 <Tag 
+  {...rest}
   href={href}
   type={!isLink ? type : undefined}
   onclick={onClick}
