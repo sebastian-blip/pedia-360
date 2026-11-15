@@ -1,0 +1,51 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import LeadMagnetFiebre from '../components/LeadMagnetFiebre.astro';
+---
+
+<MainLayout title="Fiebre - Guía rápida - Pedia360" description="Responde una guía rápida para saber si tu hijo con fiebre debe ir a urgencias.">
+  <main class="fiebre-page">
+    <section class="fiebre-hero">
+      <h1>Guía de fiebre</h1>
+      <p>Tu hijo tiene fiebre en este momento y necesitas saber si ir a urgencias. Responde esta guía.</p>
+    </section>
+
+    <LeadMagnetFiebre />
+  </main>
+</MainLayout>
+
+<style>
+  .fiebre-page {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #fff5f8 0%, #ffffff 100%);
+    padding: 3rem 1rem;
+  }
+
+  .fiebre-hero {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 2rem;
+  }
+
+  .fiebre-hero h1 {
+    color: var(--color-dark);
+    font-size: var(--text-3xl);
+    margin-bottom: 0.75rem;
+  }
+
+  .fiebre-hero p {
+    color: var(--color-gray);
+    font-size: var(--text-lg);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .fiebre-page {
+      padding: 2rem 1rem;
+    }
+
+    .fiebre-hero h1 {
+      font-size: var(--text-2xl);
+    }
+  }
+</style>
