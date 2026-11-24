@@ -1,0 +1,274 @@
+---
+import '../../styles/variables.css';
+import Button from '../Button.astro';
+
+const plans = [
+  {
+    name: 'Plan Mensual',
+    originalPrice: '$19,5 USD',
+    currentPrice: '$11,70 USD',
+    period: 'al mes',
+    description: 'Perfecto para empezar y conocer todo el contenido.',
+    saving: 'Ahorra 40%',
+    href: 'https://pay.hotmart.com/G106540717U?off=qlnp8tjy',
+    eventLabel: 'blackfriday_mensual_cta_click'
+  },
+  {
+    name: 'Plan Trimestral',
+    originalPrice: '$49,5 USD',
+    currentPrice: '$29,70 USD',
+    period: 'por 3 meses',
+    description: 'Ahorra más y acompaña el proceso de tu hijo con continuidad.',
+    saving: 'Ahorra 40%',
+    href: 'https://pay.hotmart.com/G106540717U?off=3yqtkuhw',
+    eventLabel: 'blackfriday_trimestral_cta_click',
+    featured: true
+  },
+  {
+    name: 'Plan Anual',
+    originalPrice: '$175 USD',
+    currentPrice: '$105 USD',
+    period: 'al año',
+    description: 'La mejor opción para tener acompañamiento continuo durante todo el año.',
+    saving: 'Ahorra 40%',
+    href: 'https://pay.hotmart.com/G106540717U?off=gtpagud2',
+    eventLabel: 'blackfriday_anual_cta_click'
+  }
+];
+---
+
+<section class="pricing" id="pricing">
+  <div class="pricing-container">
+    <div class="pricing-header-section">
+      <span class="promo-badge">BLACK FRIDAY</span>
+      <h2>Elige tu plan con descuento</h2>
+      <p class="pricing-subtitle">
+        Aprovecha hasta un 40% de descuento y únete a la membresía que te acompaña en cada etapa de la crianza.
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+      {plans.map((plan) => (
+        <div class={`pricing-card ${plan.featured ? 'featured' : ''}`}>
+          {plan.featured && <div class="badge-featured">Más Popular</div>}
+
+          <div class="pricing-header">
+            <h3>{plan.name}</h3>
+          </div>
+
+          <div class="pricing-price">
+            <span class="original-price">{plan.originalPrice}</span>
+            <span class="current-price">{plan.currentPrice}</span>
+            <span class="period">{plan.period}</span>
+            <span class="saving-badge">✨ {plan.saving}</span>
+          </div>
+
+          <p class="price-description">
+            {plan.description}
+          </p>
+
+          <Button
+            text={`QUIERO EL ${plan.name.toUpperCase()}`}
+            variant="primary"
+            size="md"
+            href={plan.href}
+            onClick={`gtag('event', '${plan.eventLabel}', { event_category: 'engagement', event_label: 'Black Friday Pricing Section' });`}
+          />
+        </div>
+      ))}
+    </div>
+
+    <p class="pricing-note">
+      Precios en dólares estadounidenses. La promoción es válida por tiempo limitado durante Black Friday.
+    </p>
+  </div>
+</section>
+
+<style>
+  .pricing {
+    padding: var(--space-2xl) var(--space-lg);
+    background: linear-gradient(135deg, #F5F5F5 0%, #FAFAFA 100%);
+  }
+
+  .pricing-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .pricing-header-section {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .promo-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2D2D2D 100%);
+    color: var(--color-yellow);
+    padding: 0.5rem 1.2rem;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: var(--text-sm);
+    letter-spacing: 1.5px;
+    margin-bottom: var(--space-md);
+  }
+
+  h2 {
+    text-align: center;
+    color: var(--color-dark);
+    margin-bottom: var(--space-sm);
+    font-size: var(--text-3xl);
+  }
+
+  .pricing-subtitle {
+    text-align: center;
+    color: var(--color-gray);
+    font-size: var(--text-lg);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    align-items: stretch;
+  }
+
+  .pricing-card {
+    background: var(--color-white);
+    padding: var(--space-2xl);
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    transition: .3s ease;
+    position: relative;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .pricing-card.featured {
+    border: 3px solid var(--color-pink);
+    transform: scale(1.05);
+  }
+
+  .pricing-card.featured:hover {
+    transform: scale(1.05) translateY(-8px);
+  }
+
+  .badge-featured {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(
+      135deg,
+      var(--color-pink),
+      var(--color-hot-pink)
+    );
+    color: white;
+    padding: 7px 18px;
+    border-radius: 999px;
+    font-size: .85rem;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 8px 20px rgba(250,106,165,.25);
+  }
+
+  .pricing-header h3 {
+    margin: 0;
+    color: var(--color-dark);
+    font-size: var(--text-2xl);
+    text-align: center;
+  }
+
+  .pricing-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    text-align: center;
+  }
+
+  .original-price {
+    color: var(--color-gray);
+    text-decoration: line-through;
+    font-size: var(--text-lg);
+  }
+
+  .current-price {
+    color: var(--color-pink);
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .period {
+    color: var(--color-gray);
+    font-size: var(--text-sm);
+  }
+
+  .saving-badge {
+    display: inline-block;
+    margin-top: 0.25rem;
+    padding: 7px 16px;
+    border-radius: 999px;
+    background: linear-gradient(
+      135deg,
+      var(--color-pink),
+      var(--color-hot-pink)
+    );
+    color: white;
+    font-size: .9rem;
+    font-weight: 700;
+    box-shadow: 0 8px 18px rgba(250,106,165,.22);
+  }
+
+  .price-description {
+    color: var(--color-gray);
+    text-align: center;
+    line-height: 1.7;
+    flex-grow: 1;
+  }
+
+  .pricing-card :global(.btn) {
+    width: 100%;
+  }
+
+  .pricing-note {
+    text-align: center;
+    color: var(--color-gray);
+    font-size: var(--text-sm);
+    margin-top: var(--space-xl);
+  }
+
+  @media (max-width: 768px) {
+    .pricing {
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    h2 {
+      font-size: var(--text-2xl);
+    }
+
+    .pricing-grid {
+      gap: var(--space-md);
+    }
+
+    .pricing-card.featured {
+      transform: none;
+    }
+
+    .pricing-card.featured:hover {
+      transform: translateY(-8px);
+    }
+
+    .current-price {
+      font-size: 2.5rem;
+    }
+  }
+</style>

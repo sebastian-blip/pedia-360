@@ -1,12 +1,14 @@
-import { c as createComponent } from './astro-component_DXx6ujKt.mjs';
+import { c as createComponent } from './astro-component_X6g7uG2o.mjs';
 import 'piccolore';
-import { m as maybeRenderHead, i as renderComponent, r as renderTemplate } from './server_CoGq-Vxe.mjs';
-import { $ as $$MainLayout } from './MainLayout_DgDiTUel.mjs';
+import { m as maybeRenderHead, i as renderComponent, r as renderTemplate } from './server_D4R6okJX.mjs';
+import { $ as $$MainLayout } from './MainLayout_DNzTn3EX.mjs';
 /* empty css                    */
-import { $ as $$Button } from './Button_CMPx2kf6.mjs';
-import { $ as $$Video, a as $$Benefits, b as $$Features, c as $$Team, d as $$TeamDay, e as $$Testimonials } from './TeamDay_DE6TKd16.mjs';
-import { $ as $$Rutas, a as $$FAQ } from './FAQ_C-akyY3O.mjs';
-import { $ as $$Footer } from './Footer_VV1wnew0.mjs';
+import { $ as $$Button } from './Button_eUcXOe9p.mjs';
+import { $ as $$Video, a as $$Team, b as $$TeamDay, c as $$Testimonials } from './TeamDay_2PiRhmfM.mjs';
+import { a as $$Benefits, $ as $$Features } from './Benefits_k95_pJn9.mjs';
+import { $ as $$Rutas, a as $$FAQ } from './FAQ_BRejkWvF.mjs';
+import { $ as $$FinalCTA } from './FinalCTA_B3PrWNim.mjs';
+import { $ as $$Footer } from './Footer_LreMtqjW.mjs';
 
 const $$Hero = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<section class="hero" data-astro-cid-bbe6dxrz> <div class="hero-container" data-astro-cid-bbe6dxrz> <div class="hero-content" data-astro-cid-bbe6dxrz> <!-- Logo superior --> <div class="hero-logo-top" data-astro-cid-bbe6dxrz> <img src="/images/LOGO PEDIA 360 - TEXT.png" alt="Pedia360" loading="eager" data-astro-cid-bbe6dxrz> </div> <h1 class="hero-title" data-astro-cid-bbe6dxrz>
@@ -48,12 +50,6 @@ Ahorra más y acompaña el proceso de tu hijo con continuidad.
 La mejor opción para tener acompañamiento continuo durante todo el año.
 </p> ${renderComponent($$result, "Button", $$Button, { "text": "QUIERO EL PLAN ANUAL", "variant": "primary", "size": "md", "href": "https://pay.hotmart.com/G106540717U?off=5jkvlz7h", "onClick": "gtag('event', 'anual_cta_click', { event_category: 'engagement', event_label: 'Pricing Section' });", "data-astro-cid-hkoc4sea": true })} </div> </div> </div> </section>`;
 }, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/components/Pricing.astro", void 0);
-
-const $$FinalCTA = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${maybeRenderHead()}<section class="final-cta" data-astro-cid-66itwakk> <div class="final-container" data-astro-cid-66itwakk> <!-- Mensaje principal --> <div class="final-content" data-astro-cid-66itwakk> <h2 data-astro-cid-66itwakk>
-Tu hijo no viene con manual…
-<span class="highlight" data-astro-cid-66itwakk>pero no tienes que vivir este proceso sola.</span> </h2> <p data-astro-cid-66itwakk>Tener claridad y acompañamiento puede hacer una diferencia enorme en cómo vives cada etapa de la crianza.</p> </div> <!-- Botón grande final --> <div class="final-button" data-astro-cid-66itwakk> ${renderComponent($$result, "Button", $$Button, { "text": "QUIERO UNIRME A LA MEMBRESÍA AHORA", "variant": "primary", "href": "#pricing", "onClick": "gtag('event', 'final_cta_click', { event_category: 'engagement', event_label: 'Final CTA Section' });", "data-astro-cid-66itwakk": true })} </div> </div> </section>`;
-}, "/home/sebastian-betancourh/Documentos/PEDIA 360 - ARCHIVOS-20260513T153510Z-3-001/landings/pedia360-landing/src/components/FinalCTA.astro", void 0);
 
 const $$Index = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "MainLayout", $$MainLayout, {}, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "Hero", $$Hero, {})} ${renderComponent($$result2, "Video", $$Video, {})} ${renderComponent($$result2, "PainPoints", $$PainPoints, {})} ${renderComponent($$result2, "Benefits", $$Benefits, {})} ${renderComponent($$result2, "Features", $$Features, {})} ${renderComponent($$result2, "Rutas", $$Rutas, {})} ${renderComponent($$result2, "Team", $$Team, {})} ${renderComponent($$result2, "TeamDay", $$TeamDay, {})} ${renderComponent($$result2, "Testimonials", $$Testimonials, {})} ${renderComponent($$result2, "Pricing", $$Pricing, {})} ${renderComponent($$result2, "FAQ", $$FAQ, {})} ${renderComponent($$result2, "FinalCTA", $$FinalCTA, {})} ${renderComponent($$result2, "Footer", $$Footer, {})} ` })}`;

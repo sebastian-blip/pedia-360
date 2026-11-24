@@ -1,0 +1,222 @@
+---
+import '../../styles/variables.css';
+import Button from '../Button.astro';
+---
+
+<section class="hero" id="home">
+  <div class="hero-container">
+    <div class="hero-content">
+
+      <div class="hero-badge">
+        <span class="badge-star">★</span>
+        <span>BLACK FRIDAY</span>
+        <span class="badge-star">★</span>
+      </div>
+
+      <div class="hero-logo-top">
+        <img
+          src="/images/LOGO PEDIA 360 - TEXT.png"
+          alt="Pedia360"
+          loading="eager"
+        />
+      </div>
+
+      <h1 class="hero-title">
+        La membresía que te devuelve la tranquilidad como mamá
+        <span class="highlight">ahora con hasta un 40% de descuento</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Pedia360 es un acompañamiento creado por pediatras para mamás con niños de 0 a 5 años. 
+        Resuelve tus dudas sobre salud, alimentación, sueño y desarrollo con información basada en evidencia, 
+        sin depender del algoritmo ni del Dr. Google.
+      </p>
+
+      <div class="hero-features">
+        <div class="feature-item">
+          <span class="check-icon">✔</span>
+          <span>Salud infantil</span>
+        </div>
+
+        <div class="feature-item">
+          <span class="check-icon">✔</span>
+          <span>Alimentación</span>
+        </div>
+
+        <div class="feature-item">
+          <span class="check-icon">✔</span>
+          <span>Sueño</span>
+        </div>
+
+        <div class="feature-item">
+          <span class="check-icon">✔</span>
+          <span>Desarrollo</span>
+        </div>
+
+        <div class="feature-item">
+          <span class="check-icon">✔</span>
+          <span>Crianza basada en evidencia</span>
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <Button
+          text="QUIERO APROVECHAR LA PROMO"
+          variant="primary"
+          size="lg"
+          href="#pricing"
+          onClick="gtag('event', 'blackfriday_hero_cta_click', { event_category: 'engagement', event_label: 'Black Friday Hero' });"
+        />
+      </div>
+
+      <p class="hero-urgency">
+        Oferta por tiempo limitado. Elige tu plan y empieza hoy.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: var(--space-2xl) var(--space-lg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #1F1F1F 0%, #2D2D2D 100%);
+  }
+
+  .hero-container {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-lg);
+    width: 100%;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background: linear-gradient(135deg, var(--color-yellow) 0%, #FFB800 100%);
+    color: var(--color-dark);
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: var(--text-sm);
+    letter-spacing: 1.5px;
+    box-shadow: 0 8px 24px rgba(255, 210, 85, 0.25);
+  }
+
+  .badge-star {
+    color: var(--color-dark);
+    font-size: var(--text-base);
+  }
+
+  .hero-logo-top img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+  }
+
+  .hero-title {
+    font-size: var(--text-4xl);
+    color: var(--color-white);
+    line-height: 1.3;
+    font-weight: 700;
+  }
+
+  .hero-title .highlight {
+    display: block;
+    color: var(--color-yellow);
+    margin-top: var(--space-sm);
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-lg);
+    color: #CCCCCC;
+    line-height: 1.8;
+    max-width: 800px;
+  }
+
+  .hero-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md);
+    max-width: 700px;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--color-white);
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+  }
+
+  .check-icon {
+    color: var(--color-yellow);
+    font-weight: 700;
+    font-size: var(--text-lg);
+    min-width: 20px;
+    text-align: center;
+  }
+
+  .hero-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-sm);
+  }
+
+  .hero-urgency {
+    font-size: var(--text-sm);
+    color: var(--color-pink);
+    font-weight: 600;
+    margin-top: var(--space-sm);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      padding: var(--space-xl) var(--space-md);
+      min-height: auto;
+    }
+
+    .hero-title {
+      font-size: var(--text-2xl);
+    }
+
+    .hero-subtitle {
+      font-size: var(--text-base);
+    }
+
+    .hero-logo-top img {
+      max-width: 240px;
+    }
+
+    .hero-features {
+      gap: var(--space-sm);
+    }
+
+    .feature-item {
+      font-size: var(--text-sm);
+      padding: 0.4rem 0.8rem;
+    }
+  }
+</style>

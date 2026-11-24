@@ -1,9 +1,9 @@
-import { c as createComponent } from './astro-component_DXx6ujKt.mjs';
+import { c as createComponent } from './astro-component_X6g7uG2o.mjs';
 import 'piccolore';
-import { m as maybeRenderHead, i as renderComponent, r as renderTemplate } from './server_CoGq-Vxe.mjs';
-import { $ as $$MainLayout } from './MainLayout_DgDiTUel.mjs';
-import { r as renderScript } from './script_Bj-MqmLZ.mjs';
-import { $ as $$Button } from './Button_CMPx2kf6.mjs';
+import { m as maybeRenderHead, i as renderComponent, r as renderTemplate } from './server_D4R6okJX.mjs';
+import { $ as $$MainLayout } from './MainLayout_DNzTn3EX.mjs';
+import { r as renderScript } from './script_Ct9S9qRU.mjs';
+import { $ as $$Button } from './Button_eUcXOe9p.mjs';
 
 const $$WebinarForm$1 = createComponent(async ($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<div class="form-card" data-astro-cid-2vpky2jj> <div class="form-header" data-astro-cid-2vpky2jj> <h2 data-astro-cid-2vpky2jj>Reserva tu cupo</h2> <p data-astro-cid-2vpky2jj>
