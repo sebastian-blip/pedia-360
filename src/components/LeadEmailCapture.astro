@@ -41,6 +41,18 @@ const storageKey = `leadEmail_${source}`;
         <span class="email-error" data-email-error></span>
       </div>
 
+      <div class="honeypot" aria-hidden="true">
+        <label for={`lead-website-${source}`}>Website</label>
+        <input
+          id={`lead-website-${source}`}
+          type="text"
+          name="website"
+          tabindex="-1"
+          autocomplete="off"
+          data-honeypot
+        />
+      </div>
+
       <button class="lm-btn lm-btn-primary lm-btn-lg" type="submit" data-submit-btn>
         {buttonText}
       </button>
@@ -68,6 +80,7 @@ const storageKey = `leadEmail_${source}`;
       const errorEl = capture.querySelector("[data-email-error]") as HTMLElement | null;
       const submitBtn = capture.querySelector("[data-submit-btn]") as HTMLButtonElement | null;
       const successEl = capture.querySelector("[data-capture-success]") as HTMLElement | null;
+      const honeypot = capture.querySelector("[data-honeypot]") as HTMLInputElement | null;
 
       const leadMagnet = capture.closest("[data-lead-magnet]");
       const leadForm = leadMagnet?.querySelector("[data-lead-form]") as HTMLElement | null;
@@ -121,7 +134,7 @@ const storageKey = `leadEmail_${source}`;
           const response = await fetch("/api/save-lead-email", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email: email.trim().toLowerCase(), source }),
+            body: JSON.stringify({ email: email.trim().toLowerCase(), source, website: honeypot?.value || "" }),
           });
 
           if (response.status === 429) {
@@ -350,6 +363,13 @@ const storageKey = `leadEmail_${source}`;
 
   .is-hidden {
     display: none !important;
+  }
+
+  .honeypot {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    pointer-events: none;
   }
 
   @keyframes fadeIn {

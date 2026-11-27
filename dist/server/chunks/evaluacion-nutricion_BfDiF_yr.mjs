@@ -1,9 +1,9 @@
-import { c as createComponent } from './astro-component_BBqddoPS.mjs';
+import { c as createComponent } from './astro-component_Dcpiu7Gs.mjs';
 import 'piccolore';
-import { m as maybeRenderHead, i as renderComponent, r as renderTemplate } from './server_O3rkxwBG.mjs';
-import { $ as $$MainLayout } from './MainLayout_Dg11kvsF.mjs';
-import { r as renderScript } from './script_DVeE0rXv.mjs';
-import { $ as $$LeadEmailCapture } from './LeadEmailCapture_CyYTq1_5.mjs';
+import { m as maybeRenderHead, i as renderComponent, r as renderTemplate } from './server_BZyoylw2.mjs';
+import { $ as $$MainLayout } from './MainLayout_DJ5lKGP_.mjs';
+import { r as renderScript } from './script_BbVta4Ga.mjs';
+import { $ as $$LeadEmailCapture } from './LeadEmailCapture_D7cIYO5M.mjs';
 
 const $$LeadMagnetNutricion = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$props, $$slots);

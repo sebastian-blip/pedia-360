@@ -1,13 +1,13 @@
-import { c as createComponent } from './astro-component_BBqddoPS.mjs';
+import { c as createComponent } from './astro-component_Dcpiu7Gs.mjs';
 import 'piccolore';
-import { m as maybeRenderHead, r as renderTemplate, i as renderComponent } from './server_O3rkxwBG.mjs';
-import { $ as $$MainLayout } from './MainLayout_Dg11kvsF.mjs';
+import { m as maybeRenderHead, r as renderTemplate, i as renderComponent } from './server_BZyoylw2.mjs';
+import { $ as $$MainLayout } from './MainLayout_DJ5lKGP_.mjs';
 import 'clsx';
 /* empty css                    */
-import { $ as $$Video, a as $$Team, b as $$TeamDay, c as $$Testimonials } from './TeamDay_gHUHi_vr.mjs';
-import { a as $$Benefits, $ as $$Features } from './Benefits_CKIYLuEz.mjs';
-import { $ as $$Rutas, a as $$FAQ } from './FAQ_MPQkt9VV.mjs';
-import { $ as $$Footer } from './Footer_-OI9OI_6.mjs';
+import { $ as $$Video, a as $$Team, b as $$TeamDay, c as $$Testimonials } from './TeamDay_DvnP6VVp.mjs';
+import { a as $$Benefits, $ as $$Features } from './Benefits_RUgCHu5k.mjs';
+import { $ as $$Rutas, a as $$FAQ } from './FAQ_DgzUF7_o.mjs';
+import { $ as $$Footer } from './Footer_D1hcJV5m.mjs';
 
 const $$Hero = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<section class="hero" data-astro-cid-sxi3igoq> <div class="hero-container" data-astro-cid-sxi3igoq> <div class="hero-content" data-astro-cid-sxi3igoq> <!-- Logo superior --> <div class="hero-logo-top" data-astro-cid-sxi3igoq> <img src="/images/LOGO PEDIA 360 - TEXT.png" alt="Pedia360" loading="eager" data-astro-cid-sxi3igoq> </div> <h1 class="hero-title" data-astro-cid-sxi3igoq>

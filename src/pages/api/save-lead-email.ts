@@ -1,15 +1,25 @@
 import type { APIRoute } from "astro";
 import fs from "node:fs";
 import path from "node:path";
+import { promisify } from "node:util";
+
+const appendFile = promisify(fs.appendFile);
 
 const CSV_PATH = process.env.LEADS_CSV_PATH?.trim() || path.resolve(process.cwd(), "data", "leads.csv");
 const MAX_EMAIL_LENGTH = 254;
+const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024; // 10 MB
+const MAX_MEMORY_DEDUP_SIZE = 50_000;
+const ALLOWED_SOURCES = ["nutricion", "fiebre"];
 const ALLOWED_ORIGINS = getAllowedOrigins();
 
 // Rate limiting simple en memoria (no persiste entre reinicios, pero evita abuso básico)
 const rateLimits = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minuto
 const RATE_LIMIT_MAX_REQUESTS = 10;
+
+// Caché en memoria de emails ya guardados para deduplicación eficiente
+const seenEmails = new Set<string>();
+let seenEmailsLoaded = false;
 
 function getAllowedOrigins(): string[] {
   const fromEnv = process.env.ALLOWED_ORIGINS?.split(",").map((o) => o.trim()).filter(Boolean);
@@ -62,6 +72,25 @@ function getClientIp(request: Request): string {
   return request.headers.get("x-real-ip") || "unknown";
 }
 
+function anonymizeIp(ip: string): string {
+  if (!ip || ip === "unknown") return "unknown";
+
+  // IPv4: reemplazar último octeto
+  if (/^\d+\.\d+\.\d+\.\d+$/.test(ip)) {
+    return ip.replace(/\.\d+$/, ".0");
+  }
+
+  // IPv6: conservar solo los primeros 4 grupos
+  if (ip.includes(":")) {
+    const groups = ip.split(":");
+    if (groups.length >= 4) {
+      return groups.slice(0, 4).join(":") + ":...";
+    }
+  }
+
+  return "unknown";
+}
+
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
   const entry = rateLimits.get(ip);
@@ -83,9 +112,16 @@ function isValidEmail(email: string): boolean {
 
 function sanitizeForCsv(value: string): string {
   // Elimina caracteres peligrosos para CSV: saltos de línea, tabulaciones, retornos de carro y comillas
-  return value
+  let sanitized = value
     .replace(/[\r\n\t"',;]/g, "")
     .trim();
+
+  // Previene CSV injection prefijando con comilla simple si el valor empieza con caracteres de fórmula
+  if (/^[+\-=@]/.test(sanitized)) {
+    sanitized = `"${sanitized}"`;
+  }
+
+  return sanitized;
 }
 
 function ensureCsvFile(): void {
@@ -97,6 +133,52 @@ function ensureCsvFile(): void {
   if (!fs.existsSync(CSV_PATH)) {
     fs.writeFileSync(CSV_PATH, "timestamp,email,source,ip\n", { mode: 0o600 });
   }
+}
+
+function loadSeenEmails(): void {
+  if (seenEmailsLoaded) return;
+  seenEmailsLoaded = true;
+
+  if (!fs.existsSync(CSV_PATH)) return;
+
+  try {
+    const content = fs.readFileSync(CSV_PATH, "utf8");
+    const lines = content.split("\n").slice(1); // omitir header
+
+    for (const line of lines) {
+      const parts = line.split(",");
+      if (parts.length >= 2) {
+        seenEmails.add(parts[1].trim().toLowerCase());
+      }
+    }
+
+    // Evitar que el Set crezca indefinidamente en memoria
+    while (seenEmails.size > MAX_MEMORY_DEDUP_SIZE) {
+      const first = seenEmails.values().next().value;
+      if (first === undefined) break;
+      seenEmails.delete(first);
+    }
+  } catch (error) {
+    console.error("[save-lead-email] Error cargando emails existentes:", error);
+  }
+}
+
+function isDuplicate(email: string): boolean {
+  loadSeenEmails();
+  return seenEmails.has(email.trim().toLowerCase());
+}
+
+function isFileTooLarge(): boolean {
+  try {
+    const stats = fs.statSync(CSV_PATH);
+    return stats.size > MAX_FILE_SIZE_BYTES;
+  } catch {
+    return false;
+  }
+}
+
+function isValidSource(source: unknown): source is "nutricion" | "fiebre" {
+  return typeof source === "string" && ALLOWED_SOURCES.includes(source);
 }
 
 export const POST: APIRoute = async ({ request }) => {
@@ -112,9 +194,9 @@ export const POST: APIRoute = async ({ request }) => {
       return Response.json({ success: false, message: "Unsupported Media Type" }, { status: 415 });
     }
 
-    const ip = getClientIp(request);
+    const clientIp = getClientIp(request);
 
-    if (isRateLimited(ip)) {
+    if (isRateLimited(clientIp)) {
       return Response.json({ success: false, message: "Too Many Requests" }, { status: 429 });
     }
 
@@ -129,7 +211,12 @@ export const POST: APIRoute = async ({ request }) => {
       return Response.json({ success: false, message: "Invalid body" }, { status: 400 });
     }
 
-    const { email, source } = body as Record<string, unknown>;
+    const { email, source, website } = body as Record<string, unknown>;
+
+    // Honeypot: si un bot llena este campo, rechazamos silenciosamente
+    if (typeof website === "string" && website.trim()) {
+      return Response.json({ success: false, message: "Invalid request" }, { status: 400 });
+    }
 
     if (typeof email !== "string" || !email.trim()) {
       return Response.json({ success: false, message: "El correo es obligatorio." }, { status: 400 });
@@ -141,15 +228,31 @@ export const POST: APIRoute = async ({ request }) => {
       return Response.json({ success: false, message: "El correo no es válido." }, { status: 400 });
     }
 
-    const safeSource = typeof source === "string" ? sanitizeForCsv(source) : "unknown";
-    const safeEmail = sanitizeForCsv(normalizedEmail);
+    if (!isValidSource(source)) {
+      return Response.json({ success: false, message: "Origen no válido." }, { status: 400 });
+    }
+
+    if (isDuplicate(normalizedEmail)) {
+      // Devolvemos éxito para no revelar si el correo ya existe, pero no guardamos
+      return Response.json({ success: true });
+    }
 
     ensureCsvFile();
 
-    const timestamp = new Date().toISOString();
-    const row = `${timestamp},${safeEmail},${safeSource},${ip}\n`;
+    if (isFileTooLarge()) {
+      console.error("[save-lead-email] El archivo CSV excede el tamaño máximo permitido.");
+      return Response.json({ success: false, message: "Storage limit reached" }, { status: 507 });
+    }
 
-    fs.appendFileSync(CSV_PATH, row);
+    const safeSource = sanitizeForCsv(source);
+    const safeEmail = sanitizeForCsv(normalizedEmail);
+    const anonymizedIp = anonymizeIp(clientIp);
+    const timestamp = new Date().toISOString();
+    const row = `${timestamp},${safeEmail},${safeSource},${anonymizedIp}\n`;
+
+    await appendFile(CSV_PATH, row);
+
+    seenEmails.add(normalizedEmail);
 
     return Response.json({ success: true });
   } catch (error) {
