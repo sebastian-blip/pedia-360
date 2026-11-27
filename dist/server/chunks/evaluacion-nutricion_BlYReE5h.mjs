@@ -1,9 +1,9 @@
-import { c as createComponent } from './astro-component_X6g7uG2o.mjs';
+import { c as createComponent } from './astro-component_BBqddoPS.mjs';
 import 'piccolore';
-import { m as maybeRenderHead, r as renderTemplate, i as renderComponent } from './server_D4R6okJX.mjs';
-import { $ as $$MainLayout } from './MainLayout_DNzTn3EX.mjs';
-import 'clsx';
-import { r as renderScript } from './script_Ct9S9qRU.mjs';
+import { m as maybeRenderHead, i as renderComponent, r as renderTemplate } from './server_O3rkxwBG.mjs';
+import { $ as $$MainLayout } from './MainLayout_Dg11kvsF.mjs';
+import { r as renderScript } from './script_DVeE0rXv.mjs';
+import { $ as $$LeadEmailCapture } from './LeadEmailCapture_CyYTq1_5.mjs';
 
 const $$LeadMagnetNutricion = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$props, $$slots);
@@ -12,7 +12,7 @@ const $$LeadMagnetNutricion = createComponent(($$result, $$props, $$slots) => {
     title = "¿Tu hijo come lo que necesita?",
     subtitle = "Responde 5 preguntas y recibe una evaluación personalizada sobre la alimentación de tu bebé."
   } = Astro2.props;
-  return renderTemplate`${maybeRenderHead()}<div class="lead-magnet" data-lead-magnet data-astro-cid-guq2mzqg> <div class="lead-magnet-card" data-astro-cid-guq2mzqg> <div class="lead-magnet-header" data-astro-cid-guq2mzqg> <h2 data-astro-cid-guq2mzqg>${title}</h2> <p data-astro-cid-guq2mzqg>${subtitle}</p> </div> <div class="progress-bar" data-progress-bar data-astro-cid-guq2mzqg> <div class="progress-fill" data-progress-fill data-astro-cid-guq2mzqg></div> </div> <form class="lead-magnet-form" data-lead-form novalidate data-astro-cid-guq2mzqg> <!-- Pregunta 1 --> <fieldset class="question-step" data-step="1" data-question="age" data-astro-cid-guq2mzqg> <legend class="question-title" data-astro-cid-guq2mzqg> <span class="question-number" data-astro-cid-guq2mzqg>1</span>
+  return renderTemplate`${maybeRenderHead()}<div class="lead-magnet" data-lead-magnet data-astro-cid-guq2mzqg> ${renderComponent($$result, "LeadEmailCapture", $$LeadEmailCapture, { "source": "nutricion", "title": "Ingresa tu correo para comenzar", "subtitle": "Recibe tu evaluación y descubre la oferta especial que tenemos para ti.", "buttonText": "Comenzar evaluación", "data-astro-cid-guq2mzqg": true })} <div class="lead-magnet-card is-hidden" data-lead-card hidden data-astro-cid-guq2mzqg> <div class="lead-magnet-header" data-astro-cid-guq2mzqg> <h2 data-astro-cid-guq2mzqg>${title}</h2> <p data-astro-cid-guq2mzqg>${subtitle}</p> </div> <div class="progress-bar" data-progress-bar data-astro-cid-guq2mzqg> <div class="progress-fill" data-progress-fill data-astro-cid-guq2mzqg></div> </div> <form class="lead-magnet-form is-hidden" data-lead-form novalidate hidden data-astro-cid-guq2mzqg> <!-- Pregunta 1 --> <fieldset class="question-step" data-step="1" data-question="age" data-astro-cid-guq2mzqg> <legend class="question-title" data-astro-cid-guq2mzqg> <span class="question-number" data-astro-cid-guq2mzqg>1</span>
 ¿Qué edad tiene tu hijo?
 </legend> <div class="options" data-astro-cid-guq2mzqg> <label class="option-card" data-astro-cid-guq2mzqg> <input type="radio" name="age" value="6-9" required data-astro-cid-guq2mzqg> <span class="option-text" data-astro-cid-guq2mzqg>6 meses a 9 meses</span> </label> <label class="option-card" data-astro-cid-guq2mzqg> <input type="radio" name="age" value="9-12" required data-astro-cid-guq2mzqg> <span class="option-text" data-astro-cid-guq2mzqg>9 meses a 12 meses</span> </label> <label class="option-card" data-astro-cid-guq2mzqg> <input type="radio" name="age" value="1-2" required data-astro-cid-guq2mzqg> <span class="option-text" data-astro-cid-guq2mzqg>1 a 2 años</span> </label> </div> </fieldset> <!-- Pregunta 2 --> <fieldset class="question-step" data-step="2" data-question="meals" hidden data-astro-cid-guq2mzqg> <legend class="question-title" data-astro-cid-guq2mzqg> <span class="question-number" data-astro-cid-guq2mzqg>2</span>
 ¿Cuántas veces al día ofreces comidas?
@@ -24,7 +24,7 @@ const $$LeadMagnetNutricion = createComponent(($$result, $$props, $$slots) => {
 ¿En cada plato de comida incluyes?
 </legend> <div class="options" data-astro-cid-guq2mzqg> <label class="option-card" data-astro-cid-guq2mzqg> <input type="radio" name="plate" value="complete" required data-astro-cid-guq2mzqg> <span class="option-text" data-astro-cid-guq2mzqg>Verdura + fruta + harina + proteína</span> </label> <label class="option-card" data-astro-cid-guq2mzqg> <input type="radio" name="plate" value="sometimes-veg" required data-astro-cid-guq2mzqg> <span class="option-text" data-astro-cid-guq2mzqg>Proteína + harina y a veces verdura</span> </label> <label class="option-card" data-astro-cid-guq2mzqg> <input type="radio" name="plate" value="protein-starch" required data-astro-cid-guq2mzqg> <span class="option-text" data-astro-cid-guq2mzqg>Proteína + harina</span> </label> <label class="option-card" data-astro-cid-guq2mzqg> <input type="radio" name="plate" value="protein-starch-fruit" required data-astro-cid-guq2mzqg> <span class="option-text" data-astro-cid-guq2mzqg>Proteína + harina + fruta</span> </label> </div> <div class="feedback" data-feedback="plate" hidden data-astro-cid-guq2mzqg></div> </fieldset> <!-- Resumen --> <div class="summary-step" data-step="summary" hidden data-astro-cid-guq2mzqg> <div class="summary-header" data-astro-cid-guq2mzqg> <h3 data-astro-cid-guq2mzqg>¡Listo! Esta es tu evaluación</h3> <p data-astro-cid-guq2mzqg>Revisa los puntos más importantes según tus respuestas.</p> </div> <div class="summary-content" data-summary-content data-astro-cid-guq2mzqg></div> </div> <!-- Finalización --> <div class="complete-step" data-step="complete" hidden data-astro-cid-guq2mzqg> <div class="complete-icon" data-astro-cid-guq2mzqg>🎉</div> <div class="complete-header" data-astro-cid-guq2mzqg> <h3 data-astro-cid-guq2mzqg>¡Gracias por completar la evaluación!</h3> <p data-astro-cid-guq2mzqg>
 Ahora tienes claridad sobre los puntos más importantes de la alimentación de tu hijo.
-            Si quieres acompañamiento personalizado, estamos para ayudarte.
+            Te llevamos a conocer la oferta especial de Black Friday que tenemos para ti.
 </p> </div> </div> <div class="actions" data-astro-cid-guq2mzqg> <button class="lm-btn lm-btn-primary lm-btn-lg" type="button" data-next-btn data-astro-cid-guq2mzqg>
 Continuar
 </button> <button class="lm-btn lm-btn-outline lm-btn-md" type="button" data-prev-btn hidden data-astro-cid-guq2mzqg>

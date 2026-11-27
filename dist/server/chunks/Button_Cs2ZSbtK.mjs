@@ -1,6 +1,6 @@
-import { c as createComponent } from './astro-component_X6g7uG2o.mjs';
+import { c as createComponent } from './astro-component_BBqddoPS.mjs';
 import 'piccolore';
-import { i as renderComponent, r as renderTemplate } from './server_D4R6okJX.mjs';
+import { i as renderComponent, r as renderTemplate } from './server_O3rkxwBG.mjs';
 
 const $$Button = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$props, $$slots);

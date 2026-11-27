@@ -1,4 +1,6 @@
 ---
+import LeadEmailCapture from "./LeadEmailCapture.astro";
+
 interface Props {
   title?: string;
   subtitle?: string;
@@ -11,7 +13,14 @@ const {
 ---
 
 <div class="lead-magnet" data-lead-magnet>
-  <div class="lead-magnet-card">
+  <LeadEmailCapture
+    source="fiebre"
+    title="Ingresa tu correo para comenzar"
+    subtitle="Recibe un resumen de esta guía y descubre la oferta especial que tenemos para ti."
+    buttonText="Comenzar evaluación"
+  />
+
+  <div class="lead-magnet-card is-hidden" data-lead-card hidden>
     <div class="lead-magnet-header">
       <h2>{title}</h2>
       <p>{subtitle}</p>
@@ -21,7 +30,7 @@ const {
       <div class="progress-fill" data-progress-fill></div>
     </div>
 
-    <form class="lead-magnet-form" data-lead-form novalidate>
+    <form class="lead-magnet-form is-hidden" data-lead-form novalidate hidden>
       <!-- Pregunta 1 -->
       <fieldset class="question-step" data-step="1" data-question="age">
         <legend class="question-title">
@@ -156,6 +165,7 @@ const {
           <h3>¡Gracias por completar la guía!</h3>
           <p>
             Recuerda que esta herramienta es orientativa. Si tienes dudas o el estado de tu hijo cambia, consulta a tu pediatra o acude a urgencias.
+            Te llevamos a conocer la oferta especial de Black Friday que tenemos para ti.
           </p>
         </div>
       </div>
@@ -240,7 +250,7 @@ const {
 
       function getButtonText(step) {
         if (step === "summary") return "Finalizar";
-        if (step === "complete") return "Volver a empezar";
+        if (step === "complete") return "Ver oferta Black Friday";
         return "Continuar";
       }
 
@@ -431,29 +441,6 @@ const {
         summaryContent.innerHTML = html;
       }
 
-      function resetQuiz() {
-        Object.keys(answers).forEach((key) => delete answers[key]);
-        Object.keys(feedbacks).forEach((key) => delete feedbacks[key]);
-
-        const allRadios = container.querySelectorAll('input[type="radio"]');
-        allRadios.forEach((radio) => {
-          radio.checked = false;
-        });
-
-        const allCheckboxes = container.querySelectorAll('input[type="checkbox"]');
-        allCheckboxes.forEach((checkbox) => {
-          checkbox.checked = false;
-        });
-
-        const allFeedbacks = container.querySelectorAll("[data-feedback]");
-        allFeedbacks.forEach((fb) => {
-          fb.hidden = true;
-          fb.innerHTML = "";
-        });
-
-        showStep(1);
-      }
-
       function shouldStop(question, value) {
         if (question === "measured" && answers.age === "0-3" && value === "no") {
           return true;
@@ -497,7 +484,7 @@ const {
         }
 
         if (currentStep === "complete") {
-          resetQuiz();
+          window.location.href = "/blackfriday";
           return;
         }
 

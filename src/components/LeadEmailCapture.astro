@@ -1,0 +1,376 @@
+---
+interface Props {
+  source: "nutricion" | "fiebre" | string;
+  title?: string;
+  subtitle?: string;
+  buttonText?: string;
+  privacyText?: string;
+}
+
+const {
+  source,
+  title = "Ingresa tu correo para comenzar",
+  subtitle = "Te enviaremos un resumen de tu evaluación y recursos útiles para ti.",
+  buttonText = "Comenzar evaluación",
+  privacyText = "Solo usamos tu correo para enviarte información de Pedia360. No lo compartimos con terceros.",
+} = Astro.props;
+
+const storageKey = `leadEmail_${source}`;
+---
+
+<div class="email-capture" data-email-capture data-source={source} data-storage-key={storageKey}>
+  <div class="email-capture-card" data-capture-card>
+    <div class="email-capture-header">
+      <h2>{title}</h2>
+      <p>{subtitle}</p>
+    </div>
+
+    <form class="email-capture-form" data-capture-form novalidate>
+      <div class="email-field">
+        <label for={`lead-email-${source}`}>Correo electrónico</label>
+        <input
+          id={`lead-email-${source}`}
+          type="email"
+          name="email"
+          placeholder="tucorreo@ejemplo.com"
+          autocomplete="email"
+          maxlength="254"
+          required
+          data-email-input
+        />
+        <span class="email-error" data-email-error></span>
+      </div>
+
+      <button class="lm-btn lm-btn-primary lm-btn-lg" type="submit" data-submit-btn>
+        {buttonText}
+      </button>
+    </form>
+
+    <p class="email-capture-privacy">{privacyText}</p>
+  </div>
+
+  <div class="email-capture-success" data-capture-success hidden>
+    <div class="success-icon">✅</div>
+    <h3>¡Correo guardado!</h3>
+    <p>Ahora puedes continuar con la evaluación.</p>
+  </div>
+</div>
+
+<script>
+  function initLeadEmailCapture() {
+    const captures = document.querySelectorAll("[data-email-capture]");
+
+    captures.forEach((capture) => {
+      const source = capture.getAttribute("data-source") || "unknown";
+      const storageKey = capture.getAttribute("data-storage-key") || `leadEmail_${source}`;
+      const form = capture.querySelector("[data-capture-form]") as HTMLFormElement | null;
+      const input = capture.querySelector("[data-email-input]") as HTMLInputElement | null;
+      const errorEl = capture.querySelector("[data-email-error]") as HTMLElement | null;
+      const submitBtn = capture.querySelector("[data-submit-btn]") as HTMLButtonElement | null;
+      const successEl = capture.querySelector("[data-capture-success]") as HTMLElement | null;
+
+      const leadMagnet = capture.closest("[data-lead-magnet]");
+      const leadForm = leadMagnet?.querySelector("[data-lead-form]") as HTMLElement | null;
+      const leadCard = leadMagnet?.querySelector("[data-lead-card]") as HTMLElement | null;
+
+      function setError(message: string) {
+        if (errorEl) {
+          errorEl.textContent = message;
+          errorEl.hidden = false;
+        }
+        input?.classList.add("is-invalid");
+      }
+
+      function clearError() {
+        if (errorEl) {
+          errorEl.textContent = "";
+          errorEl.hidden = true;
+        }
+        input?.classList.remove("is-invalid");
+      }
+
+      function showForm() {
+        capture.classList.add("is-completed");
+        if (leadCard) {
+          leadCard.classList.remove("is-hidden");
+          leadCard.removeAttribute("hidden");
+        }
+        if (leadForm) {
+          leadForm.classList.remove("is-hidden");
+          leadForm.removeAttribute("hidden");
+        }
+      }
+
+      function setLoading(loading: boolean) {
+        if (submitBtn) {
+          submitBtn.disabled = loading;
+          submitBtn.textContent = loading ? "Guardando..." : submitBtn.dataset.originalText || "Comenzar evaluación";
+        }
+      }
+
+      function isValidEmail(email: string): boolean {
+        const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+        return regex.test(email) && email.length <= 254;
+      }
+
+      async function submitEmail(email: string) {
+        setLoading(true);
+        clearError();
+
+        try {
+          const response = await fetch("/api/save-lead-email", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: email.trim().toLowerCase(), source }),
+          });
+
+          if (response.status === 429) {
+            setError("Has enviado demasiados intentos. Espera un momento e intenta de nuevo.");
+            return;
+          }
+
+          if (response.status === 403) {
+            setError("No se permitió la solicitud. Recarga la página e intenta de nuevo.");
+            return;
+          }
+
+          if (!response.ok) {
+            const data = await response.json().catch(() => ({}));
+            setError(data.message || "Ocurrió un error al guardar el correo. Intenta de nuevo.");
+            return;
+          }
+
+          sessionStorage.setItem(storageKey, email.trim().toLowerCase());
+          showForm();
+
+          // Notificar al lead magnet que ya puede iniciar
+          leadMagnet?.dispatchEvent(
+            new CustomEvent("leadEmailCaptured", {
+              bubbles: true,
+              detail: { email, source },
+            })
+          );
+        } catch {
+          setError("No pudimos conectar con el servidor. Verifica tu conexión e intenta de nuevo.");
+        } finally {
+          setLoading(false);
+        }
+      }
+
+      if (submitBtn && !submitBtn.dataset.originalText) {
+        submitBtn.dataset.originalText = submitBtn.textContent || "";
+      }
+
+      // Si ya hay correo guardado en esta sesión, mostrar el cuestionario directamente
+      if (sessionStorage.getItem(storageKey)) {
+        showForm();
+      }
+
+      input?.addEventListener("input", clearError);
+
+      form?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const email = input?.value.trim() || "";
+
+        if (!email) {
+          setError("Por favor ingresa tu correo.");
+          return;
+        }
+
+        if (!isValidEmail(email)) {
+          setError("Por favor ingresa un correo válido.");
+          return;
+        }
+
+        submitEmail(email);
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initLeadEmailCapture);
+  } else {
+    initLeadEmailCapture();
+  }
+</script>
+
+<style>
+  .email-capture {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto 1.5rem;
+    padding: 1rem;
+  }
+
+  .email-capture.is-completed .email-capture-card {
+    display: none;
+  }
+
+  .email-capture-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .email-capture-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .email-capture-header h2 {
+    margin: 0;
+    color: var(--color-dark);
+    font-size: var(--text-2xl);
+  }
+
+  .email-capture-header p {
+    margin-top: 0.75rem;
+    color: var(--color-gray);
+    line-height: 1.6;
+  }
+
+  .email-capture-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .email-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .email-field label {
+    font-weight: 600;
+    color: var(--color-dark);
+    font-size: var(--text-sm);
+  }
+
+  .email-field input {
+    padding: 1rem 1.25rem;
+    border: 2px solid #ececec;
+    border-radius: 14px;
+    font-size: var(--text-base);
+    font-family: var(--font-primary);
+    color: var(--color-dark);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    width: 100%;
+  }
+
+  .email-field input:focus {
+    outline: none;
+    border-color: var(--color-pink);
+    box-shadow: 0 0 0 4px rgba(250, 106, 165, 0.15);
+  }
+
+  .email-field input.is-invalid {
+    border-color: #ef4444;
+  }
+
+  .email-field input.is-invalid:focus {
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15);
+  }
+
+  .email-error {
+    color: #ef4444;
+    font-size: var(--text-sm);
+    min-height: 1.25rem;
+  }
+
+  .email-capture-privacy {
+    margin: 1rem 0 0;
+    text-align: center;
+    font-size: var(--text-xs);
+    color: var(--color-gray);
+    line-height: 1.5;
+  }
+
+  .email-capture-success {
+    text-align: center;
+    background: white;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    animation: fadeIn 0.4s ease;
+  }
+
+  .success-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .email-capture-success h3 {
+    margin: 0 0 0.5rem;
+    color: var(--color-dark);
+  }
+
+  .email-capture-success p {
+    margin: 0;
+    color: var(--color-gray);
+  }
+
+  .lm-btn {
+    display: inline-block;
+    width: 100%;
+    font-weight: 700;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    font-family: var(--font-primary);
+    letter-spacing: 0.3px;
+  }
+
+  .lm-btn-lg {
+    padding: 1.25rem 3rem;
+    font-size: 1.2rem;
+  }
+
+  .lm-btn-primary {
+    background: linear-gradient(135deg, #fa6aa5 0%, #e94d91 100%);
+    color: white;
+    box-shadow: 0 8px 24px rgba(250, 106, 165, 0.35);
+  }
+
+  .lm-btn-primary:hover:not(:disabled) {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(250, 106, 165, 0.45);
+  }
+
+  .lm-btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .is-hidden {
+    display: none !important;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .email-capture-card,
+    .email-capture-success {
+      padding: 1.5rem;
+    }
+
+    .email-capture-header h2 {
+      font-size: var(--text-xl);
+    }
+  }
+</style>

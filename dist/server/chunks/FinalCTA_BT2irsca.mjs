@@ -1,8 +1,8 @@
-import { c as createComponent } from './astro-component_X6g7uG2o.mjs';
+import { c as createComponent } from './astro-component_BBqddoPS.mjs';
 import 'piccolore';
-import { m as maybeRenderHead, i as renderComponent, r as renderTemplate } from './server_D4R6okJX.mjs';
+import { m as maybeRenderHead, i as renderComponent, r as renderTemplate } from './server_O3rkxwBG.mjs';
 /* empty css                    */
-import { $ as $$Button } from './Button_eUcXOe9p.mjs';
+import { $ as $$Button } from './Button_Cs2ZSbtK.mjs';
 
 const $$FinalCTA = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<section class="final-cta" data-astro-cid-66itwakk> <div class="final-container" data-astro-cid-66itwakk> <!-- Mensaje principal --> <div class="final-content" data-astro-cid-66itwakk> <h2 data-astro-cid-66itwakk>
